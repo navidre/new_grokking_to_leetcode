@@ -1,4 +1,5 @@
-# Mapping 2022 Grokking (Python) to LeetCode
+# Mapping 2022 Grokking (Python) to LeetCode 
+[In-Progress. Pull Requests And Issues Appreciated]
 
 [Mapping Website](https://navidre.github.io/new_grokking_to_leetcode/) | [Educative Signup Link](https://educative.io/signup?referralCode=nrezaeis-xVMKDGxYl5P) | [Course Link](https://www.educative.io/courses/grokking-coding-interview-patterns-python?referralCode=nrezaeis-xVMKDGxYl5P)
 
