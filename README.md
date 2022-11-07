@@ -1,6 +1,6 @@
 # Mapping 2022 Grokking (Python) to LeetCode
 
-[Website](https://navidre.github.io/new_grokking_to_leetcode/)
+[Mapping Website](https://navidre.github.io/new_grokking_to_leetcode/) | [Educative Signup Link](https://educative.io/signup?referralCode=nrezaeis-xVMKDGxYl5P) | [Course Link](https://www.educative.io/courses/grokking-coding-interview-patterns-python?referralCode=nrezaeis-xVMKDGxYl5P)
 
 It is helpful to have all the progress and code in one place. Some prefer this place to be LeetCode. 
 Grokking the Coding Interview has been a good course in the learning and problem-solving process. 
