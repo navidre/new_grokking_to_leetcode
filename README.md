@@ -35,6 +35,16 @@ course to Leetcode, this gist can be helpful. This is a community effort, so add
 
 ## Fast and Slow Pointers
 
+[Happy Number](https://leetcode.com/problems/happy-number/solutions/421162/official-solution/)
+
+[Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
+
+[Circular Array Loop](https://leetcode.com/problems/circular-array-loop/)
+
+[Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
+
+[Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)
+
 ## Merge Intervals
 
 ## In-place Reversal of a Linked List
