@@ -6,8 +6,7 @@
 It is helpful to have all the progress and code in one place. Some prefer this place to be LeetCode. 
 Grokking the Coding Interview has been a good course in the learning and problem-solving process. 
 There already exist different gists mapping the older Grokking to Leetcode, such as [this gist](https://gist.github.com/tykurtz/3548a31f673588c05c89f9ca42067bc4).
-Educative introduced a new version of this course in 2022. For people who want to have a gist mapping the new 2022 grokking
-course to Leetcode, this gist can be helpful. This is a community effort, so additions and comments are appreciated.
+Educative introduced a new version of this course in 2022. For people who want to have a map from the new 2022 grokking course to Leetcode, this repository can be helpful. This is a community effort, so pull requests and issues are appreciated!
 
 ## Sliding Window
 [Find Maximum in Sliding Window](https://leetcode.com/problems/sliding-window-maximum/)
