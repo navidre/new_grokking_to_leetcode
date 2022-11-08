@@ -47,6 +47,16 @@ course to Leetcode, this gist can be helpful. This is a community effort, so add
 
 ## Merge Intervals
 
+[Merge Intervals](https://leetcode.com/problems/merge-intervals/)
+
+[Insert Interval](https://leetcode.com/problems/insert-interval/)
+
+[Interval List Intersections](https://leetcode.com/problems/interval-list-intersections/)
+
+[Employee Free Time](https://leetcode.com/problems/employee-free-time/)
+
+[Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
+
 ## In-place Reversal of a Linked List
 
 ## Two Heaps
