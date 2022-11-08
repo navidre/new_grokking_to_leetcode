@@ -59,7 +59,29 @@ course to Leetcode, this gist can be helpful. This is a community effort, so add
 
 ## In-place Reversal of a Linked List
 
+[Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+
+[Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/)
+
+[Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)
+
+[Reorder List](https://leetcode.com/problems/reorder-list/)
+
+[Swapping Nodes in a Linked List](https://leetcode.com/problems/swapping-nodes-in-a-linked-list/)
+
+[Reverse Nodes In Even Length Groups](https://leetcode.com/problems/reverse-nodes-in-even-length-groups/)
+
+[Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/)
+
 ## Two Heaps
+
+[Maximize Capital](https://leetcode.com/problems/ipo/)
+
+[Sliding Window Median](https://leetcode.com/problems/sliding-window-median/)
+
+[Find Median from a Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)
+
+[Schedule Tasks on Minimum Machines](https://leetcode.com/problems/task-scheduler/)?
 
 ## K-way merge
 
