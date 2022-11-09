@@ -109,6 +109,18 @@ It is helpful to have all the progress and code in one place. Some prefer this p
 
 ## Modified Binary Search
 
+[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+
+[First Bad Version](https://leetcode.com/problems/first-bad-version/)
+
+[Random Pick with Weight](https://leetcode.com/problems/random-pick-with-weight/)
+
+[Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)
+
+[Single Element in a Sorted Array](https://leetcode.com/problems/single-element-in-a-sorted-array/)
+
+[Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/)
+
 ## Subsets
 
 ## Greedy Techniques
