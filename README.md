@@ -145,7 +145,19 @@ It is helpful to have all the progress and code in one place. Some prefer this p
 
 [Jump Game II](https://leetcode.com/problems/jump-game-ii/)
 
-## Backtracking 
+## Backtracking
+
+[N-Queens](https://leetcode.com/problems/n-queens/)
+
+[Word Search](https://leetcode.com/problems/word-search/)
+
+[House Robber III](https://leetcode.com/problems/house-robber-iii/)
+
+[Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/)
+
+[Sudoku Solver](https://leetcode.com/problems/sudoku-solver/)
+
+[Matchsticks to Square](https://leetcode.com/problems/matchsticks-to-square/)
 
 ## Dynamic Programming
 
