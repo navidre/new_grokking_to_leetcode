@@ -123,7 +123,27 @@ It is helpful to have all the progress and code in one place. Some prefer this p
 
 ## Subsets
 
+[Subsets](https://leetcode.com/problems/subsets/)
+
+[Permutations](https://leetcode.com/problems/permutations/)
+
+[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
+
+[Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
+
+[Find K-Sum Subsets](https://leetcode.com/problems/subarray-sum-equals-k/)?
+
 ## Greedy Techniques
+
+[Jump Game I](https://leetcode.com/problems/jump-game/)
+
+[Boats to Save People](https://leetcode.com/problems/boats-to-save-people/)
+
+[Gas Stations](https://leetcode.com/problems/gas-station/)
+
+[Two City Scheduling](https://leetcode.com/problems/two-city-scheduling/)
+
+[Jump Game II](https://leetcode.com/problems/jump-game-ii/)
 
 ## Backtracking 
 
