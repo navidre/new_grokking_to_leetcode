@@ -203,6 +203,18 @@ It is helpful to have all the progress and code in one place. Some prefer this p
 
 ## Stacks
 
+[Basic Calculator](https://leetcode.com/problems/basic-calculator/)
+
+[Remove All Adjacent Duplicates In String](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/)
+
+[Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/)
+
+[Exclusive Execution Time of Functions](https://leetcode.com/problems/exclusive-time-of-functions/)
+
+[Flatten Nested List Iterator](https://leetcode.com/problems/flatten-nested-list-iterator/)
+
+[Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+
 ## Tree Depth First Search
 [Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/)
 
