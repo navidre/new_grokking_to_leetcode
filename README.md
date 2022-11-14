@@ -177,6 +177,16 @@ It is helpful to have all the progress and code in one place. Some prefer this p
 
 ## Cyclic Sort
 
+[Missing Number](https://leetcode.com/problems/missing-number/)
+
+[First Missing Positive](https://leetcode.com/problems/first-missing-positive/)
+
+[Find The Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
+
+[Find the Corrupt Pair](https://leetcode.com/problems/set-mismatch/)?
+
+[Find the First K Missing Positive Numbers](https://leetcode.com/problems/kth-missing-positive-number/)
+
 ## Topological Sort
 
 ## Stacks
