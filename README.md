@@ -241,6 +241,18 @@ It is helpful to have all the progress and code in one place. Some prefer this p
 
 ## Trie
 
+[Implement Trie](https://leetcode.com/problems/implement-trie-prefix-tree/)
+
+[Search Suggestions System](https://leetcode.com/problems/search-suggestions-system/)
+
+[Replace Words](https://leetcode.com/problems/replace-words/)
+
+[Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/)
+
+[Word Search II](https://leetcode.com/problems/word-search-ii/)
+
+[Lexicographical Numbers](https://leetcode.com/problems/lexicographical-numbers/)
+
 ## Hash Maps
 
 ## Knowing What to Track
