@@ -161,6 +161,20 @@ It is helpful to have all the progress and code in one place. Some prefer this p
 
 ## Dynamic Programming
 
+[0/1 Knapsack]()?
+
+[Coin Change](https://leetcode.com/problems/coin-change/)
+
+[N-th Tribonacci Number](https://leetcode.com/problems/n-th-tribonacci-number/)
+
+[Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)
+
+[Word Break II](https://leetcode.com/problems/word-break-ii/)
+
+[Minimum Number of Refueling Stops](https://leetcode.com/problems/minimum-number-of-refueling-stops/)
+
+[Climbing Stairs](https://leetcode.com/problems/climbing-stairs/)
+
 ## Cyclic Sort
 
 ## Topological Sort
