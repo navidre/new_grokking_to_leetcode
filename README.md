@@ -189,6 +189,18 @@ It is helpful to have all the progress and code in one place. Some prefer this p
 
 ## Topological Sort
 
+[Compilation Order]()?
+
+[Alien Dictionary](https://leetcode.com/problems/alien-dictionary/)
+
+[Verifying an Alien Dictionary](https://leetcode.com/problems/verifying-an-alien-dictionary/)
+
+[Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)
+
+[Course Schedule](https://leetcode.com/problems/course-schedule/)
+
+[Find All Possible Recipes from Given Supplies](https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies/)
+
 ## Stacks
 
 ## Tree Depth First Search
