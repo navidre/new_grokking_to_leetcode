@@ -313,6 +313,18 @@ It is helpful to have all the progress and code in one place. Some prefer this p
 
 ## Bitwise Manipulation
 
+[Find the Difference](https://leetcode.com/problems/find-the-difference/)
+
+[Complement of Base 10 Number](https://leetcode.com/problems/complement-of-base-10-integer/)
+
+[Flipping an Image](https://leetcode.com/problems/flipping-an-image/)
+
+[Single Number](https://leetcode.com/problems/single-number/)
+
+[Two Single Numbers](https://leetcode.com/problems/single-number-iii/)
+
+[Reverse Bits](https://leetcode.com/problems/reverse-bits/)
+
 ## Challenge Yourself
 
 
