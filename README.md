@@ -269,6 +269,20 @@ It is helpful to have all the progress and code in one place. Some prefer this p
 
 ## Knowing What to Track
 
+[Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)
+
+[Design Tic-Tac-Toe](https://leetcode.com/problems/design-tic-tac-toe/)
+
+[Group Anagrams](https://leetcode.com/problems/group-anagrams/)
+
+[Maximum Frequency Stack](https://leetcode.com/problems/maximum-frequency-stack/)
+
+[First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)
+
+[Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/)
+
+[Ransom Note](https://leetcode.com/problems/ransom-note/)
+
 ## Union Find
 
 ## Custom Data Structures
