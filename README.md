@@ -285,6 +285,18 @@ It is helpful to have all the progress and code in one place. Some prefer this p
 
 ## Union Find
 
+[Redundant Connection](https://leetcode.com/problems/redundant-connection/)
+
+[Number of Islands](https://leetcode.com/problems/number-of-islands/)
+
+[Last Day Where You Can Still Cross](https://leetcode.com/problems/last-day-where-you-can-still-cross/)
+
+[Regions Cut by Slashes](https://leetcode.com/problems/regions-cut-by-slashes/)
+
+[Minimize Malware Spread](https://leetcode.com/problems/minimize-malware-spread/)
+
+[Evaluate Division](https://leetcode.com/problems/evaluate-division/)
+
 ## Custom Data Structures
 
 ## Bitwise Manipulation
