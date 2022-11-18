@@ -211,7 +211,7 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Remove All Adjacent Duplicates In String](https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/)
 
-- [ ] - [ ] [Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/)
+- [ ] [Minimum Remove to Make Valid Parentheses](https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/)
 
 - [ ] [Exclusive Execution Time of Functions](https://leetcode.com/problems/exclusive-time-of-functions/)
 
@@ -267,7 +267,7 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Logger Rate Limiter](https://leetcode.com/problems/logger-rate-limiter/)
 
-- [ ] - [ ] [Next Greater Element](https://leetcode.com/problems/next-greater-element-i/)
+- [ ] [Next Greater Element](https://leetcode.com/problems/next-greater-element-i/)
 
 - [ ] [Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/)
 
