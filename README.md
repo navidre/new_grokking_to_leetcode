@@ -299,6 +299,18 @@ It is helpful to have all the progress and code in one place. Some prefer this p
 
 ## Custom Data Structures
 
+[Snapshot Array](https://leetcode.com/problems/snapshot-array/)
+
+[Time-Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/)
+
+[Implement LRU Cache](https://leetcode.com/problems/lru-cache/)
+
+[Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)
+
+[Min Stack](https://leetcode.com/problems/min-stack/)
+
+[LFU Cache](https://leetcode.com/problems/lfu-cache/)
+
 ## Bitwise Manipulation
 
 ## Challenge Yourself
