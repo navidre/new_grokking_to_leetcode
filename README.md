@@ -1,6 +1,6 @@
 # Mapping the new Grokking Coding Interview Patterns course (2022) to LeetCode 
 
-Please do not forget a star if this resource was helpful for you! :star2: Pull requests are welcome.
+Pull requests and issues are welcome!
 
 [Mapping Website](https://navidre.github.io/new_grokking_to_leetcode/) | [Educative Signup Link](https://educative.io/signup?referralCode=nrezaeis-xVMKDGxYl5P) | [Course Link](https://www.educative.io/courses/grokking-coding-interview-patterns-python?referralCode=nrezaeis-xVMKDGxYl5P)
 
