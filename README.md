@@ -32,11 +32,11 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)
 
-- [ ] [Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/solutions/1861656/official-solution/)
+- [ ] [Valid Palindrome II](https://leetcode.com/problems/valid-palindrome-ii/)
 
 ## Fast and Slow Pointers
 
-- [ ] [Happy Number](https://leetcode.com/problems/happy-number/solutions/421162/official-solution/)
+- [ ] [Happy Number](https://leetcode.com/problems/happy-number/)
 
 - [ ] [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
 
