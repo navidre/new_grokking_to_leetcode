@@ -453,6 +453,8 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 - [ ] [Design File System](https://leetcode.com/problems/design-file-system/)
 - [ ] [Asteroid Collision](https://leetcode.com/problems/asteroid-collision/)
 - [ ] [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)
+- [ ] [Add Binary](https://leetcode.com/problems/add-binary/)
+- [ ] [Multiply Strings](https://leetcode.com/problems/multiply-strings)
 
 
 
