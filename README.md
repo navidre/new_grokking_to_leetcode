@@ -1,4 +1,4 @@
-# Mapping the new Grokking Coding Interview Patterns course (2022) to LeetCode 
+# Mapping the new Grokking Coding Interview Patterns course to LeetCode 
 
 Pull requests and issues are welcome!
 
