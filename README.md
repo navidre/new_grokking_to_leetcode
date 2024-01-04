@@ -314,6 +314,10 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Vertical Order Traversal of a Binary Tree](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/)
 
+- [ ] [Symmetric Tree](https://leetcode.com/problems/symmetric-tree)
+
+- [ ] [Word Ladder](https://leetcode.com/problems/word-ladder)
+
 - [ ] [Connect All Siblings of a Binary Tree](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/)
 
 ## Trie
@@ -348,6 +352,8 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)
 
+- [ ] [Valid Anagram](https://leetcode.com/problems/valid-anagram)
+
 - [ ] [Design Tic-Tac-Toe](https://leetcode.com/problems/design-tic-tac-toe/)
 
 - [ ] [Group Anagrams](https://leetcode.com/problems/group-anagrams/)
@@ -366,9 +372,15 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Number of Islands](https://leetcode.com/problems/number-of-islands/)
 
+- [ ] [Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column)
+
+- [ ] [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence)
+
 - [ ] [Last Day Where You Can Still Cross](https://leetcode.com/problems/last-day-where-you-can-still-cross/)
 
 - [ ] [Regions Cut by Slashes](https://leetcode.com/problems/regions-cut-by-slashes/)
+
+- [ ] [Accounts Merge](https://leetcode.com/problems/accounts-merge)
 
 - [ ] [Minimize Malware Spread](https://leetcode.com/problems/minimize-malware-spread/)
 
