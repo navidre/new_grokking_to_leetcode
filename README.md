@@ -19,6 +19,8 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
 
+- [ ] [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
+
 - [ ] [Longest Substring without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
 - [ ] [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
@@ -29,6 +31,10 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 - [ ] [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
 
 - [ ] [Sum of Three Values](https://leetcode.com/problems/3sum-closest/)
+
+- [ ] [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
+
+- [ ] [Sort Colors](https://leetcode.com/problems/sort-colors/) 
 
 - [ ] [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)
 
@@ -41,6 +47,8 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 - [ ] [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
 
 - [ ] [Circular Array Loop](https://leetcode.com/problems/circular-array-loop/)
+
+- [ ] [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
 
 - [ ] [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
 
@@ -55,6 +63,8 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 - [ ] [Interval List Intersections](https://leetcode.com/problems/interval-list-intersections/)
 
 - [ ] [Employee Free Time](https://leetcode.com/problems/employee-free-time/)
+
+- [ ] [Task Scheduler](https://leetcode.com/problems/task-scheduler/)
 
 - [ ] [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
 
@@ -112,7 +122,11 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
 
+- [ ] [Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/)
+
 ## Modified Binary Search
+
+- [ ] [Binary Search](https://leetcode.com/problems/binary-search/)
 
 - [ ] [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
@@ -160,6 +174,8 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/)
 
+- [ ] [Flood Fill](https://leetcode.com/problems/flood-fill/)
+
 - [ ] [Sudoku Solver](https://leetcode.com/problems/sudoku-solver/)
 
 - [ ] [Matchsticks to Square](https://leetcode.com/problems/matchsticks-to-square/)
@@ -174,7 +190,25 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)
 
+- [ ] [Counting Bits](https://leetcode.com/problems/counting-bits/)
+
+- [ ] [01 Matrix](https://leetcode.com/problems/01-matrix/)
+
+- [ ] [House Robber II](https://leetcode.com/problems/house-robber-ii/)
+
+- [ ] [Word Break](https://leetcode.com/problems/word-break/)
+
 - [ ] [Word Break II](https://leetcode.com/problems/word-break-ii/)
+
+- [ ] [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)
+
+- [ ] [Combination Sum](https://leetcode.com/problems/combination-sum/)
+
+- [ ] [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
+
+- [ ] [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
+
+- [ ] [Decode Ways](https://leetcode.com/problems/decode-ways/)
 
 - [ ] [Minimum Number of Refueling Stops](https://leetcode.com/problems/minimum-number-of-refueling-stops/)
 
@@ -205,6 +239,16 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 - [ ] [Course Schedule](https://leetcode.com/problems/course-schedule/)
 
 - [ ] [Find All Possible Recipes from Given Supplies](https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies/)
+
+## Matrices
+
+- [ ] [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)
+
+- [ ] [Rotate Image](https://leetcode.com/problems/rotate-image/)
+
+- [ ] [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)
+
+- [ ] [Where Will the Ball Fall](https://leetcode.com/problems/where-will-the-ball-fall/)
 
 ## Stacks
 
