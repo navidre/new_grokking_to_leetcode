@@ -262,7 +262,21 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Flatten Nested List Iterator](https://leetcode.com/problems/flatten-nested-list-iterator/)
 
+- [ ] [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)
+
 - [ ] [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+
+## Graphs
+
+- [ ] [Network Delay Time](https://leetcode.com/problems/network-delay-time/)
+
+- [ ] [Paths in Maze That Lead to Same Room](https://leetcode.com/problems/paths-in-maze-that-lead-to-same-room/)
+
+- [ ] [Clone Graph](https://leetcode.com/problems/clone-graph)
+
+- [ ] [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/)
+
+- [ ] [Bus Routes](https://leetcode.com/problems/bus-routes/)
 
 ## Tree Depth First Search
 
@@ -276,7 +290,19 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)
 
+- [ ] [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree)
+
+- [ ] [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal)
+
+- [ ] [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)
+
+- [ ] [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree)
+
+- [ ] [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/description/)
+
 - [ ] [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
+
+- [ ] [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst)
 
 ## Tree Breadth First Search
 
