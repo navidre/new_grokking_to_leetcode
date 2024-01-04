@@ -1,4 +1,4 @@
-# Mapping the new Grokking Coding Interview Patterns course (2022) to LeetCode 
+# Mapping the new Grokking Coding Interview Patterns course to LeetCode 
 
 Pull requests and issues are welcome!
 
@@ -19,6 +19,8 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
 
+- [ ] [Longest Repeating Character Replacement](https://leetcode.com/problems/longest-repeating-character-replacement/)
+
 - [ ] [Longest Substring without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 
 - [ ] [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
@@ -29,6 +31,10 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 - [ ] [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/)
 
 - [ ] [Sum of Three Values](https://leetcode.com/problems/3sum-closest/)
+
+- [ ] [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
+
+- [ ] [Sort Colors](https://leetcode.com/problems/sort-colors/) 
 
 - [ ] [Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)
 
@@ -41,6 +47,8 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 - [ ] [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
 
 - [ ] [Circular Array Loop](https://leetcode.com/problems/circular-array-loop/)
+
+- [ ] [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
 
 - [ ] [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
 
@@ -55,6 +63,8 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 - [ ] [Interval List Intersections](https://leetcode.com/problems/interval-list-intersections/)
 
 - [ ] [Employee Free Time](https://leetcode.com/problems/employee-free-time/)
+
+- [ ] [Task Scheduler](https://leetcode.com/problems/task-scheduler/)
 
 - [ ] [Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
 
@@ -112,7 +122,11 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
 
+- [ ] [Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/)
+
 ## Modified Binary Search
+
+- [ ] [Binary Search](https://leetcode.com/problems/binary-search/)
 
 - [ ] [Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
@@ -160,6 +174,8 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/)
 
+- [ ] [Flood Fill](https://leetcode.com/problems/flood-fill/)
+
 - [ ] [Sudoku Solver](https://leetcode.com/problems/sudoku-solver/)
 
 - [ ] [Matchsticks to Square](https://leetcode.com/problems/matchsticks-to-square/)
@@ -174,7 +190,25 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/)
 
+- [ ] [Counting Bits](https://leetcode.com/problems/counting-bits/)
+
+- [ ] [01 Matrix](https://leetcode.com/problems/01-matrix/)
+
+- [ ] [House Robber II](https://leetcode.com/problems/house-robber-ii/)
+
+- [ ] [Word Break](https://leetcode.com/problems/word-break/)
+
 - [ ] [Word Break II](https://leetcode.com/problems/word-break-ii/)
+
+- [ ] [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/)
+
+- [ ] [Combination Sum](https://leetcode.com/problems/combination-sum/)
+
+- [ ] [Palindromic Substrings](https://leetcode.com/problems/palindromic-substrings/)
+
+- [ ] [Longest Common Subsequence](https://leetcode.com/problems/longest-common-subsequence/)
+
+- [ ] [Decode Ways](https://leetcode.com/problems/decode-ways/)
 
 - [ ] [Minimum Number of Refueling Stops](https://leetcode.com/problems/minimum-number-of-refueling-stops/)
 
@@ -206,6 +240,16 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Find All Possible Recipes from Given Supplies](https://leetcode.com/problems/find-all-possible-recipes-from-given-supplies/)
 
+## Matrices
+
+- [ ] [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/)
+
+- [ ] [Rotate Image](https://leetcode.com/problems/rotate-image/)
+
+- [ ] [Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)
+
+- [ ] [Where Will the Ball Fall](https://leetcode.com/problems/where-will-the-ball-fall/)
+
 ## Stacks
 
 - [ ] [Basic Calculator](https://leetcode.com/problems/basic-calculator/)
@@ -218,7 +262,21 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Flatten Nested List Iterator](https://leetcode.com/problems/flatten-nested-list-iterator/)
 
+- [ ] [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)
+
 - [ ] [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+
+## Graphs
+
+- [ ] [Network Delay Time](https://leetcode.com/problems/network-delay-time/)
+
+- [ ] [Paths in Maze That Lead to Same Room](https://leetcode.com/problems/paths-in-maze-that-lead-to-same-room/)
+
+- [ ] [Clone Graph](https://leetcode.com/problems/clone-graph)
+
+- [ ] [Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/)
+
+- [ ] [Bus Routes](https://leetcode.com/problems/bus-routes/)
 
 ## Tree Depth First Search
 
@@ -232,7 +290,19 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/)
 
+- [ ] [Convert Sorted Array to Binary Search Tree](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree)
+
+- [ ] [Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal)
+
+- [ ] [Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)
+
+- [ ] [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree)
+
+- [ ] [Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/description/)
+
 - [ ] [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
+
+- [ ] [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst)
 
 ## Tree Breadth First Search
 
@@ -243,6 +313,10 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 - [ ] [Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/)
 
 - [ ] [Vertical Order Traversal of a Binary Tree](https://leetcode.com/problems/vertical-order-traversal-of-a-binary-tree/)
+
+- [ ] [Symmetric Tree](https://leetcode.com/problems/symmetric-tree)
+
+- [ ] [Word Ladder](https://leetcode.com/problems/word-ladder)
 
 - [ ] [Connect All Siblings of a Binary Tree](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/)
 
@@ -278,6 +352,8 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)
 
+- [ ] [Valid Anagram](https://leetcode.com/problems/valid-anagram)
+
 - [ ] [Design Tic-Tac-Toe](https://leetcode.com/problems/design-tic-tac-toe/)
 
 - [ ] [Group Anagrams](https://leetcode.com/problems/group-anagrams/)
@@ -296,9 +372,15 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 
 - [ ] [Number of Islands](https://leetcode.com/problems/number-of-islands/)
 
+- [ ] [Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column)
+
+- [ ] [Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence)
+
 - [ ] [Last Day Where You Can Still Cross](https://leetcode.com/problems/last-day-where-you-can-still-cross/)
 
 - [ ] [Regions Cut by Slashes](https://leetcode.com/problems/regions-cut-by-slashes/)
+
+- [ ] [Accounts Merge](https://leetcode.com/problems/accounts-merge)
 
 - [ ] [Minimize Malware Spread](https://leetcode.com/problems/minimize-malware-spread/)
 
@@ -371,6 +453,8 @@ Tracking checkboxes can be used by forking this repository and marking an X insi
 - [ ] [Design File System](https://leetcode.com/problems/design-file-system/)
 - [ ] [Asteroid Collision](https://leetcode.com/problems/asteroid-collision/)
 - [ ] [Rotting Oranges](https://leetcode.com/problems/rotting-oranges/)
+- [ ] [Add Binary](https://leetcode.com/problems/add-binary/)
+- [ ] [Multiply Strings](https://leetcode.com/problems/multiply-strings)
 
 
 
