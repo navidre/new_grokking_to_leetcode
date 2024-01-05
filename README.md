@@ -1,4 +1,10 @@
-# Mapping the new Grokking Coding Interview Patterns course to LeetCode 
+# Mapping the new Grokking Coding Interview Patterns course to LeetCode
+
+## Personalized Mock Interview
+
+🚀 **[Start Your Mock Interview Now!](https://chat.openai.com/g/g-ngDadz7qM-mock-interviewer)** - Improve your interview skills with personalized AI feedback! 🤖 (Requires ChatGPT Plus)
+
+## Repository Information
 
 Pull requests and issues are welcome!
 
