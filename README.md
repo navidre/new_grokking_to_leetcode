@@ -1,8 +1,16 @@
 # Mapping the new Grokking Coding Interview Patterns course to LeetCode
 
 ## Personalized Mock Interview
+You can use this custom GPT to do a sample interview.
 
 🚀 **[Start Your Mock Interview Now!](https://chat.openai.com/g/g-ngDadz7qM-mock-interviewer)** - Improve your interview skills with personalized AI feedback! 🤖 (Requires ChatGPT Plus)
+
+## Personalized Interview Mentor
+This custom GPT is useful to teach you about different concepts.
+
+🚀 **[Software Interview Mentor](https://chat.openai.com/g/g-n76b8bWJo-software-interview-mentor)** - Learn about different concepts! 🤖 (Requires ChatGPT Plus)
+
+Some sample tutorial materials generated using this custom GPT are available here: [Tutorials](https://navidre.github.io/new_grokking_to_leetcode/tutorial/)
 
 ## Repository Information
 
