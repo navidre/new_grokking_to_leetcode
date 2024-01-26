@@ -12,6 +12,9 @@ This custom GPT is useful to teach you about different concepts.
 
 Some sample tutorial materials generated using this custom GPT are available here: [Tutorials](https://navidre.github.io/new_grokking_to_leetcode/tutorial/)
 
+## System Design Maestro
+🚀 **[System Design Maestro](https://chat.openai.com/g/g-UgkUg8KV6-system-design-maestro)** - Custom GPT for practical System Design! 🤖 (Requires ChatGPT Plus)
+
 ## Repository Information
 
 Pull requests and issues are welcome!
