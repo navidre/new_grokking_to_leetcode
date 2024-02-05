@@ -91,65 +91,70 @@ In large-scale systems, the sliding window technique is often used in areas like
 
 ## Prefix Sum
 
-The Prefix Sum pattern is a powerful technique in algorithm design, often used to efficiently solve problems that involve processing cumulative or aggregate information across a range of elements in an array. This pattern is particularly useful when you have an array and you need to frequently calculate the sum of elements between two indices.
+The Prefix Sum pattern is a powerful technique in algorithms and data structures, particularly useful in solving problems involving arrays or lists where we need to frequently calculate the sum of elements in a subrange (i.e., from index `i` to `j`). This pattern is especially efficient when you have to perform multiple such sum calculations on the same array, as it significantly reduces the time complexity from O(n) per query to O(1) after an initial setup.
 
-### Basic Concept
+### Concept of Prefix Sum:
 
-The core idea of the Prefix Sum pattern is to preprocess the array to create a new array (often called the prefix sum array) where each element at index `i` represents the sum of elements from the start of the array up to index `i`. This preprocessing step enables us to compute the sum of elements between any two indices in constant time (O(1)).
+The idea is to preprocess the array and create a new array, often called the prefix sum array. In this array, each element at index `i` stores the sum of all elements from the start of the array up to the element at index `i` in the original array. 
 
-### How to Create a Prefix Sum Array
+### Creating a Prefix Sum Array:
 
-Suppose you have an array `arr`. To create a prefix sum array `prefixSum`, you follow these steps:
-1. Initialize `prefixSum[0]` with `arr[0]`.
-2. Iterate through `arr` starting from index 1.
-3. For each index `i`, set `prefixSum[i] = prefixSum[i-1] + arr[i]`.
-
-### Example
-
-Let's consider an array `arr = [3, 2, 4, 5, 1]`. The corresponding prefix sum array would be `[3, 5, 9, 14, 15]`.
-
-### Python Implementation
-
-Here's how you create a prefix sum array in Python:
+In Python, you can create a prefix sum array as follows:
 
 ```python
 def create_prefix_sum(arr):
-    n = len(arr)
-    prefixSum = [0] * n
-    prefixSum[0] = arr[0]
-    
-    for i in range(1, n):
-        prefixSum[i] = prefixSum[i - 1] + arr[i]
-    
-    return prefixSum
-
-# Example usage
-arr = [3, 2, 4, 5, 1]
-prefixSum = create_prefix_sum(arr)
-print(prefixSum)  # Output: [3, 5, 9, 14, 15]
+    prefix_sum = [0] * (len(arr) + 1)
+    for i in range(1, len(prefix_sum)):
+        prefix_sum[i] = prefix_sum[i-1] + arr[i-1]
+    return prefix_sum
 ```
 
-### Calculating the Sum Between Two Indices
+### Using the Prefix Sum Array:
 
-Once you have the prefix sum array, calculating the sum between two indices `i` and `j` is straightforward. The sum is given by `prefixSum[j] - prefixSum[i-1]` (for `i > 0`). If `i` is 0, the sum is simply `prefixSum[j]`.
+Once you have the prefix sum array, calculating the sum of elements between indices `i` and `j` in the original array is straightforward. You simply subtract the prefix sum at `i-1` from the prefix sum at `j`. 
 
-### Python Example for Sum Calculation
+### Example:
 
 ```python
-def range_sum(prefixSum, i, j):
-    if i == 0:
-        return prefixSum[j]
-    else:
-        return prefixSum[j] - prefixSum[i - 1]
-
-# Using the previous example's prefixSum array
-print(range_sum(prefixSum, 1, 3))  # Output: 11 (sum of elements from index 1 to 3)
+def range_sum(prefix_sum, i, j):
+    return prefix_sum[j+1] - prefix_sum[i]
 ```
 
-### Real-World Example
+### Real-world Example:
 
-Consider a scenario in a social media application where you want to quickly calculate the total number of interactions (likes, comments, shares) on posts over a certain time range. By storing the cumulative interactions in a prefix sum array, you can quickly calculate the total interactions in any time range, enhancing the performance of data analytics operations.
+Consider a large-scale financial system that needs to calculate the cumulative transaction amounts over different time ranges frequently. Using the prefix sum pattern, the system can quickly provide these calculations without recalculating the sum each time, greatly improving performance and response times.
 
-### Summary
+### Common LeetCode Problems:
 
-The Prefix Sum pattern is invaluable for optimizing algorithms that deal with cumulative sums, especially in scenarios with frequent range sum queries. Its elegance lies in the preprocessing step that transforms a potentially expensive operation into a constant time calculation.
+1. **Subarray Sum Equals K (LeetCode 560)**: This problem asks to find the total number of continuous subarrays whose sum equals a given number `k`. With the prefix sum approach, you can solve this problem efficiently.
+
+2. **Range Sum Query - Immutable (LeetCode 303)**: This problem is a direct application of the prefix sum concept. You are required to find the sum of elements between indices `i` and `j` repeatedly.
+
+### Implementing LeetCode 560:
+
+Let's implement a solution for "Subarray Sum Equals K":
+
+```python
+def subarraySum(nums, k):
+    count = 0
+    prefix_sum = 0
+    hash_table = {0: 1}
+
+    for num in nums:
+        prefix_sum += num
+        # Check if there is a prefix_sum that, when removed from the current prefix_sum, leaves k
+        if prefix_sum - k in hash_table:
+            count += hash_table[prefix_sum - k]
+        
+        # Update the hash table with the current prefix sum
+        if prefix_sum in hash_table:
+            hash_table[prefix_sum] += 1
+        else:
+            hash_table[prefix_sum] = 1
+
+    return count
+```
+
+This code iterates through the array, keeping track of the cumulative sum (`prefix_sum`). It uses a hash table to store the frequency of each prefix sum. The key insight is that if `prefix_sum - k` is in the hash table, it means there is a subarray that sums to `k`. The frequency of `prefix_sum - k` in the hash table tells us how many such subarrays exist up to the current point.
+
+This pattern is a great example of combining space complexity (using additional memory for the prefix sum array or hash table) for significant gains in time complexity, particularly in scenarios with multiple queries on the same data set.
