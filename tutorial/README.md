@@ -88,3 +88,68 @@ print(smallest_subarray_with_given_sum(arr, s))  # Output will be the length of 
 
 ### Real-World Application:
 In large-scale systems, the sliding window technique is often used in areas like network data analysis or real-time analytics, where it's essential to analyze a subset of data in a moving time frame. For example, monitoring the maximum traffic load on a server in any given 10-minute window can help in resource allocation and predicting potential overload scenarios.
+
+## Prefix Sum
+
+The Prefix Sum pattern is a powerful technique in algorithm design, often used to efficiently solve problems that involve processing cumulative or aggregate information across a range of elements in an array. This pattern is particularly useful when you have an array and you need to frequently calculate the sum of elements between two indices.
+
+### Basic Concept
+
+The core idea of the Prefix Sum pattern is to preprocess the array to create a new array (often called the prefix sum array) where each element at index `i` represents the sum of elements from the start of the array up to index `i`. This preprocessing step enables us to compute the sum of elements between any two indices in constant time (O(1)).
+
+### How to Create a Prefix Sum Array
+
+Suppose you have an array `arr`. To create a prefix sum array `prefixSum`, you follow these steps:
+1. Initialize `prefixSum[0]` with `arr[0]`.
+2. Iterate through `arr` starting from index 1.
+3. For each index `i`, set `prefixSum[i] = prefixSum[i-1] + arr[i]`.
+
+### Example
+
+Let's consider an array `arr = [3, 2, 4, 5, 1]`. The corresponding prefix sum array would be `[3, 5, 9, 14, 15]`.
+
+### Python Implementation
+
+Here's how you create a prefix sum array in Python:
+
+```python
+def create_prefix_sum(arr):
+    n = len(arr)
+    prefixSum = [0] * n
+    prefixSum[0] = arr[0]
+    
+    for i in range(1, n):
+        prefixSum[i] = prefixSum[i - 1] + arr[i]
+    
+    return prefixSum
+
+# Example usage
+arr = [3, 2, 4, 5, 1]
+prefixSum = create_prefix_sum(arr)
+print(prefixSum)  # Output: [3, 5, 9, 14, 15]
+```
+
+### Calculating the Sum Between Two Indices
+
+Once you have the prefix sum array, calculating the sum between two indices `i` and `j` is straightforward. The sum is given by `prefixSum[j] - prefixSum[i-1]` (for `i > 0`). If `i` is 0, the sum is simply `prefixSum[j]`.
+
+### Python Example for Sum Calculation
+
+```python
+def range_sum(prefixSum, i, j):
+    if i == 0:
+        return prefixSum[j]
+    else:
+        return prefixSum[j] - prefixSum[i - 1]
+
+# Using the previous example's prefixSum array
+print(range_sum(prefixSum, 1, 3))  # Output: 11 (sum of elements from index 1 to 3)
+```
+
+### Real-World Example
+
+Consider a scenario in a social media application where you want to quickly calculate the total number of interactions (likes, comments, shares) on posts over a certain time range. By storing the cumulative interactions in a prefix sum array, you can quickly calculate the total interactions in any time range, enhancing the performance of data analytics operations.
+
+### Summary
+
+The Prefix Sum pattern is invaluable for optimizing algorithms that deal with cumulative sums, especially in scenarios with frequent range sum queries. Its elegance lies in the preprocessing step that transforms a potentially expensive operation into a constant time calculation.
