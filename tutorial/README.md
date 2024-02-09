@@ -157,3 +157,69 @@ def subarraySum(nums, k):
 print(subarraySum([1, 1, 1], 2))  # Output: 2
 ```
 In this problem, we use a hash map (`sum_freq`) to store the frequency of prefix sums. As we iterate through the array, we check if `prefix_sum - k` is in our map. If it is, it means there are one or more subarrays ending at the current index which sum up to `k`. This approach is efficient and showcases the utility of the prefix sum pattern in solving complex problems.
+
+## Hash Map / Set
+The Hash Map/Set pattern in interviews typically revolves around leveraging hash tables to efficiently store, access, and manipulate data. Hash tables, implemented in Python as dictionaries (hash maps) and sets (hash sets), provide average time complexity of O(1) for insert, delete, and lookup operations, making them incredibly efficient for certain types of problems.
+
+### Key Characteristics of Hash Map/Set Pattern:
+
+1. **Efficiency**: The direct access nature of hash maps/sets allows for faster data retrieval compared to linear structures like arrays or linked lists.
+2. **Uniqueness**: Sets naturally enforce uniqueness of elements, making them ideal for solving problems involving deduplication or presence checks.
+3. **Key-Value Storage**: Hash maps store data in key-value pairs, allowing for efficient data association and retrieval. This is useful for counting frequencies, mapping relationships, etc.
+4. **Ordering**: Standard hash maps/sets in Python (as of Python 3.7) maintain insertion order, but it's crucial to remember that the primary feature of hash tables is not ordering but fast access.
+
+### Real-World Example:
+
+Consider a web service that tracks the number of views for various videos. A hash map could efficiently map video IDs to view counts, allowing the service to quickly update or retrieve views for any video. This is critical in large-scale systems where performance and scalability are paramount.
+
+### Common Interview Problems and Solutions:
+
+#### Problem 1: Find the First Unique Character in a String
+
+Given a string, find the first non-repeating character in it and return its index. If it doesn't exist, return -1.
+
+**Solution**:
+
+- Use a hash map to count the frequency of each character.
+- Iterate through the string to find the first character with a frequency of 1.
+
+```python
+def firstUniqChar(s: str) -> int:
+    # Build a hash map to store character frequencies
+    char_count = {}
+    for char in s:
+        if char in char_count:
+            char_count[char] += 1
+        else:
+            char_count[char] = 1
+
+    # Find the first unique character
+    for index, char in enumerate(s):
+        if char_count[char] == 1:
+            return index
+
+    return -1
+```
+
+#### Problem 2: Contains Duplicate
+
+Given an array of integers, find if the array contains any duplicates.
+
+**Solution**:
+
+- Use a set to track seen numbers.
+- If a number is already in the set, a duplicate exists.
+
+```python
+def containsDuplicate(nums: List[int]) -> bool:
+    seen = set()
+    for num in nums:
+        if num in seen:
+            return True
+        seen.add(num)
+    return False
+```
+
+### Conclusion
+
+The Hash Map/Set pattern is powerful for problems involving data access and manipulation due to its efficiency and flexibility. By understanding and applying this pattern, you can solve a wide range of problems more effectively in your interviews. Remember to analyze the problem's requirements carefully to determine when using a hash map or set is the most appropriate solution.
