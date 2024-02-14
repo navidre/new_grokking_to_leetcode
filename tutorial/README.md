@@ -223,3 +223,91 @@ def containsDuplicate(nums: List[int]) -> bool:
 ### Conclusion
 
 The Hash Map/Set pattern is powerful for problems involving data access and manipulation due to its efficiency and flexibility. By understanding and applying this pattern, you can solve a wide range of problems more effectively in your interviews. Remember to analyze the problem's requirements carefully to determine when using a hash map or set is the most appropriate solution.
+
+The Stack interview pattern involves using a stack data structure to solve problems that require you to process elements in a Last-In-First-Out (LIFO) manner. This pattern is particularly useful in scenarios where you need to keep track of previously seen elements in a way that the last element you encounter is the first one you need to retrieve for processing.
+
+# Stack
+
+### Key Concepts
+
+1. **LIFO Principle**: The last element added to the stack is the first one to be removed.
+2. **Operations**: The primary operations involved with stacks are:
+   - `push()`: Add an element to the top of the stack.
+   - `pop()`: Remove the top element from the stack.
+   - `peek()` or `top()`: View the top element without removing it.
+   - `isEmpty()`: Check if the stack is empty.
+
+### Use Cases
+
+- **Parentheses Matching**: Checking for balanced parentheses in an expression.
+- **Undo Mechanism**: In text editors, browsers, etc., where the last action can be undone.
+- **Function Call Management**: Managing function calls in programming languages, where the call stack is a stack.
+- **Histogram Problems**: Calculating maximum area under histograms.
+- **String Manipulations**: Reversing strings or checking for palindromes.
+
+### Python Example: Checking for Balanced Parentheses
+
+Let's explore a common interview question solved using the stack pattern: checking if an expression has balanced parentheses.
+
+```python
+def isBalanced(expression):
+    # Stack to keep track of opening brackets
+    stack = []
+    
+    # Mapping of closing to opening brackets
+    mapping = {')': '(', '}': '{', ']': '['}
+    
+    for char in expression:
+        if char in mapping:
+            # Pop the top element if the stack isn't empty, else assign a dummy value
+            top_element = stack.pop() if stack else '#'
+            
+            # Check if the popped element matches the mapping
+            if mapping[char] != top_element:
+                return False
+        else:
+            # Push the opening bracket onto the stack
+            stack.append(char)
+    
+    # The expression is balanced if the stack is empty
+    return not stack
+
+# Example usage
+expression = "{[()()]}"
+print(isBalanced(expression))  # Output: True
+```
+
+### Real-world Example
+
+Imagine implementing a feature for a text editor that allows users to undo their last set of actions. A stack can be used to store actions as they occur. When the user triggers the undo function, the most recent action is popped from the stack and reversed. This LIFO approach ensures that actions are undone in the reverse order they were made, which is a common expectation in user interfaces.
+
+### Solving a LeetCode Problem: Largest Rectangle in Histogram
+
+One of the more challenging problems that can be solved using the stack pattern is finding the largest rectangle in a histogram. This involves processing bars in a histogram to find the largest rectangle that can be formed within the bounds of the histogram.
+
+```python
+def largestRectangleArea(heights):
+    stack = []  # Create a stack to keep indices of the bars
+    max_area = 0  # Initialize max area as zero
+    
+    # Iterate through all bars of the histogram
+    for i, h in enumerate(heights):
+        start = i
+        while stack and stack[-1][1] > h:
+            index, height = stack.pop()
+            max_area = max(max_area, height * (i - index))
+            start = index
+        stack.append((start, h))
+    
+    # Compute area for the remaining bars in stack
+    for i, h in stack:
+        max_area = max(max_area, h * (len(heights) - i))
+    
+    return max_area
+
+# Example usage
+heights = [2,1,5,6,2,3]
+print(largestRectangleArea(heights))  # Output: 10
+```
+
+In this code, we maintain a stack to keep track of bars. When we see a bar that is lower than the bar at the top of the stack, we start calculating the area with the bar at the top as the smallest bar. We do this because the current bar stops the previous bars from extending further. This solution efficiently processes each bar and determines the area of the largest rectangle that can be formed.
