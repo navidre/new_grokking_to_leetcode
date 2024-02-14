@@ -311,3 +311,72 @@ print(largestRectangleArea(heights))  # Output: 10
 ```
 
 In this code, we maintain a stack to keep track of bars. When we see a bar that is lower than the bar at the top of the stack, we start calculating the area with the bar at the top as the smallest bar. We do this because the current bar stops the previous bars from extending further. This solution efficiently processes each bar and determines the area of the largest rectangle that can be formed.
+
+### LIFO Stack with List
+
+Implementing a LIFO stack with a list is straightforward since lists naturally support append and pop operations at the end, which are efficient and align with the LIFO principle.
+
+```python
+# LIFO Stack Implementation
+stack = []
+
+# Push items onto the stack
+stack.append('A')
+stack.append('B')
+stack.append('C')
+
+# Pop an item off the stack
+last_in = stack.pop()
+print("Popped Item:", last_in)  # C
+
+# The stack now contains: ['A', 'B']
+```
+
+### FIFO Queue with List
+
+For a FIFO queue, you can still use a list, but you should be aware of the performance implications. Using `append()` to enqueue and `pop(0)` to dequeue will work, but `pop(0)` has a linear time complexity (O(n)) because it requires shifting all other elements by one.
+
+```python
+# FIFO Queue Implementation (Not Recommended for High Performance Needs)
+queue = []
+
+# Enqueue items
+queue.append('A')
+queue.append('B')
+queue.append('C')
+
+# Dequeue an item
+first_in = queue.pop(0)
+print("Dequeued Item:", first_in)  # A
+
+# The queue now contains: ['B', 'C']
+```
+
+### Recommended Approach for FIFO in Interviews
+
+For interviews, it's essential to discuss the efficiency of your data structure choices. If asked to implement a FIFO queue, it’s better to mention or use collections.deque, which is designed to have fast appends and pops from both ends.
+
+```python
+from collections import deque
+
+# FIFO Queue Implementation using deque
+queue = deque()
+
+# Enqueue items
+queue.append('A')
+queue.append('B')
+queue.append('C')
+
+# Dequeue an item
+first_in = queue.popleft()
+print("Dequeued Item:", first_in)  # A
+
+# The queue now contains: deque(['B', 'C'])
+```
+
+### Summary for Interviews
+
+- For LIFO stack operations, using a list is perfectly fine and recommended due to its simplicity and efficiency for stack-related operations.
+- For FIFO queue operations, prefer using `collections.deque` to avoid performance issues associated with list operations that affect the beginning of the list. Mentioning the efficiency concern shows your understanding of underlying data structures and their performance characteristics.
+
+Explaining your choice of data structure and being aware of its performance implications can positively impact your interview, demonstrating both your coding skills and your understanding of data structures.
