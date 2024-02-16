@@ -379,3 +379,175 @@ print("Dequeued Item:", first_in)  # A
 - For FIFO queue operations, prefer using `collections.deque` to avoid performance issues associated with list operations that affect the beginning of the list. Mentioning the efficiency concern shows your understanding of underlying data structures and their performance characteristics.
 
 Explaining your choice of data structure and being aware of its performance implications can positively impact your interview, demonstrating both your coding skills and your understanding of data structures.
+
+## Trie
+The Trie algorithm pattern, often referred to as a prefix tree, is a specialized tree used to handle a dynamic set of strings where keys are usually strings. Unlike binary search trees, where the position of a node is determined by comparing the less than or greater than relationship to the parent node, in a Trie, the position of a node is determined by the characters in the string it represents. This makes Tries an incredibly efficient data structure for tasks such as autocomplete, spell checking, IP routing, and other applications where prefix matching is important.
+
+### Structure of a Trie
+
+A Trie is a rooted tree with nodes that contain a set of children per node, each representing one character of the alphabet. Here's a basic structure of a Trie node:
+
+```python
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_end_of_word = False
+```
+
+- `children`: A dictionary mapping characters to the next TrieNode.
+- `is_end_of_word`: A boolean indicating whether this node represents the end of a word in the Trie.
+
+### Basic Operations
+
+#### Insertion
+
+To insert a word into a Trie, start from the root and traverse the Trie following the characters of the word. If a character is not present, create a new node in the corresponding child position. Mark the end node as the end of a word.
+
+```python
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+    
+    def insert(self, word):
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                node.children[char] = TrieNode()
+            node = node.children[char]
+        node.is_end_of_word = True
+```
+
+#### Search
+
+To search for a word, traverse the Trie following the characters of the word. If at any step the character is not found, return False. If all characters are found and the last node is marked as the end of a word, return True.
+
+```python
+def search(self, word):
+    node = self.root
+    for char in word:
+        if char not in node.children:
+            return False
+        node = node.children[char]
+    return node.is_end_of_word
+```
+
+#### Prefix Search
+
+This operation checks whether there is any word in the Trie that starts with the given prefix.
+
+```python
+def startsWith(self, prefix):
+    node = self.root
+    for char in prefix:
+        if char not in node.children:
+            return False
+        node = node.children[char]
+    return True
+```
+
+### Real-world Example
+
+Consider an autocomplete system, like the ones used in search engines or messaging apps. A Trie can efficiently store a large dictionary of words and quickly retrieve all words that share a common prefix, which is essential for suggesting completions as the user types.
+
+### Example Problem: Implement an Autocomplete System
+
+Let's design a basic autocomplete system using a Trie. For simplicity, we'll focus on inserting words and finding completions for a given prefix.
+
+```python
+class AutocompleteSystem:
+    def __init__(self, words):
+        self.trie = Trie()
+        for word in words:
+            self.trie.insert(word)
+    
+    def autocomplete(self, prefix):
+        completions = []
+        node = self.trie.root
+        for char in prefix:
+            if char not in node.children:
+                return []
+            node = node.children[char]
+        self.dfs(node, prefix, completions)
+        return completions
+    
+    def dfs(self, node, prefix, completions):
+        if node.is_end_of_word:
+            completions.append(prefix)
+        for char, child_node in node.children.items():
+            self.dfs(child_node, prefix + char, completions)
+```
+
+In this example, `AutocompleteSystem` initializes a Trie with a list of words. The `autocomplete` function finds all words in the Trie that start with a given prefix, using depth-first search to traverse and collect completions.
+
+Tries are a powerful tool for working with strings and can significantly improve the performance and efficiency of your code in scenarios involving prefix matching and word retrieval.
+
+### Example Problem: Equal Row and Column Pairs using Trie
+LeetCode problem 2352, "Equal Row and Column Pairs," asks for finding pairs of rows and columns in a square matrix that are identical. At first glance, using a Trie for this problem might not seem intuitive since Tries are typically used for string manipulations or prefix-related queries. However, with a creative approach, we can adapt the Trie data structure to solve this problem efficiently by treating each row and column as a string of numbers.
+
+#### Problem Statement
+
+Given an `n x n` integer matrix `grid`, return the number of pairs `(r, c)` where row `r` and column `c` are identical.
+
+#### Approach
+
+To solve this problem, we'll insert each row of the matrix into a Trie, treating each row as a "word" where each "character" is an element of the row. After inserting all rows, we'll traverse each column of the matrix, checking if the column exists in the Trie as if we were searching for a word.
+
+Here's how we can implement this approach:
+
+1. **Trie Node Structure**: Each Trie node will hold a dictionary mapping the next digit to the next Trie node, and a count to track how many times a "word" (in this case, a row) ends at this node.
+
+2. **Insert Rows**: For each row in the grid, insert it into the Trie.
+
+3. **Search Columns**: For each column, traverse the Trie. If we can successfully traverse the Trie using the column's elements as the path and find nodes that represent the end of rows, we increment our pairs count based on the count stored in the final node of that path.
+
+#### Python Implementation
+
+```python
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.endCount = 0  # Tracks how many rows end at this node
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, row):
+        node = self.root
+        for num in row:
+            if num not in node.children:
+                node.children[num] = TrieNode()
+            node = node.children[num]
+        node.endCount += 1  # Mark the end of a row and count it
+
+def equalPairs(grid):
+    n = len(grid)
+    trie = Trie()
+    
+    # Insert all rows into the Trie
+    for row in grid:
+        trie.insert(row)
+    
+    pairCount = 0
+    
+    # Check each column against the Trie
+    for c in range(n):
+        node = trie.root
+        for r in range(n):
+            if grid[r][c] in node.children:
+                node = node.children[grid[r][c]]
+            else:
+                break  # This column does not match any row
+        else:  # If we didn't break, this column matches a row
+            pairCount += node.endCount
+    
+    return pairCount
+```
+
+#### Explanation
+
+- **Inserting Rows**: We insert each row into the Trie, treating each element of the row as a part of a path in the Trie. The `endCount` at the last node of each path is incremented to indicate the end of a row and how many times it appears.
+  
+- **Searching for Columns**: For each column, we attempt to follow a path in the Trie corresponding to the column's elements. If we reach the end of the path (`else` clause of the loop), it means the column matches one or more rows, and we add the `endCount` of the final node to `pairCount`.
+
+This solution leverages the Trie data structure to efficiently compare rows and columns, exploiting the fact that both rows and columns can be treated as sequences of numbers, similar to strings in traditional Trie use cases.
