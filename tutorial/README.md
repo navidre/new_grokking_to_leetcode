@@ -282,7 +282,7 @@ Imagine implementing a feature for a text editor that allows users to undo their
 
 ### Solving a LeetCode Problem: Largest Rectangle in Histogram
 
-One of the more challenging problems that can be solved using the stack pattern is finding the largest rectangle in a histogram. This involves processing bars in a histogram to find the largest rectangle that can be formed within the bounds of the histogram.
+One of the more challenging problems that can be solved using the stack pattern is finding the largest rectangle in a histogram. This involves processing bars in a histogram to find the largest rectangle that can be formed within the bounds of the histogram. The problem definition: Given an array of integers (heights) representing the histogram's bar height where the width of each bar is 1, return the area of the largest rectangle in the histogram.
 
 ```python
 def largestRectangleArea(heights):
