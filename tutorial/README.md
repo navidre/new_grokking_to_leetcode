@@ -551,3 +551,86 @@ def equalPairs(grid):
 - **Searching for Columns**: For each column, we attempt to follow a path in the Trie corresponding to the column's elements. If we reach the end of the path (`else` clause of the loop), it means the column matches one or more rows, and we add the `endCount` of the final node to `pairCount`.
 
 This solution leverages the Trie data structure to efficiently compare rows and columns, exploiting the fact that both rows and columns can be treated as sequences of numbers, similar to strings in traditional Trie use cases.
+
+# Queue
+Queues are a fundamental data structure that operates on a First In, First Out (FIFO) principle, meaning the first element added to the queue will be the first one to be removed. This characteristic makes queues incredibly useful for managing tasks in sequential order, simulating real-world scenarios like customer service lines, and handling data in streams.
+
+### Real-World Example: Web Server Request Handling
+
+In large-scale systems, like web servers, queues play a critical role in managing incoming requests. When a server receives more requests than it can process simultaneously, it places the excess requests in a queue. This ensures that each request is handled in the order it was received, preventing server overload and maintaining fair access for users.
+
+### Python Implementation
+
+In Python, queues can be implemented using the `queue` module for thread-safe operations, or simply with a list, although the latter is not recommended for production due to performance issues when the list grows.
+
+```python
+from queue import Queue
+
+# Initialize a queue
+q = Queue()
+
+# Add elements
+q.put('A')
+q.put('B')
+
+# Remove and return an element
+first_element = q.get()
+
+print(first_element)  # Output: 'A'
+```
+
+### Queue in Leetcode Problems
+
+Queues are especially useful in solving problems related to graph traversal (like BFS), caching strategies (like LRU Cache), and more. Let's look at a classic Leetcode problem to illustrate the use of queues.
+
+#### Example: Binary Tree Level Order Traversal (Leetcode 102)
+
+Given a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
+
+```python
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+from collections import deque
+
+def levelOrder(root):
+    if not root:
+        return []
+
+    result = []
+    queue = deque([root])
+
+    while queue:
+        level_size = len(queue)
+        level = []
+
+        for _ in range(level_size):
+            node = queue.popleft()
+            if node:
+                level.append(node.val)
+                if node.left:
+                    queue.append(node.left)
+                if node.right:
+                    queue.append(node.right)
+        
+        result.append(level)
+
+    return result
+
+# Usage example
+# Assume a binary tree is defined here
+# print(levelOrder(root))
+```
+
+In this solution, a `deque` from the `collections` module is used as a queue to hold nodes at each level of the tree. The while loop continues as long as there are nodes to process, and for each loop iteration, it processes nodes that are at the same depth level. This ensures a level-by-level traversal of the tree, aligning perfectly with the FIFO nature of queues.
+
+### Comments and Teaching Points
+
+- **Choosing the Right Data Structure:** The choice of `deque` over a list for queue operations is due to its efficient append and pop operations from both ends.
+- **Level-by-Level Processing:** The use of a loop within a loop allows for processing all nodes at a given depth before moving on to the nodes at the next depth, which is crucial for level order traversal in trees.
+
+Queues offer a versatile tool in algorithm design, particularly for problems requiring sequential processing or breadth-first search. Their implementation and application can greatly simplify the solution to complex problems, making them a vital concept for software interview preparation.
