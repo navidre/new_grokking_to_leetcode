@@ -634,3 +634,69 @@ In this solution, a `deque` from the `collections` module is used as a queue to 
 - **Level-by-Level Processing:** The use of a loop within a loop allows for processing all nodes at a given depth before moving on to the nodes at the next depth, which is crucial for level order traversal in trees.
 
 Queues offer a versatile tool in algorithm design, particularly for problems requiring sequential processing or breadth-first search. Their implementation and application can greatly simplify the solution to complex problems, making them a vital concept for software interview preparation.
+
+# Linked List
+
+Linked lists are a fundamental data structure in computer science, widely used for their flexibility and efficiency in certain types of operations. A linked list is a collection of nodes, where each node contains data and a reference (or link) to the next node in the sequence. This structure allows for efficient insertion and deletion of elements, as these operations do not require the data to be contiguous in memory.
+
+### Types of Linked Lists
+
+- **Singly Linked List:** Each node has data and a reference to the next node.
+- **Doubly Linked List:** Each node has data and two references—one to the next node and one to the previous node, allowing for traversal in both directions.
+- **Circular Linked List:** Similar to a singly or doubly linked list, but the last node references the first node, creating a circular structure.
+
+### Advantages of Linked Lists
+
+- **Dynamic Size:** Unlike arrays, linked lists can grow and shrink in size without the need for reallocation or resizing.
+- **Efficient Insertions/Deletions:** Adding or removing elements from the beginning or middle of the list does not require shifting elements, as in the case of arrays.
+
+### Disadvantages of Linked Lists
+
+- **Random Access:** Direct access to an element (e.g., via index) is not possible. One must traverse the list from the beginning to reach a specific element, which can be inefficient.
+- **Memory Overhead:** Each node requires additional memory for the reference (pointer) in addition to the data.
+
+### Example in Python: Implementing a Singly Linked List
+
+Here's a basic implementation of a singly linked list in Python 3, demonstrating how to define a node, insert elements, and traverse the list.
+
+```python
+class ListNode:
+    def __init__(self, value=0, next=None):
+        self.value = value
+        self.next = next
+
+class LinkedList:
+    def __init__(self):
+        self.head = None  # The list is initially empty
+
+    def insert_at_head(self, value):
+        # Create a new node with the given value and set it as the new head of the list
+        new_node = ListNode(value)
+        new_node.next = self.head
+        self.head = new_node
+
+    def print_list(self):
+        # Traverse the list and print each node's value
+        current_node = self.head
+        while current_node:
+            print(current_node.value, end=' -> ')
+            current_node = current_node.next
+        print('None')
+
+# Usage
+linked_list = LinkedList()
+linked_list.insert_at_head(3)
+linked_list.insert_at_head(2)
+linked_list.insert_at_head(1)
+linked_list.print_list()
+```
+
+This example demonstrates the basics of working with linked lists, including node creation, list traversal, and insertion at the head of the list.
+
+### Real-World Example: Undo Functionality in Applications
+
+A common real-world use of linked lists is to implement undo functionality in applications. Each node in the linked list can represent a state of the document or application. When the user makes a change, a new state is added to the list. To undo an action, the application can revert to the previous node's state. This is efficient because each state change doesn't require copying the entire document's state, just the differences.
+
+### Conclusion
+
+Linked lists are a versatile and essential data structure, particularly useful where efficient insertions and deletions are crucial. While they come with trade-offs such as lack of random access and additional memory overhead for pointers, their benefits often make them the data structure of choice for certain problems and scenarios in software development.
