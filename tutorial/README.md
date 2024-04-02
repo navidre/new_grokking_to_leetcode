@@ -712,6 +712,29 @@ Binary trees are a foundational concept in computer science, used to model hiera
 - **Balanced Binary Tree**: The height of the two subtrees of any node differ by no more than one.
 - **Binary Search Tree (BST)**: A special kind of binary tree where the left child node is less than the parent node, and the right child node is greater than the parent node.
 
+<figure>
+  <img src="./images/binary_trees_with_labels.png" alt="Different Types of Binary Trees">
+  <figcaption>Illustration of Different Types of Binary Trees.</figcaption>
+</figure>
+
+Remembering the distinctions between different types of binary trees can indeed be tricky. Here are some mnemonic devices and logical connections that might help you distinguish between the various types of binary trees:
+
+#### 1. Full Binary Tree
+- **Mnemonic**: "Full House"
+- **Logic**: In a full house, every room is occupied. Similarly, in a full binary tree, every node has either two children or none, meaning every "parent" node is fully occupied with child nodes.
+
+#### 2. Complete Binary Tree
+- **Mnemonic**: "Complete the Levels"
+- **Logic**: Think of completing levels in a video game; you can't move to the next level without finishing the current one. A complete binary tree fills up levels one by one, from left to right, without any gaps, just like completing levels sequentially in a game.
+
+#### 3. Balanced Binary Tree
+- **Mnemonic**: "Balanced Scale"
+- **Logic**: Imagine a balanced scale, where the two sides are not identical but are close enough in weight to keep the scale balanced. A balanced binary tree doesn't require perfectly even subtrees, but the heights of the subtrees for any node differ by no more than one, maintaining overall balance.
+
+#### 4. Binary Search Tree (BST)
+- **Mnemonic**: "Binary Search"
+- **Logic**: The key property of binary search (splitting data to reduce search area) is embodied in the BST's structure: all nodes to the left of a given node are less, and to the right are greater, facilitating efficient searching.
+
 ### Examples:
 
 ```python
