@@ -720,7 +720,7 @@ Binary trees are a foundational concept in computer science, used to model hiera
 - **Binary Search Tree (BST)** prioritizes the order of elements (left < parent < right) without imposing structural completeness.
 - **Perfect Binary Tree** combines the fullness of a "Full Binary Tree" with the level completion aspect, ensuring every level is completely filled, making it symmetrical.
 
-![Different Types of Binary Trees](./images/binary_trees_with_labels.png)
+![Different Types of Binary Trees](./images/comparison_of_binary_trees.png)
 *<small>Illustration of Different Types of Binary Trees.</small>*
 
 ### Examples:
