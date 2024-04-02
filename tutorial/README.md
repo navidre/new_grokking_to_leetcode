@@ -700,3 +700,80 @@ A common real-world use of linked lists is to implement undo functionality in ap
 ### Conclusion
 
 Linked lists are a versatile and essential data structure, particularly useful where efficient insertions and deletions are crucial. While they come with trade-offs such as lack of random access and additional memory overhead for pointers, their benefits often make them the data structure of choice for certain problems and scenarios in software development.
+
+# Binary Trees
+Binary trees are a foundational concept in computer science, used to model hierarchical data structures. They consist of nodes connected by edges, where each node contains a value and pointers to two child nodes, conventionally referred to as the left child and the right child. The topmost node is called the root of the tree. A binary tree is characterized by the fact that each node can have at most two children, which differentiates it from other types of trees where a node could have any number of children.
+
+### Key Properties:
+- **Depth of a Node**: The number of edges from the root to the node.
+- **Height of a Tree**: The number of edges on the longest downward path between the root and a leaf.
+- **Full Binary Tree**: Every node other than the leaves has two children.
+- **Complete Binary Tree**: All levels are fully filled except possibly the last level, which is filled from left to right.
+- **Balanced Binary Tree**: The height of the two subtrees of any node differ by no more than one.
+- **Binary Search Tree (BST)**: A special kind of binary tree where the left child node is less than the parent node, and the right child node is greater than the parent node.
+
+### Examples:
+
+```python
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+# Example of creating a simple binary tree
+#       1
+#      / \
+#     2   3
+root = TreeNode(1)
+root.left = TreeNode(2)
+root.right = TreeNode(3)
+```
+
+### Real World Implications:
+Binary trees are crucial in many computing algorithms and systems. They're used in database indexes for efficient data retrieval, in sorting algorithms like heapsort (via binary heaps), and in decision-making processes such as those found in machine learning decision trees. Binary search trees, a subtype of binary trees, are especially useful for searching and sorting operations due to their ability to reduce the search space by half at each step.
+
+### Fundamental LeetCode Problems:
+
+1. **Invert a Binary Tree (LeetCode #226)**
+
+The problem involves flipping a binary tree around its center, meaning the left child becomes the right child and vice versa for every node in the tree.
+
+- **Solution Approach**: A recursive strategy works well here. For each node, we swap its left and right children, then proceed to invert the left and right subtrees recursively.
+
+```python
+def invertTree(root):
+    if not root:
+        return None
+    # Swap the left and right child
+    root.left, root.right = root.right, root.left
+    # Recursively invert the subtrees
+    invertTree(root.left)
+    invertTree(root.right)
+    return root
+```
+
+- **Time Complexity**: O(n), where n is the number of nodes, since we visit each node exactly once.
+- **Space Complexity**: O(h), where h is the height of the tree. This space is used by the call stack during the recursion.
+
+2. **Maximum Depth of Binary Tree (LeetCode #104)**
+
+This problem requires finding the maximum depth (or height) of a binary tree, which is the longest path from the root node down to the farthest leaf node.
+
+- **Solution Approach**: We can solve this using recursion by computing the height of the left and right subtrees. The maximum depth at any node will be the max depth of its subtrees plus one (for the current node).
+
+```python
+def maxDepth(root):
+    if not root:
+        return 0
+    # Recursively find the depth of the left and right subtrees
+    left_depth = maxDepth(root.left)
+    right_depth = maxDepth(root.right)
+    # The depth of the current node is max of left and right depths plus one
+    return max(left_depth, right_depth) + 1
+```
+
+- **Time Complexity**: O(n), as we need to visit each node.
+- **Space Complexity**: O(h), due to the recursion stack, where h is the height of the tree.
+
+Through these examples, we see the elegance and efficiency binary trees bring to solving complex problems, highlighting their importance in software development and algorithm design.
