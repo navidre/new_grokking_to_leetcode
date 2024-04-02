@@ -713,9 +713,6 @@ Binary trees are a foundational concept in computer science, used to model hiera
 - **Binary Search Tree (BST)**: A special kind of binary tree where the left child node is less than the parent node, and the right child node is greater than the parent node.
 - **Perfect Binary Tree**: A perfect binary tree is a type of binary tree in which every internal node has exactly two children, and all leaf nodes are at the same depth or level. This means it's both "full" and "complete." In a perfect binary tree, there are exactly $2^k - 1$ nodes (where $k$ is the number of levels).
 
-### Mnemonic: "Picture Perfect"
-- **Logic**: Just like a picture-perfect scene where everything is in its right place, creating a harmonious balance, a perfect binary tree has every "spot" filled. No gaps anywhere—every level is fully populated, from the root all the way down to the leaves.
-
 ### Visualizing Differences:
 - **Full Binary Tree** can have some leaves at different levels, but every node must either have 2 or no children.
 - **Complete Binary Tree** ensures that all levels are filled except possibly the last one, which is filled from left to right.
@@ -725,28 +722,6 @@ Binary trees are a foundational concept in computer science, used to model hiera
 
 ![Different Types of Binary Trees](./images/binary_trees_with_labels.png)
 *<small>Illustration of Different Types of Binary Trees.</small>*
-
-Understanding the nuances between different types of binary trees can be a challenge, but mnemonic devices and logical connections can significantly aid in differentiating them. Here's a refined approach to categorize and recall these distinctions:
-
-#### 1. Full Binary Tree
-- **Mnemonic**: "All or Nothing"
-- **Logic**: Think of this as an "all or nothing" situation. In a full binary tree, each node is fully engaged or not at all, akin to a light switch that's either completely on (two children) or off (no children). This binary state ensures that each parent node is maximally utilized without partial occupancy.
-
-#### 2. Complete Binary Tree
-- **Mnemonic**: "Filling Up, Left to Right"
-- **Logic**: Picture filling a shelf with books from left to right, without skipping any space. A complete binary tree adopts this methodical approach, ensuring each level is fully populated in order before moving to the next, capturing the essence of orderly completion.
-
-#### 3. Balanced Binary Tree
-- **Mnemonic**: "Evenly Loaded"
-- **Logic**: Imagine balancing groceries in two bags so that neither is significantly heavier. A balanced binary tree mirrors this by keeping the depths of its left and right subtrees within a close range, ensuring no side is overwhelmingly deeper than the other.
-
-#### 4. Binary Search Tree (BST)
-- **Mnemonic**: "Organized Shelf"
-- **Logic**: Think of organizing books on a shelf so you can easily find any title by its order. A BST is structured similarly, with every left node value being "before" the parent (smaller), and every right node "after" (larger), facilitating straightforward searches much like picking a book from a well-organized shelf.
-
-#### 5. Perfect Binary Tree
-- **Mnemonic**: "Picture-Perfect Family"
-- **Logic**: Envision a family photo where every generation doubles in size, perfectly structured. A perfect binary tree captures this essence of symmetry and completeness, with each level fully occupied and all leaves aligned at the same depth, reflecting a flawlessly balanced and complete structure.
 
 ### Examples:
 
