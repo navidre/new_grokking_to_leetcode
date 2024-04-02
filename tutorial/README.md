@@ -712,10 +712,8 @@ Binary trees are a foundational concept in computer science, used to model hiera
 - **Balanced Binary Tree**: The height of the two subtrees of any node differ by no more than one.
 - **Binary Search Tree (BST)**: A special kind of binary tree where the left child node is less than the parent node, and the right child node is greater than the parent node.
 
-<figure>
-  <img src="./images/binary_trees_with_labels.png" alt="Different Types of Binary Trees">
-  <figcaption>Illustration of Different Types of Binary Trees.</figcaption>
-</figure>
+![Different Types of Binary Trees](./images/binary_trees_with_labels.png)
+*<small>Illustration of Different Types of Binary Trees.</small>*
 
 Remembering the distinctions between different types of binary trees can indeed be tricky. Here are some mnemonic devices and logical connections that might help you distinguish between the various types of binary trees:
 
