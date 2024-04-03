@@ -788,3 +788,99 @@ def maxDepth(root):
 - **Space Complexity**: O(h), due to the recursion stack, where h is the height of the tree.
 
 Through these examples, we see the elegance and efficiency binary trees bring to solving complex problems, highlighting their importance in software development and algorithm design.
+
+# Depth-First Search (DFS) in Binary Trees
+Binary Tree Depth First Search (DFS) is a fundamental algorithmic technique used to explore and process all the nodes in a binary tree. Unlike Breadth-First Search (BFS) that explores the tree level-by-level, DFS goes as deep as possible down one path before backing up and trying another. In the context of binary trees, this means moving through the tree by visiting a node's child before visiting its sibling. DFS is particularly useful for tasks that need to explore all possible paths or need to process a tree in a specific order (preorder, inorder, or postorder).
+
+### Variants of DFS in Binary Trees
+
+There are three primary ways to perform DFS in a binary tree:
+
+1. **Preorder Traversal**: Visit the current node before its children. The process follows the sequence: Visit -> Go Left -> Go Right.
+2. **Inorder Traversal**: Visit the left child, then the current node, and finally the right child. This sequence: Go Left -> Visit -> Go Right results in visiting nodes in ascending order in a binary search tree.
+3. **Postorder Traversal**: Visit the current node after its children. The sequence is: Go Left -> Go Right -> Visit.
+
+### Examples
+
+To make these concepts clear, let's consider a binary tree:
+
+```
+    A
+   / \
+  B   C
+ / \   \
+D   E   F
+```
+
+- **Preorder Traversal**: A -> B -> D -> E -> C -> F
+- **Inorder Traversal**: D -> B -> E -> A -> C -> F
+- **Postorder Traversal**: D -> E -> B -> F -> C -> A
+
+### Real-world Implications
+
+In real-world applications, DFS is invaluable for hierarchical data structures and scenarios like:
+- **Web Crawling**: Where a DFS approach can explore a website's links deeply before moving to adjacent links.
+- **Solving Puzzles**: Such as mazes, where DFS can explore each possible path to completion before backtracking.
+- **Dependency Resolution**: In systems like package managers where dependencies must be installed before the package that requires them.
+
+### LeetCode Problems
+
+Let's apply DFS to solve two fundamental LeetCode problems:
+
+1. **Maximum Depth of Binary Tree** (LeetCode Problem 104): Find the maximum depth of a binary tree.
+2. **Path Sum** (LeetCode Problem 112): Determine if the tree has a root-to-leaf path such that adding up all the values along the path equals a given sum.
+
+I'll now solve these problems with detailed, commented Python code to demonstrate DFS in action.
+
+#### Problem 1: Maximum Depth of Binary Tree
+
+First, let's tackle finding the maximum depth of a binary tree.
+
+```python
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def maxDepth(root):
+    """
+    :type root: TreeNode
+    :rtype: int
+    """
+    if not root:
+        return 0  # Base case: if the node is null, depth is 0
+    
+    # Recursive DFS on left and right subtrees to find their depth
+    left_depth = maxDepth(root.left)
+    right_depth = maxDepth(root.right)
+    
+    # The depth of the current node is max of left and right subtree depths + 1
+    return max(left_depth, right_depth) + 1
+```
+
+#### Problem 2: Path Sum
+
+Next, let's solve the problem of checking if a tree has a root-to-leaf path with a given sum.
+
+```python
+def hasPathSum(root, sum):
+    """
+    :type root: TreeNode
+    :type sum: int
+    :rtype: bool
+    """
+    if not root:
+        return False  # Base case: if the node is null, it can't contribute to the sum
+    
+    # Check if it's a leaf node and the path sum matches the required sum
+    if not root.left and not root.right and root.val == sum:
+        return True
+    
+    # Subtract the current node's value from sum and recursively check left and right subtrees
+    sum -= root.val
+    return hasPathSum(root.left, sum) or hasPathSum(root.right, sum)
+```
+
+These solutions exemplify how DFS can be applied to binary trees to solve complex problems efficiently. The time complexity for both problems is $O(N)$, where $N$ is the number of nodes in the tree, as we potentially visit each node once. The space complexity is $O(H)$, where $H$ is the height of the tree, due to the call stack during the recursion, which in the worst case can be $O(N)$ for a skewed tree but is generally \$O(\log N)$ for a balanced tree.
