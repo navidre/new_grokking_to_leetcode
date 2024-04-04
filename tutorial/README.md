@@ -884,3 +884,106 @@ def hasPathSum(root, sum):
 ```
 
 These solutions exemplify how DFS can be applied to binary trees to solve complex problems efficiently. The time complexity for both problems is $O(N)$, where $N$ is the number of nodes in the tree, as we potentially visit each node once. The space complexity is $O(H)$, where $H$ is the height of the tree, due to the call stack during the recursion, which in the worst case can be $O(N)$ for a skewed tree but is generally \$O(\log N)$ for a balanced tree.
+
+## When to use Preorder, Inorder, or Postorder?
+
+Understanding when to use preorder, inorder, and postorder traversals in depth-first search (DFS) of binary trees is foundational for solving various types of problems. Each traversal order offers a unique approach to exploring the nodes of a binary tree, and selecting the right one depends on the specific requirements of the problem you're trying to solve.
+
+### Preorder Traversal (Root, Left, Right)
+Preorder traversal is used when you need to explore roots before inspecting leaves. It's useful in problems where you need to replicate the tree structure or when the process of visiting a node includes operations that depend on information from the parent node.
+
+**Real-world implication**: Imagine a filesystem where directories and files are structured as a binary tree. Preorder traversal could be used to copy the filesystem, where you need to create a directory before you can create its subdirectories and files.
+
+**LeetCode Example**: [LeetCode Problem 144 - Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)
+
+#### Solution:
+```python
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def preorderTraversal(root):
+    """
+    :type root: TreeNode
+    :rtype: List[int]
+    """
+    if not root:
+        return []
+    
+    # The preorder traversal list
+    traversal = []
+    
+    # Define a recursive function to perform preorder traversal
+    def preorder(node):
+        if not node:
+            return
+        traversal.append(node.val)  # Visit the root
+        preorder(node.left)         # Traverse left subtree
+        preorder(node.right)        # Traverse right subtree
+    
+    preorder(root)
+    return traversal
+```
+
+### Inorder Traversal (Left, Root, Right)
+Inorder traversal is particularly useful for binary search trees (BST), where it returns nodes in non-decreasing order. This property makes inorder traversal ideal for problems that require sorted data from a BST.
+
+**Real-world implication**: For a BST representing a sequence of events ordered by time, inorder traversal can list the events in chronological order.
+
+**LeetCode Example**: [LeetCode Problem 94 - Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)
+
+#### Solution:
+```python
+def inorderTraversal(root):
+    """
+    :type root: TreeNode
+    :rtype: List[int]
+    """
+    if not root:
+        return []
+    
+    traversal = []
+    
+    def inorder(node):
+        if not node:
+            return
+        inorder(node.left)         # Traverse left subtree
+        traversal.append(node.val)  # Visit the root
+        inorder(node.right)        # Traverse right subtree
+    
+    inorder(root)
+    return traversal
+```
+
+### Postorder Traversal (Left, Right, Root)
+Postorder traversal is used when you need to visit all children nodes before you deal with the node itself. This approach is useful for problems that require a bottom-up solution, such as calculating the height of the tree or deleting the tree.
+
+**Real-world implication**: In a project dependency graph represented as a binary tree, postorder traversal can ensure that dependent tasks are completed before a parent task starts.
+
+**LeetCode Example**: [LeetCode Problem 145 - Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/)
+
+#### Solution:
+```python
+def postorderTraversal(root):
+    """
+    :type root: TreeNode
+    :rtype: List[int]
+    """
+    if not root:
+        return []
+    
+    traversal = []
+    
+    def postorder(node):
+        if not node:
+            return
+        postorder(node.left)         # Traverse left subtree
+        postorder(node.right)        # Traverse right subtree
+        traversal.append(node.val)  # Visit the root
+    
+    postorder(root)
+    return traversal
+```
