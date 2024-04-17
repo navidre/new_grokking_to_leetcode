@@ -1,9 +1,12 @@
-## Note
+# Note
 All the matrials in this page are generated using the following custom GPT:
 
 🚀 **[Software Interview Mentor](https://chat.openai.com/g/g-n76b8bWJo-software-interview-mentor)** - Learn about different concepts! 🤖 (Requires ChatGPT Plus)
 
-## Sliding Window
+# LeetCode Cheatsheet
+🚀 **[LeetCode Cheatsheet](https://leetcode.com/explore/interview/card/cheatsheets/720/resources/4723/)** - Great resource for templates of how to write code for each algorithm pattern. Super helpful to review!
+
+# Sliding Window
 
 The sliding window technique is a method used to solve problems that involve arrays or lists, especially when you're asked to find a subarray that satisfies certain conditions. This technique is particularly useful for problems where you need to consider contiguous elements together. The key idea is to maintain a 'window' that slides over the data to examine different subsets of it.
 
@@ -987,3 +990,148 @@ def postorderTraversal(root):
     postorder(root)
     return traversal
 ```
+
+# Binary Tree - Breadth-First Search (BFS)
+
+Let's dive deep into the Binary Tree Breadth-First Search (BFS) pattern, a fundamental and powerful approach to traversing trees.
+
+### 1. Concept and Example
+
+**Breadth-First Search (BFS)** is a traversal technique that explores nodes layer by layer. In the context of a binary tree, BFS starts at the root node, explores all nodes at the current depth (level) before moving on to nodes at the next depth level. This is typically implemented using a queue.
+
+Here’s a step-by-step breakdown of BFS on a binary tree:
+1. Initialize a queue and add the root node to it.
+2. While the queue is not empty:
+   - Dequeue the front node.
+   - Process the current node (e.g., print its value).
+   - Enqueue the node's children (left first, then right).
+
+**Example:**
+Consider the following binary tree:
+```
+        1
+       / \
+      2   3
+     / \   \
+    4   5   6
+```
+The BFS traversal of this tree would be: 1, 2, 3, 4, 5, 6.
+
+### 2. Real-World Implications
+
+BFS is not just a theoretical construct; it has practical applications in various domains:
+- **Network Broadcasting:** In computer networks, BFS can be used to send broadcasts through a network, ensuring all nodes receive the message in the shortest time.
+- **Social Networking:** BFS can help in features like "People You May Know," as it starts with direct friends (first level) and then moves to friends of friends.
+
+### 3. Leetcode Problems
+
+Let’s apply BFS to solve two fundamental problems from Leetcode that illustrate its utility in different scenarios.
+
+#### Problem 1: "Binary Tree Level Order Traversal" (Leetcode 102)
+
+**Task:** Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level).
+
+Here's how you can approach this problem using BFS:
+
+```python
+from collections import deque
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def levelOrder(root):
+    if not root:
+        return []
+    
+    result, queue = [], deque([root])
+    
+    while queue:
+        level_size = len(queue)
+        current_level = []
+        
+        for _ in range(level_size):
+            node = queue.popleft()
+            current_level.append(node.val)
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+        
+        result.append(current_level)
+    
+    return result
+
+# Example Usage
+root = TreeNode(1, TreeNode(2, TreeNode(4), TreeNode(5)), TreeNode(3, None, TreeNode(6)))
+print(levelOrder(root))  # Output: [[1], [2, 3], [4, 5, 6]]
+```
+
+**Time Complexity:** \(O(n)\), where \(n\) is the number of nodes in the tree (each node is processed once).
+**Space Complexity:** \(O(n)\), to hold the queue and output structure.
+
+#### Problem 2: "Minimum Depth of Binary Tree" (Leetcode 111)
+
+**Task:** Find the minimum depth of a binary tree, which is the number of nodes along the shortest path from the root node down to the nearest leaf node.
+
+Approach with BFS:
+
+```python
+def minDepth(root):
+    if not root:
+        return 0
+    
+    queue = deque([(root, 1)])  # Node with its depth
+    
+    while queue:
+        node, depth = queue.popleft()
+        if not node.left and not node.right:
+            return depth  # Return the depth at the first leaf node
+        if node.left:
+            queue.append((node.left, depth + 1))
+        if node.right:
+            queue.append((node.right, depth + 1))
+
+# Example usage
+root = TreeNode(1, TreeNode(2), TreeNode(3, TreeNode(4), TreeNode(5)))
+print(minDepth(root))  # Output: 2
+```
+
+**Time Complexity:** \(O(n)\), since every node is visited.
+**Space Complexity:** \(O(n)\), the worst case for a skewed tree but typically less.
+
+### 4. Visual Representation
+
+A visual might help clarify the BFS process. Let's draw the BFS traversal process on a sample tree:
+
+```python
+import networkx as nx
+import matplotlib.pyplot as plt
+
+def draw_binary_tree(root):
+    G = nx.DiGraph()
+    queue = deque([(root, "1")])
+    
+    while queue:
+        node, path = queue.popleft()
+        if node.left:
+            G.add_edge(node.val, node.left.val)
+            queue.append((node
+
+.left, path+"L"))
+        if node.right:
+            G.add_edge(node.val, node.right.val)
+            queue.append((node.right, path+"R"))
+            
+    pos = nx.spring_layout(G, seed=42)  # For consistent layout
+    nx.draw(G, pos, with_labels=True, node_color='skyblue', node_size=2000, font_size=20, font_color='darkred')
+    plt.title("Binary Tree Visualization")
+    plt.show()
+
+# Visualize the tree
+draw_binary_tree(root)
+```
+
+By following these steps, we've explored the BFS pattern in depth, provided real-world contexts, tackled representative problems, and visualized the concept. This comprehensive approach helps solidify understanding and application in software interviews and real-world tasks.
