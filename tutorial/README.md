@@ -1298,8 +1298,54 @@ Here, after `4` replaces `3`, `5` is reconnected as the left child of `6`. This 
        / \   /
        5  7 13
 ```
-
 This series of steps ensures that the structure and properties of the BST are properly maintained after the deletion of `3` and the repositioning of its in-order successor `4`, along with the proper placement of `4`'s children.
+
+## Time Complexity
+
+When preparing for technical interviews, understanding the time complexities associated with various operations on a Binary Search Tree (BST) is crucial. Here’s a general overview of the time complexities for common BST operations:
+
+### 1. **Search**
+- **Average Case**: O(log n)
+- **Worst Case**: O(n)
+  
+**Explanation**: In a balanced BST, the depth is approximately log₂n, making the average case time complexity O(log n). However, in an unbalanced tree, such as when the nodes are inserted in a sorted order, the tree can degrade to a linked list with a worst-case time complexity of O(n).
+
+### 2. **Insertion**
+- **Average Case**: O(log n)
+- **Worst Case**: O(n)
+
+**Explanation**: Similar to search, insertion in a balanced BST will take O(log n) time, as each comparison allows the operations to skip about half of the tree. However, like search, in the worst case where the tree becomes unbalanced, the time complexity can degrade to O(n).
+
+### 3. **Deletion**
+- **Average Case**: O(log n)
+- **Worst Case**: O(n)
+
+**Explanation**: Deletion might require additional steps compared to insertion or search, such as finding an in-order successor for a node with two children. Despite these additional steps, the average time complexity remains O(log n) for balanced trees. However, in an unbalanced tree, it again degrades to O(n).
+
+### 4. **Traversal (In-order, Pre-order, Post-order)**
+- **Time Complexity**: O(n)
+
+**Explanation**: Tree traversal techniques like in-order, pre-order, and post-order require visiting every node exactly once. Hence, the time complexity is O(n) regardless of the tree’s balance.
+
+### 5. **Finding Minimum/Maximum**
+- **Time Complexity**: O(log n) for balanced, O(n) for unbalanced
+
+**Explanation**: The minimum or maximum value in a BST is found by traversing to the leftmost or rightmost node, respectively. In a balanced tree, this operation takes O(log n) time, while in an unbalanced tree (e.g., when skewed to one side), it could take O(n) time.
+
+### Special Note on Tree Balance
+- **Self-Balancing BSTs**: Structures like AVL Trees and Red-Black Trees maintain balance through rotations and other operations to ensure that the tree remains balanced after each insertion or deletion, preserving the O(log n) time complexity for all main operations.
+
+#### AVL Trees
+- **Balancing Criterion**: AVL Trees maintain balance by ensuring that the heights of the two child subtrees of any node differ by no more than one. After each insertion or deletion, AVL trees use rotations (single or double) to re-balance the tree if this height condition is violated.
+
+#### Red-Black Trees
+- **Balancing Criterion**: These trees use an additional set of properties involving node colors (red or black) along with specific rules regarding the colors of node parents and children. After every insertion and deletion, certain operations are performed to repaint nodes and perform rotations to maintain the tree's balance, ensuring that the tree height remains logarithmic in relation to the number of nodes.
+
+#### Why This Matters
+- **Time Complexity**: The primary advantage of self-balancing trees is that they maintain O(log n) time complexity for search, insert, and delete operations by ensuring the tree height stays balanced.
+
+### Importance in Interviews
+In interviews, it's beneficial to not only know these complexities but also to be able to discuss ways to optimize BST performance, such as using self-balancing trees. Demonstrating knowledge about potential worst-case scenarios and how to avoid them can also be particularly impressive to interviewers.
 
 ### Real-World Applications
 BSTs are useful in many applications where data needs to be frequently searched, inserted, or deleted. They are used in:
