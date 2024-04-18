@@ -1409,4 +1409,67 @@ print(is_valid_bst(root))
 
 This function will check every node in the tree ensuring it obeys the constraints of BST with respect to its position. It does this efficiently by narrowing the valid range of values as it traverses the tree, ensuring a time complexity of \(O(n)\), where \(n\) is the number of nodes, since each node is visited once.
 
+#### 2. Lowest Common Ancestor of a Binary Search Tree (Leetcode 235)
 
+**Problem Statement**:
+Given a binary search tree (BST), find the lowest common ancestor (LCA) of two given nodes in the BST. The lowest common ancestor is defined between two nodes `p` and `q` as the lowest node in the tree that has both `p` and `q` as descendants (where we allow a node to be a descendant of itself).
+
+**Properties of a BST for LCA**:
+- Since the BST properties dictate that for any node, all left descendants are smaller and all right descendants are larger, if `p` and `q` are smaller than a node, their LCA lies on the left. If they are larger, it lies on the right. If `p` is on one side and `q` on the other, the current node is the LCA.
+
+**Solution and Explanation**:
+We can exploit the BST properties to find the LCA without searching the entire tree. We'll traverse the tree starting from the root, and at each step, decide to move either left or right based on the values of `p` and `q` relative to the current node's value.
+
+```python
+def lowest_common_ancestor(root, p, q):
+    # Start from the root node
+    current = root
+    
+    while current:
+        # If both p and q are greater than parent
+        if p.val > current.val and q.val > current.val:
+            current = current.right
+        # If both p and q are lesser than parent
+        elif p.val < current.val and q.val < current.val:
+            current = current.left
+        else:
+            # We have found the split point, i.e., the LCA node.
+            return current
+
+# Example Usage:
+# Let's construct a BST:
+#       6
+#      / \
+#     2   8
+#    / \ / \
+#   0  4 7  9
+#     / \
+#    3   5
+root = TreeNode(6)
+node2 = TreeNode(2)
+node8 = TreeNode(8)
+node0 = TreeNode(0)
+node4 = TreeNode(4)
+node7 = TreeNode(7)
+node9 = TreeNode(9)
+node3 = TreeNode(3)
+node5 = TreeNode(5)
+
+# Establish connections
+root.left = node2
+root.right = node8
+node2.left = node0
+node2.right = node4
+node8.left = node7
+node8.right = node9
+node4.left = node3
+node4.right = node5
+
+# Nodes 2 and 8 should have LCA 6
+print(lowest_common_ancestor(root, node2, node8).val)  # Output should be 6
+
+# Nodes 3 and 5 should have LCA 4
+print(lowest_common_ancestor(root, node3, node5).val)  # Output should be 4
+```
+
+This approach optimally uses the properties of the BST to determine the LCA, making the average time complexity \(O(\log n)\) for a balanced BST, as the height of the tree is \( \log n \) and we might traverse from root to a leaf in the worst case.
