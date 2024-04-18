@@ -886,7 +886,7 @@ def hasPathSum(root, sum):
     return hasPathSum(root.left, sum) or hasPathSum(root.right, sum)
 ```
 
-These solutions exemplify how DFS can be applied to binary trees to solve complex problems efficiently. The time complexity for both problems is $O(N)$, where $N$ is the number of nodes in the tree, as we potentially visit each node once. The space complexity is $O(H)$, where $H$ is the height of the tree, due to the call stack during the recursion, which in the worst case can be $O(N)$ for a skewed tree but is generally \$O(\log N)$ for a balanced tree.
+These solutions exemplify how DFS can be applied to binary trees to solve complex problems efficiently. The time complexity for both problems is $O(N)$, where $N$ is the number of nodes in the tree, as we potentially visit each node once. The space complexity is $O(H)$, where $H$ is the height of the tree, due to the call stack during the recursion, which in the worst case can be $O(N)$ for a skewed tree but is generally $O(log N)$ for a balanced tree.
 
 ## When to use Preorder, Inorder, or Postorder?
 
@@ -1138,7 +1138,7 @@ By following these steps, we've explored the BFS pattern in depth, provided real
 
 # Introduction to Binary Search Trees (BSTs)
 
-A Binary Search Tree (BST) is a type of data structure that organizes data in a way that allows for efficient searching, insertion, and deletion operations. Each node in a BST has at most two children: a left child and a right child. The key feature of a BST is that it maintains a specific order among its elements: for any node in the tree, the values in its left subtree are less than its own value, and the values in its right subtree are greater than its own value. This property ensures that the operations of searching, inserting, and deleting can be performed efficiently, typically in \(O(\log n)\) time where \(n\) is the number of nodes in the tree, assuming the tree is balanced.
+A Binary Search Tree (BST) is a type of data structure that organizes data in a way that allows for efficient searching, insertion, and deletion operations. Each node in a BST has at most two children: a left child and a right child. The key feature of a BST is that it maintains a specific order among its elements: for any node in the tree, the values in its left subtree are less than its own value, and the values in its right subtree are greater than its own value. This property ensures that the operations of searching, inserting, and deleting can be performed efficiently, typically in \(O(log n)\) time where \(n\) is the number of nodes in the tree, assuming the tree is balanced.
 
 #### Structure of a BST Node
 A typical BST node contains:
