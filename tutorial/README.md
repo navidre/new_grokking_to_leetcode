@@ -1135,3 +1135,232 @@ draw_binary_tree(root)
 ```
 
 By following these steps, we've explored the BFS pattern in depth, provided real-world contexts, tackled representative problems, and visualized the concept. This comprehensive approach helps solidify understanding and application in software interviews and real-world tasks.
+
+# Introduction to Binary Search Trees (BSTs)
+
+A Binary Search Tree (BST) is a type of data structure that organizes data in a way that allows for efficient searching, insertion, and deletion operations. Each node in a BST has at most two children: a left child and a right child. The key feature of a BST is that it maintains a specific order among its elements: for any node in the tree, the values in its left subtree are less than its own value, and the values in its right subtree are greater than its own value. This property ensures that the operations of searching, inserting, and deleting can be performed efficiently, typically in \(O(\log n)\) time where \(n\) is the number of nodes in the tree, assuming the tree is balanced.
+
+#### Structure of a BST Node
+A typical BST node contains:
+- A data field.
+- A reference to the left child.
+- A reference to the right child.
+
+#### Basic Operations on BST
+1. **Search**: To find a value in the tree, start at the root and recursively travel down. Go left if the value is less than the current node's value, and go right if it's greater.
+2. **Insert**: To insert a new value, follow the same logic as search to find the correct spot to insert the new node so that the BST property is maintained.
+3. **Delete**: To delete a node, find the node, then:
+   - If it has no children, simply remove it.
+   - If it has one child, replace it with its child.
+   - If it has two children, replace it with its in-order successor or predecessor and then delete that node.
+
+### Examples
+Consider this BST:
+
+```
+        8
+       / \
+      3   10
+     / \    \
+    1   6    14
+       / \   /
+      4   7 13
+```
+
+- Searching for 6 would involve traversing: 8 (go left) -> 3 (go right) -> 6 (found).
+- Inserting 5 would involve traversing: 8 (go left) -> 3 (go right) -> 6 (go left) -> 4 (go right) -> insert 5.
+- Deleting 3 (which has two children) would typically involve replacing it with 4 (its in-order successor). Explained more in the next section.
+
+
+### Deleting node from BST
+
+Deleting a node from a Binary Search Tree (BST), particularly one with two children like the node `3` in your example, follows a specific set of rules to maintain the properties of the BST. Here's how you would delete node `3` from the tree you've provided:
+
+#### Current Tree Structure
+```
+        8
+       / \
+      3   10
+     / \    \
+    1   6    14
+       / \   /
+      4   7 13
+```
+
+#### Steps to Delete Node `3`
+
+1. **Identify the node to be deleted**: Node `3` has two children — `1` and `6`.
+
+2. **Find the in-order successor**: The in-order successor of a node in a BST is the smallest node that is larger than the node being deleted. For node `3`, you would look in its right subtree and find the smallest node there. This is done by going to the right child (`6`), and then moving to the leftmost node of this subtree. In this case, `4` (child of `6`) is the in-order successor because it is the leftmost node in the right subtree of `3`.
+
+3. **Replace the value of node `3` with its in-order successor (`4`)**: You substitute `3` with `4`.
+
+4. **Remove the in-order successor node (`4`) from its original position**: Since `4` has been moved up, you now need to remove the original `4`. Node `4` has no left child but may have a right child. Any right child would take the place of `4`.
+
+Here's a step-by-step breakdown of what the tree looks like after each step:
+
+- Before deletion:
+  ```
+          8
+         / \
+        3   10
+       / \    \
+      1   6    14
+         / \   /
+        4   7 13
+  ```
+
+- After replacing `3` with `4`:
+  ```
+          8
+         / \
+        4   10
+       / \    \
+      1   6    14
+         / \   /
+        x   7 13
+  ```
+
+- If `4` had a right child, it would replace `4` at its original position. In this scenario, if `4` had no children, you simply remove `4`.
+
+The final tree structure would look like this:
+```
+        8
+       / \
+      4   10
+     / \    \
+    1   6    14
+       / \   /
+          7 13
+```
+
+This removal and replacement ensure that the BST properties are maintained, where every left child is smaller and every right child is larger than their parent node.
+
+#### In-order Successor with Child
+If the node `4` had a child (or children), the steps to delete node `3` from the BST and replace it with `4` would adjust slightly to accommodate the children of `4`. Let's assume `4` had a right child for demonstration purposes:
+
+#### Current Tree Structure with Right Child for `4`
+```
+        8
+       / \
+      3   10
+     / \    \
+    1   6    14
+       / \   /
+      4   7 13
+       \
+        5
+```
+
+#### Steps to Delete Node `3` and Replace with `4` (Assuming `4` has a Right Child `5`)
+
+1. **Identify and Decide on Replacement**: Find the in-order successor of `3`, which is `4`.
+
+2. **Replace `3` with `4`**: Move `4` to where `3` was.
+
+3. **Handle the Children of `4`**: Since `4` has a right child (`5`), this child must be reconnected to maintain the BST properties.
+
+#### Adjusting the Tree
+
+- Before replacement:
+  ```
+        8
+       / \
+      3   10
+     / \    \
+    1   6    14
+       / \   /
+      4   7 13
+       \
+        5
+  ```
+
+- After replacing `3` with `4` and handling `5`:
+  ```
+        8
+       / \
+      4   10
+     / \    \
+    1   6    14
+       / \   /
+       5  7 13
+  ```
+
+Here, after `4` replaces `3`, `5` is reconnected as the left child of `6`. This reconnection is crucial because `5` is less than `6` and fits appropriately into the left child position.
+
+### Final Tree Structure
+```
+        8
+       / \
+      4   10
+     / \    \
+    1   6    14
+       / \   /
+       5  7 13
+```
+
+This series of steps ensures that the structure and properties of the BST are properly maintained after the deletion of `3` and the repositioning of its in-order successor `4`, along with the proper placement of `4`'s children.
+
+### Real-World Applications
+BSTs are useful in many applications where data needs to be frequently searched, inserted, or deleted. They are used in:
+- Implementing databases and file systems where quick search, insertion, and deletion are necessary.
+- Game development for storing objects in a world and quickly querying their positions.
+
+### Common Leetcode Problems
+1. **Validate Binary Search Tree (Leetcode 98)**: Determine if a binary tree is a binary search tree.
+2. **Lowest Common Ancestor of a Binary Search Tree (Leetcode 235)**: Find the lowest common ancestor of two nodes in a BST.
+
+Now, let's dive into the detailed solutions of these two Leetcode problems to understand how we can implement and manipulate BSTs in practice.
+
+#### 1. Validate Binary Search Tree (Leetcode 98)
+
+**Problem Statement**:
+Given the root of a binary tree, determine if it is a valid binary search tree (BST). A valid BST is defined as follows:
+- The left subtree of a node contains only nodes with keys less than the node's key.
+- The right subtree of a node contains only nodes with keys greater than the node's key.
+- Both the left and right subtrees must also be binary search trees.
+
+**Solution and Explanation**:
+We'll use recursion to validate the BST by checking at each step if the node's value is within valid ranges which get updated as we move left (upper bound gets tighter) or right (lower bound gets tighter).
+
+```python
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def is_valid_bst(root, low=float('-inf'), high=float('inf')):
+    # Base case: An empty tree is a BST
+    if not root:
+        return True
+    
+    # If current node's value does not fall within the valid range, return False
+    if not (low < root.val < high):
+        return False
+    
+    # Recursively validate the left and right subtree
+    # Update the ranges accordingly:
+    # Left subtree must have values < root.val
+    # Right subtree must have values > root.val
+    return (is_valid_bst(root.left, low, root.val) and
+            is_valid_bst(root.right, root.val, high))
+
+# Example Usage:
+# Constructing a simple BST:
+#       2
+#      / \
+#     1   3
+node1 = TreeNode(1)
+node3 = TreeNode(3)
+root = TreeNode(
+
+2, node1, node3)
+
+# Should return True as this is a valid BST
+print(is_valid_bst(root))
+```
+
+This function will check every node in the tree ensuring it obeys the constraints of BST with respect to its position. It does this efficiently by narrowing the valid range of values as it traverses the tree, ensuring a time complexity of \(O(n)\), where \(n\) is the number of nodes, since each node is visited once.
+
+
