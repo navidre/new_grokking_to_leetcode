@@ -1332,7 +1332,67 @@ def predecessor(root: TreeNode) -> TreeNode:
     return root
 ```
 
+### Delete node in a BST
+This code is a bit tricky, especially after analyzing the process, you understand there is an inherent recursive nature to the problem with a simple base case!
 
+Let's review the steps to delete a node:
+1. If the node is a leaf, we just set the leaf to `None` and we are done. Easy!
+2. If the node has a right child, we can find the successor and delete that one. You see, we are doing node deletion in BST again. So a recurive solution is appropriate here.
+3. If the node has a left child, we can find the predecessor and delete that one. Again the problem boils down to deleting another node. A recursive solution is still appropriate.
+
+**Note**: We also combine node search with deletion. If key is smaller than node's value, we look left. If key is larger, we look right. Otherwise when key is equal to the node's value, we do the delete procedure as explained above.
+
+Here is the final code:
+```python
+class Solution:
+    # Function to find the inorder successor of a given node in a BST.
+    # The successor is the smallest node that is larger than the given node.
+    # It is found by moving one step to the right and then as far left as possible.
+    def successor(self, root: TreeNode) -> int:
+        root = root.right  # Move one step to the right of the current node
+        while root.left:  # Continue moving left until the last left child
+            root = root.left
+        return root.val  # Return the value of the leftmost child
+        
+    # Function to find the inorder predecessor of a given node in a BST.
+    # The predecessor is the largest node that is smaller than the given node.
+    # It is found by moving one step to the left and then as far right as possible.
+    def predecessor(self, root: TreeNode) -> int:
+        root = root.left  # Move one step to the left of the current node
+        while root.right:  # Continue moving right until the last right child
+            root = root.right
+        return root.val  # Return the value of the rightmost child
+
+    # Function to delete a node with a specified key from a BST.
+    def deleteNode(self, root: TreeNode, key: int) -> TreeNode:
+        if not root:
+            return None  # If the tree is empty, return None
+
+        # If key is greater than the current node's value, delete from the right subtree.
+        if key > root.val:
+            root.right = self.deleteNode(root.right, key)
+        # If key is less than the current node's value, delete from the left subtree.
+        elif key < root.val:
+            root.left = self.deleteNode(root.left, key)
+        # Found the node with the value to be deleted.
+        else:
+            # If the node is a leaf (no children), remove it by setting it to None.
+            if not (root.left or root.right):
+                root = None
+            # If the node has a right child, replace its value with its successor's
+            # and then delete the successor.
+            elif root.right:
+                root.val = self.successor(root)
+                root.right = self.deleteNode(root.right, root.val)
+            # If the node has no right child but has a left child, replace its value
+            # with its predecessor's and then delete the predecessor.
+            else:
+                root.val = self.predecessor(root)
+                root.left = self.deleteNode(root.left, root.val)
+                        
+        return root  # Return the modified tree root.
+
+```
 
 ## Time Complexity
 
