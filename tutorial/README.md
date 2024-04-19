@@ -1570,3 +1570,180 @@ print(lowest_common_ancestor(root, node3, node5).val)  # Output should be 4
 ```
 
 This approach optimally uses the properties of the BST to determine the LCA, making the average time complexity \(O(\log n)\) for a balanced BST, as the height of the tree is \( \log n \) and we might traverse from root to a leaf in the worst case.
+
+# Depth-First Search (DFS) in Graphs
+
+Depth-First Search (DFS) is a fundamental graph traversal technique used extensively in computing, particularly for exploring graph or tree structures. It's an algorithm that dives deep into a graph by moving as far as possible along each branch before backtracking. This makes it especially useful for tasks that require exploring all the nodes or examining the structure in a detailed way, such as in many Leetcode-style interview questions.
+
+#### How DFS Works
+
+DFS starts at a selected node (usually called the "root") and explores as far as possible along each branch before backtracking. Here's a step-by-step breakdown of the DFS process:
+
+1. **Start at the selected node** (or root) and mark it as visited.
+2. **Explore each adjacent node** that has not yet been visited. For each adjacent node, recursively perform DFS.
+3. **Backtrack** as necessary to explore other branches once you reach a node with no unvisited neighbors.
+
+#### Python Example of DFS
+
+Here's a Python example to demonstrate DFS on a graph represented as an adjacency list:
+
+```python
+def dfs(graph, node, visited=None):
+    if visited is None:
+        visited = set()
+    
+    # Mark the current node as visited
+    visited.add(node)
+    print(node, end=' ')  # Output the visited node
+
+    # Recur for all the vertices adjacent to this vertex
+    for neighbor in graph[node]:
+        if neighbor not in visited:
+            dfs(graph, neighbor, visited)
+
+# Example usage:
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
+}
+dfs(graph, 'A')
+```
+
+This will output the nodes in the order they are visited.
+
+#### Note about code and Python
+In Python, when you pass a mutable object (like a set, list, or dictionary) to a function, you are essentially passing a reference to the same object, not a copy of it. Since the set is passed by reference, all modifications (additions in this case) are made to the same set object. This means every recursive call sees the same `visited` set. For example, when DFS is done with all the neighbors of 'B' and returns to continue with 'C', the visited set already includes 'B', 'D', 'E', and any nodes visited in the recursive calls from 'B'. When it moves on to 'C', it adds 'C' to the visited set and proceeds to its neighbors (e.g., 'F'), which might have already been visited in a different part of the recursion (e.g., via 'E'). This persistent and shared visited set across recursive calls is what allows the DFS algorithm to efficiently and correctly explore each node in the graph exactly once, regardless of the graph's structure.
+
+### Real-World Implications of DFS
+
+DFS is used in scenarios where we need to explore possible paths or configurations deeply before backtracking to other possibilities. This makes it particularly useful in applications such as:
+
+- **Puzzle Solving**: Such as in games like Sudoku or crossword puzzles where one must try many configurations.
+- **Network Analysis**: Like finding connectivity or testing if the network is bipartite.
+- **Pathfinding Algorithms**: Such as finding a path in a maze.
+- **Circuit Design**: Used in the layout and logic design for electronic circuits.
+
+### Leetcode Problems Using DFS
+
+To further cement your understanding of DFS and see how it applies in coding interviews, let's solve two problems from Leetcode:
+
+1. **Number of Islands (Leetcode 200)**
+2. **All Paths From Source to Target (Leetcode 797)**
+
+Let's start with the **Number of Islands** problem.
+
+#### Number of Islands (Leetcode 200)
+
+**Problem Statement**:
+Given an `m x n` 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are surrounded by water.
+
+Here is a visualization of the grid used in the "Number of Islands" problem. In the grid:
+- "Land" cells are marked in green, which represent parts of an island.
+- "Water" cells are left uncolored.
+
+In the context of the DFS algorithm for this problem, DFS would start from each unvisited "Land" cell and explore all connected "Land" cells (both vertically and horizontally), marking them as part of the same island before moving to another unvisited "Land" cell.
+
+![Number of Islands](./images/no-of-islands.png)
+*<small>Illustration of the Number of Islands problem.</small>*
+
+Here's a Python solution using DFS:
+
+```python
+def numIslands(grid):
+    if not grid:
+        return 0
+
+    def dfs(grid, i, j):
+        if i < 0 or i >= len(grid) or j < 0 or j >= len(grid[0]) or grid[i][j] == '0':
+            return
+        
+        # Mark the cell as visited by setting it to '0'
+        grid[i][j] = '0'
+        
+        # Visit all adjacent cells
+        dfs(grid, i + 1, j)
+        dfs(grid, i - 1, j)
+        dfs(grid, i, j + 1)
+        dfs(grid, i, j - 1)
+
+    count = 0
+    for i in range(len(grid)):
+        for j in range(len(grid[0])):
+            if grid[i][j] == '1':
+                dfs(grid, i, j)
+                count += 1  # Increment for each new island found
+
+    return count
+
+# Example grid
+grid = [
+    ["1","1","0","0","0"],
+    ["1","1","0","0","0"],
+    ["0","0","1","0","0"],
+    ["0","0","0","1","1"]
+]
+print("Number of islands:", numIslands(grid))
+```
+
+The above solution performs a DFS for each unvisited land cell it encounters, effectively marking all contiguous land cells and counting each contiguous block as one island.
+
+#### The provided text and code generally convey the problem and solution clearly, but there are areas that can be improved for better readability and technical accuracy. Here’s a critique and rewrite of the given section:
+
+### Critique
+
+1. **Problem Statement Clarity**: The original problem statement is concise but lacks an explanation of how the graph is structured, which might confuse readers unfamiliar with the concept of adjacency lists.
+2. **Code Explanation**: While the code is correctly explained, the explanation could be more detailed, especially around the `backtrack` function and why the `path.pop()` operation is necessary.
+3. **Technical Detail**: The solution could benefit from a brief discussion on the computational complexity or possible optimizations, given the potential exponential number of paths in a graph.
+4. **Visual Aid**: The reference to the visual aid is brief and could include a description of what the image shows or how it relates directly to the code or example output.
+
+### Rewritten Section
+
+#### All Paths From Source to Target (Leetcode Problem 797)
+
+**Problem Statement**: You are given a directed acyclic graph (DAG) with `n` nodes labeled from `0` to `n - 1`. The structure of the graph is presented using an adjacency list, where each index represents a node and each element at that index is a list of nodes that can be reached directly from it. The task is to find all paths from the start node (`0`) to the end node (`n-1`) and return them in any order.
+
+**Solution Overview**:
+
+This solution employs Depth-First Search (DFS) to explore all potential paths from the source node (`0`) to the target node (`n-1`). Below is a Python function that implements this approach:
+
+```python
+def allPathsSourceTarget(graph):
+    target = len(graph) - 1
+    results = []
+
+    def backtrack(currentNode, path):
+        if currentNode == target:
+            results.append(list(path))
+            return
+        for nextNode in graph[currentNode]:
+            path.append(nextNode)
+            backtrack(nextNode, path)
+            path.pop()  # Revert the last added node to explore a different path
+    
+    backtrack(0, [0])  # Initialize the DFS from the source node with the initial path
+    return results
+
+# Example usage:
+graph = [[1, 2], [3], [3], []]
+print(allPathsSourceTarget(graph))
+```
+
+**Explanation**:
+- The function `allPathsSourceTarget` starts by defining the target node and an empty list `results` to store all valid paths.
+- Inside, a nested function `backtrack` performs the DFS. It takes the current node and the current path as arguments.
+  - If the current node is the target, a copy of the path is added to `results`.
+  - Otherwise, the function iterates over the neighbors of the current node, extending the path recursively.
+  - After exploring a path, it reverts the last step using `path.pop()` to explore alternative paths.
+- The initial call to `backtrack` starts from node `0`.
+
+**Example Output**:
+- For the graph `[[1,2], [3], [3], []]`, the paths found are:
+  - Path 1: `[0, 1, 3]`
+  - Path 2: `[0, 2, 3]`
+
+![DAG Visualization](./images/DAG_Visualization.png)
+*<small>Illustration of the sample graph.</small>*
