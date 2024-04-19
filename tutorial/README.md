@@ -1691,17 +1691,6 @@ print("Number of islands:", numIslands(grid))
 
 The above solution performs a DFS for each unvisited land cell it encounters, effectively marking all contiguous land cells and counting each contiguous block as one island.
 
-#### The provided text and code generally convey the problem and solution clearly, but there are areas that can be improved for better readability and technical accuracy. Here’s a critique and rewrite of the given section:
-
-### Critique
-
-1. **Problem Statement Clarity**: The original problem statement is concise but lacks an explanation of how the graph is structured, which might confuse readers unfamiliar with the concept of adjacency lists.
-2. **Code Explanation**: While the code is correctly explained, the explanation could be more detailed, especially around the `backtrack` function and why the `path.pop()` operation is necessary.
-3. **Technical Detail**: The solution could benefit from a brief discussion on the computational complexity or possible optimizations, given the potential exponential number of paths in a graph.
-4. **Visual Aid**: The reference to the visual aid is brief and could include a description of what the image shows or how it relates directly to the code or example output.
-
-### Rewritten Section
-
 #### All Paths From Source to Target (Leetcode Problem 797)
 
 **Problem Statement**: You are given a directed acyclic graph (DAG) with `n` nodes labeled from `0` to `n - 1`. The structure of the graph is presented using an adjacency list, where each index represents a node and each element at that index is a list of nodes that can be reached directly from it. The task is to find all paths from the start node (`0`) to the end node (`n-1`) and return them in any order.
