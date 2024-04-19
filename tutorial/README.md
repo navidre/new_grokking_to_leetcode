@@ -1300,6 +1300,40 @@ Here, after `4` replaces `3`, `5` is reconnected as the left child of `6`. This 
 ```
 This series of steps ensures that the structure and properties of the BST are properly maintained after the deletion of `3` and the repositioning of its in-order successor `4`, along with the proper placement of `4`'s children.
 
+## Sample codes
+
+### In-order Traversal
+
+Python code of in-order traversal (`Left -> Node -> Right`) can be as easy as follows:
+```
+def inorder(root: Optional[TreeNode]) -> List:
+    return inorder(root.left) + [root.val] + inorder(root.right) if root else []
+```
+
+### Finding successor in BST
+
+To find a successor, we need to go right once and then left as many times as possible:
+```
+def successor(root: TreeNode) -> TreeNode:
+    root = root.right
+    while root.left:
+        root = root.left
+    return root
+```
+
+### Finding predecessor in BST
+
+To find a predecessor, similarly, we need to go left once and right as much as possible:
+```
+def predecessor(root: TreeNode) -> TreeNode:
+    root = root.left
+    while root.right:
+        root = root.right
+    return root
+```
+
+
+
 ## Time Complexity
 
 When preparing for technical interviews, understanding the time complexities associated with various operations on a Binary Search Tree (BST) is crucial. Here’s a general overview of the time complexities for common BST operations:
