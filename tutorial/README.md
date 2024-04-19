@@ -1340,7 +1340,10 @@ Let's review the steps to delete a node:
 2. If the node has a right child, we can find the successor and delete that one. You see, we are doing node deletion in BST again. So a recurive solution is appropriate here.
 3. If the node has a left child, we can find the predecessor and delete that one. Again the problem boils down to deleting another node. A recursive solution is still appropriate.
 
-**Note**: We also combine node search with deletion. If key is smaller than node's value, we look left. If key is larger, we look right. Otherwise when key is equal to the node's value, we do the delete procedure as explained above.
+**Note 1**: We also combine node search with deletion. If key is smaller than node's value, we look left. If key is larger, we look right. Otherwise when key is equal to the node's value, we do the delete procedure as explained above.
+
+**Note 2**: After deleting nodes in right or left subgraphs, make sure to assign the updated root of the subgraph to the appropriate right or left child of the current root. Specifically, the lines `root.right = self.deleteNode(root.right, root.val)` and `root.left = self.deleteNode(root.left, root.val)` of the following code. Needless to say, as explained before, the we need to change the value of the 
+current root to the predecessor's or successor's value before deleting the predecessor or successor from the sub-tree. 
 
 Here is the final code:
 ```python
