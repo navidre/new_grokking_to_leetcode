@@ -1736,3 +1736,80 @@ print(allPathsSourceTarget(graph))
 
 ![DAG Visualization](./images/DAG_Visualization.png)
 *<small>Illustration of the sample graph.</small>*
+
+## Graph Representation
+
+There are several ways to represent graphs, each with its own advantages and disadvantages depending on the specific use case. The most common representations are the adjacency list, adjacency matrix, and edge list. Let's go through each of these with examples.
+
+### 1. Adjacency List
+
+An adjacency list represents a graph as an array of lists. Each list describes the set of neighbors of a vertex in the graph. This method is space-efficient for sparse graphs (graphs with relatively few edges compared to the number of vertices).
+
+#### Example:
+Consider a simple graph with four vertices (0, 1, 2, 3) where vertex 0 is connected to 1 and 2, vertex 1 is connected to 2, and vertex 2 is connected to 3.
+
+**Representation:**
+- Vertex 0 -> [1, 2]
+- Vertex 1 -> [2]
+- Vertex 2 -> [3]
+- Vertex 3 -> []
+
+**Python Representation:**
+```python
+graph = {
+    0: [1, 2],
+    1: [2],
+    2: [3],
+    3: []
+}
+```
+
+### 2. Adjacency Matrix
+
+An adjacency matrix is a 2D array where the rows represent source vertices and the columns represent destination vertices. Data at row \( i \) and column \( j \) is true (or stores the weight of the edge) if there is an edge from vertex \( i \) to vertex \( j \).
+
+#### Example:
+Using the same graph as above, we can represent it as follows:
+
+**Matrix:**
+```
+[[0, 1, 1, 0],
+ [0, 0, 1, 0],
+ [0, 0, 0, 1],
+ [0, 0, 0, 0]]
+```
+
+**Python Representation:**
+```python
+matrix = [
+    [0, 1, 1, 0],
+    [0, 0, 1, 0],
+    [0, 0, 0, 1],
+    [0, 0, 0, 0]
+]
+```
+
+### 3. Edge List
+
+An edge list represents a graph as a list where each element is a pair (or a tuple in Python) that represents an edge connecting two vertices.
+
+#### Example:
+Continuing with the same graph:
+
+**Edge List:**
+- (0, 1)
+- (0, 2)
+- (1, 2)
+- (2, 3)
+
+**Python Representation:**
+```python
+edges = [(0, 1), (0, 2), (1, 2), (2, 3)]
+```
+
+### Real-World Implications
+
+Graph representations find extensive use in various real-world applications. For example:
+- **Adjacency lists** are particularly useful in scenarios where we frequently need to traverse nodes and explore their neighbors, such as in social networking sites for suggesting friends (i.e., finding friends of friends).
+- **Adjacency matrices** are beneficial in scenarios requiring frequent edge look-up, such as in network routing algorithms where checking for the existence of a direct route between nodes is common.
+- **Edge lists** are used in sparse graphs for efficient storage and are also commonly used when graphs are being built dynamically, such as in simulation or modeling environments where connections are frequently updated or modified.
