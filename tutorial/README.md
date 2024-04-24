@@ -1069,8 +1069,8 @@ root = TreeNode(1, TreeNode(2, TreeNode(4), TreeNode(5)), TreeNode(3, None, Tree
 print(levelOrder(root))  # Output: [[1], [2, 3], [4, 5, 6]]
 ```
 
-**Time Complexity:** \(O(n)\), where \(n\) is the number of nodes in the tree (each node is processed once).
-**Space Complexity:** \(O(n)\), to hold the queue and output structure.
+**Time Complexity:** $O(n)$, where $n$ is the number of nodes in the tree (each node is processed once).
+**Space Complexity:** $O(n)$, to hold the queue and output structure.
 
 #### Problem 2: "Minimum Depth of Binary Tree" (Leetcode 111)
 
@@ -1099,8 +1099,8 @@ root = TreeNode(1, TreeNode(2), TreeNode(3, TreeNode(4), TreeNode(5)))
 print(minDepth(root))  # Output: 2
 ```
 
-**Time Complexity:** \(O(n)\), since every node is visited.
-**Space Complexity:** \(O(n)\), the worst case for a skewed tree but typically less.
+**Time Complexity:** $O(n)$, since every node is visited.
+**Space Complexity:** $O(n)$, the worst case for a skewed tree but typically less.
 
 ### 4. Visual Representation
 
@@ -1138,7 +1138,7 @@ By following these steps, we've explored the BFS pattern in depth, provided real
 
 # Introduction to Binary Search Trees (BSTs)
 
-A Binary Search Tree (BST) is a type of data structure that organizes data in a way that allows for efficient searching, insertion, and deletion operations. Each node in a BST has at most two children: a left child and a right child. The key feature of a BST is that it maintains a specific order among its elements: for any node in the tree, the values in its left subtree are less than its own value, and the values in its right subtree are greater than its own value. This property ensures that the operations of searching, inserting, and deleting can be performed efficiently, typically in \(O(log n)\) time where \(n\) is the number of nodes in the tree, assuming the tree is balanced.
+A Binary Search Tree (BST) is a type of data structure that organizes data in a way that allows for efficient searching, insertion, and deletion operations. Each node in a BST has at most two children: a left child and a right child. The key feature of a BST is that it maintains a specific order among its elements: for any node in the tree, the values in its left subtree are less than its own value, and the values in its right subtree are greater than its own value. This property ensures that the operations of searching, inserting, and deleting can be performed efficiently, typically in $O(log n)$ time where $n$ is the number of nodes in the tree, assuming the tree is balanced.
 
 #### Structure of a BST Node
 A typical BST node contains:
@@ -1504,7 +1504,7 @@ root = TreeNode(
 print(is_valid_bst(root))
 ```
 
-This function will check every node in the tree ensuring it obeys the constraints of BST with respect to its position. It does this efficiently by narrowing the valid range of values as it traverses the tree, ensuring a time complexity of \(O(n)\), where \(n\) is the number of nodes, since each node is visited once.
+This function will check every node in the tree ensuring it obeys the constraints of BST with respect to its position. It does this efficiently by narrowing the valid range of values as it traverses the tree, ensuring a time complexity of $O(n)$, where $n$ is the number of nodes, since each node is visited once.
 
 #### 2. Lowest Common Ancestor of a Binary Search Tree (Leetcode 235)
 
@@ -1569,7 +1569,7 @@ print(lowest_common_ancestor(root, node2, node8).val)  # Output should be 6
 print(lowest_common_ancestor(root, node3, node5).val)  # Output should be 4
 ```
 
-This approach optimally uses the properties of the BST to determine the LCA, making the average time complexity \(O(\log n)\) for a balanced BST, as the height of the tree is \( \log n \) and we might traverse from root to a leaf in the worst case.
+This approach optimally uses the properties of the BST to determine the LCA, making the average time complexity $O(\log n)$ for a balanced BST, as the height of the tree is $ \log n $ and we might traverse from root to a leaf in the worst case.
 
 # Depth-First Search (DFS) in Graphs
 
@@ -1766,7 +1766,7 @@ graph = {
 
 ### 2. Adjacency Matrix
 
-An adjacency matrix is a 2D array where the rows represent source vertices and the columns represent destination vertices. Data at row \( i \) and column \( j \) is true (or stores the weight of the edge) if there is an edge from vertex \( i \) to vertex \( j \).
+An adjacency matrix is a 2D array where the rows represent source vertices and the columns represent destination vertices. Data at row $ i $ and column $ j $ is true (or stores the weight of the edge) if there is an edge from vertex $ i $ to vertex $ j $.
 
 #### Example:
 Using the same graph as above, we can represent it as follows:
@@ -1988,3 +1988,194 @@ def numIslands(grid):
 
     return island_count
 ```
+
+# What is a Heap / Priority Queue?
+
+A **heap** is a specialized tree-based data structure that satisfies the heap property: if A is a parent node of B, then the key (the value) of node A is ordered with respect to the key of node B, with the same ordering applying across the heap. There are two kinds of heaps: **max-heaps** and **min-heaps**. In a max-heap, the keys of parent nodes are always greater than or equal to those of their children and the highest key is in the root node. In a min-heap, the keys of parent nodes are less than or equal to those of their children and the lowest key is in the root node.
+
+A **priority queue** is an abstract data type that operates much like a regular queue or stack data structure, but where additionally, each element has a "priority" associated with it. In a priority queue, an element with high priority is served before an element with low priority. If two elements have the same priority, they are served according to their order in the queue. A common implementation of a priority queue is using heaps, as they allow efficient enqueuing and dequeuing of items.
+
+### Examples of Heaps / Priority Queues
+
+#### Python's `heapq` Module
+Python has a built-in module named `heapq` that implements a min-heap using a list. Here's how you can use it:
+
+1. `heapq.heappush(heap, item)`: Pushes an item onto the heap, maintaining the heap invariant.
+2. `heapq.heappop(heap)`: Pops the smallest item off the heap, maintaining the heap invariant.
+3. `heapq.heappushpop(heap, item)`: Pushes an item on the heap and then pops and returns the smallest item from the heap.
+4. `heapq.heapify(x)`: Transforms a list into a heap, in-place, in linear time.
+
+Let's see how to create and manipulate a min-heap in Python using the `heapq` module:
+
+```python
+import heapq
+
+# Create an empty heap
+heap = []
+
+# Add some elements to the heap
+heapq.heappush(heap, 10)
+heapq.heappush(heap, 1)
+heapq.heappush(heap, 5)
+
+# Fetch the smallest item
+print(heapq.heappop(heap))  # Output will be 1
+```
+
+### Real World Implications
+
+Heaps and priority queues are widely used in large scale systems and applications. They are crucial for managing tasks in operating systems, implementing efficient algorithms like Dijkstra's shortest path, scheduling jobs in a job scheduler, and handling load balancing within network routers or databases.
+
+For example, in traffic routing, a priority queue can manage dynamically changing priorities of paths as traffic conditions change (like congestion or accidents), always ensuring the fastest route is prioritized.
+
+### Example LeetCode Problems
+
+Let's now solve two common LeetCode problems using the heap structure to better understand its application:
+
+1. **Merge k Sorted Lists (Hard)**: Given an array of `k` linked-lists lists, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list and return it.
+
+2. **Find Median from Data Stream (Hard)**: The median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value and the median is the mean of the two middle values. Implement a class to find the median from a data stream.
+
+I will go through the solutions of these problems with detailed Python code. Let's start with "Merge k Sorted Lists".
+
+```python
+import heapq
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def merge_k_sorted_lists(lists):
+    """
+    Merge k sorted linked lists and return it as one sorted list.
+    
+    Args:
+    lists (list of ListNode): The list of linked-list heads.
+    
+    Returns:
+    ListNode: The head of the merged sorted linked list.
+    """
+    # Create a min-heap
+    min_heap = []
+    
+    # Initialize the heap with the first node of each list
+    for i in range(len(lists)):
+        if lists[i]:
+            heapq.heappush(min_heap, (lists[i].val, i, lists[i]))
+    
+    # Dummy node to form the result linked list
+    dummy = ListNode(0)
+    current = dummy
+    
+    # Extract the smallest item from the heap, and add the next element of that list to the heap
+    while min_heap:
+        val, idx, node = heapq.heappop(min_heap)
+        current.next = ListNode(val)
+        current = current.next
+        if node.next:
+            heapq.heappush(min_heap, (node.next.val, idx, node.next))
+    
+    return dummy.next
+
+# Let's create an example scenario with three sorted linked lists
+# List 1: 1 -> 4 -> 5
+# List 2: 1 -> 3 -> 4
+# List 3: 2 -> 6
+
+list1 = ListNode(1, ListNode(4, ListNode(5)))
+list2 = ListNode(1, ListNode(3, ListNode(4)))
+list3 = ListNode(2, ListNode(6))
+
+# Merge the lists and print the resulting merged list
+merged_list_head = merge_k_sorted_lists([list1, list2, list3])
+
+# Function to print linked list
+def print_linked_list(head):
+    result = []
+    while head:
+        result.append(head.val)
+        head = head.next
+    return result
+
+print_linked_list(merged_list_head)
+```
+
+The merged result from combining three sorted linked lists $[1 \rightarrow 4 \rightarrow 5]$, $[1 \rightarrow 3 \rightarrow 4]$, and $[2 \rightarrow 6]$ using a heap is $[1, 1, 2, 3, 4, 4, 5, 6]$. The solution efficiently merges multiple sorted lists by utilizing a priority queue (min-heap) to always extract the smallest current element.
+
+### Complexity Analysis:
+- **Time Complexity**: $O(N \log k)$, where $N$ is the total number of nodes in all lists combined, and $k$ is the number of linked lists. Each insertion into the heap takes $O(\log k)$ time.
+- **Space Complexity**: $O(k)$ for the heap, where $k$ is the number of linked lists, since at most $k$ elements will be stored in the heap.
+
+### Next Problem: Find Median from Data Stream
+
+Now let's address the problem of finding the median from a data stream using heaps. We'll implement two heaps: a max-heap for the lower half of the numbers and a min-heap for the upper half. This allows us to balance the numbers efficiently and extract the median in constant time. Let's go ahead and solve this.
+
+```python
+import heapq
+
+class MedianFinder:
+    def __init__(self):
+        """
+        Initialize the MedianFinder with two heaps.
+        - max_heap: Max-heap for the lower half of numbers.
+        - min_heap: Min-heap for the upper half of numbers.
+        """
+        self.max_heap = []  # This will be a max heap (using negative numbers for max heap simulation)
+        self.min_heap = []  # This will be a min heap
+
+    def addNum(self, num):
+        """
+        Adds a number to the data structure.
+        
+        Args:
+        num (int): The number to be added.
+        """
+        # First add to max_heap, then balance with min_heap
+        if not self.max_heap or num <= -self.max_heap[0]:
+            heapq.heappush(self.max_heap, -num)
+        else:
+            heapq.heappush(self.min_heap, num)
+
+        # Balance the sizes: max_heap can only have one more element than min_heap
+        if len(self.max_heap) > len(self.min_heap) + 1:
+            heapq.heappush(self.min_heap, -heapq.heappop(self.max_heap))
+        elif len(self.min_heap) > len(self.max_heap):
+            heapq.heappush(self.max_heap, -heapq.heappop(self.min_heap))
+
+    def findMedian(self):
+        """
+        Finds the median of all elements added so far.
+        
+        Returns:
+        float: The median of the current elements.
+        """
+        if len(self.max_heap) > len(self.min_heap):
+            return -self.max_heap[0]
+        else:
+            return (-self.max_heap[0] + self.min_heap[0]) / 2.0
+
+# Example usage
+median_finder = MedianFinder()
+median_finder.addNum(1)
+median_finder.addNum(2)
+median = median_finder.findMedian()  # Output should be 1.5 as median of [1, 2]
+median_finder.addNum(3)
+new_median = median_finder.findMedian()  # Output should be 2 as median of [1, 2, 3]
+median, new_median
+```
+
+The `MedianFinder` class successfully manages a stream of numbers to find the median efficiently. Initially, after adding the numbers 1 and 2, the median is calculated as 1.5. Upon adding another number, 3, the updated median becomes 2. This solution effectively utilizes two heaps:
+
+- A **max-heap** for the lower half of the numbers to retrieve the largest number quickly.
+- A **min-heap** for the upper half to quickly retrieve the smallest number from the top half.
+
+### Complexity Analysis:
+- **Time Complexity**: $O(\log n)$ for each insertion due to the heap operations.
+- **Space Complexity**: $O(n)$, where $n$ is the number of elements inserted into the `MedianFinder`.
+
+### Visualization and Further Details
+
+To help visualize how the max-heap and min-heap interact, consider drawing a diagram or simulation that shows the heaps' states as numbers are added and how the balances shift between them. This can be crucial in understanding how the median adjusts dynamically.
+
+Would you like to see more such detailed explanations or visualizations for any other data structure or algorithm?
