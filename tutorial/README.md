@@ -2173,9 +2173,3 @@ The `MedianFinder` class successfully manages a stream of numbers to find the me
 ### Complexity Analysis:
 - **Time Complexity**: $O(\log n)$ for each insertion due to the heap operations.
 - **Space Complexity**: $O(n)$, where $n$ is the number of elements inserted into the `MedianFinder`.
-
-### Visualization and Further Details
-
-To help visualize how the max-heap and min-heap interact, consider drawing a diagram or simulation that shows the heaps' states as numbers are added and how the balances shift between them. This can be crucial in understanding how the median adjusts dynamically.
-
-Would you like to see more such detailed explanations or visualizations for any other data structure or algorithm?
