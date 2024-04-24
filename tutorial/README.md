@@ -1813,3 +1813,178 @@ Graph representations find extensive use in various real-world applications. For
 - **Adjacency lists** are particularly useful in scenarios where we frequently need to traverse nodes and explore their neighbors, such as in social networking sites for suggesting friends (i.e., finding friends of friends).
 - **Adjacency matrices** are beneficial in scenarios requiring frequent edge look-up, such as in network routing algorithms where checking for the existence of a direct route between nodes is common.
 - **Edge lists** are used in sparse graphs for efficient storage and are also commonly used when graphs are being built dynamically, such as in simulation or modeling environments where connections are frequently updated or modified.
+
+### Breadth-First Search (BFS) in Graphs
+
+One of the primary ways to explore graphs is through Breadth-First Search (BFS), which is an algorithm used to traverse or search a graph in a level-wise order. BFS starts at a selected node (the source node) and explores all of the neighbor nodes at the present depth prior to moving on to nodes at the next depth level.
+
+#### How BFS Works:
+
+1. **Initialize**: BFS begins at a source node and uses a queue to keep track of the nodes to visit. It also uses a boolean visited array or set to keep track of all visited nodes to prevent processing a node more than once.
+
+2. **Exploration**:
+    - Dequeue a node from the queue.
+    - Process the node (e.g., print it or check for a condition).
+    - Enqueue all unvisited adjacent nodes of the dequeued node into the queue and mark them as visited.
+
+#### Example of BFS
+
+Consider a simple graph of cities connected by roads:
+
+```
+    A
+   / \
+  B   C
+ /     \
+D       E
+```
+
+If we perform a BFS starting from node A, the order of nodes visited will be: A, B, C, D, E.
+
+### Python Example of BFS
+
+Here’s a Python code snippet demonstrating BFS on the above graph using an adjacency list:
+
+```python
+from collections import deque
+
+def bfs(graph, start):
+    visited = set()       # Set to keep track of visited nodes.
+    queue = deque([start])  # Initialize a queue with the starting node.
+    
+    while queue:
+        node = queue.popleft()  # Remove and return the leftmost node.
+        if node not in visited:
+            print(node)          # Process the node (e.g., print it).
+            visited.add(node)    # Mark the node as visited.
+            # Add all unvisited neighbors to the queue.
+            for neighbor in graph[node]:
+                if neighbor not in visited:
+                    queue.append(neighbor)
+
+# Example graph as a dictionary of adjacency lists
+graph = {
+    'A': ['B', 'C'],
+    'B': ['D'],
+    'C': ['E'],
+    'D': [],
+    'E': []
+}
+
+bfs(graph, 'A')  # Start the BFS from node A
+```
+
+### Real-World Implications of BFS
+
+BFS is widely used in scenarios such as:
+
+- **Network Broadcasting**: In networks, BFS can be used for broadcasting messages from one node to all other nodes efficiently.
+- **Shortest Path**: In unweighted graphs, BFS guarantees the shortest path from the start node to any other node.
+- **Web Crawling**: Search engines use BFS to navigate and index new pages on the web.
+- **Social Networking**: BFS can be used to find all friends-of-friends up to a certain degree of separation in a social network graph.
+
+### Solving LeetCode Problem: Binary Tree Level Order Traversal
+
+Let's start with the **Binary Tree Level Order Traversal** problem from LeetCode. This problem asks us to traverse a binary tree level by level and return the node values in a nested list, where each sublist contains all the values of one level.
+
+#### Problem Description
+Given the root of a binary tree, return the level order traversal of its nodes' values (i.e., from left to right, level by level).
+
+#### Example:
+Input:
+```
+    3
+   / \
+  9  20
+    /  \
+   15   7
+```
+Output: `[[3], [9, 20], [15, 7]]`
+
+#### Python Solution Using BFS
+
+```python
+from collections import deque
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def levelOrder(root):
+    if not root:
+        return []
+    
+    result = []
+    queue = deque([root])
+    
+    while queue:
+        level_size = len(queue)
+        current_level = []
+        
+        for _ in range(level_size):
+            node = queue.popleft()
+            current_level.append(node.val)
+            
+            if node.left:
+                queue.append(node.left)
+            if node.right:
+                queue.append(node.right)
+        
+        result.append(current_level)
+    
+    return result
+```
+
+### Solving LeetCode Problem: Number of Islands
+
+The **Number of Islands** problem involves using BFS to explore and count distinct islands in a 2D grid. Each island is made up of connected '1's (vertically or horizontally), and surrounded by water ('0's).
+
+#### Problem Description
+Given an `m x n` 2D binary grid which represents a map of '1's (land) and '0's (water), return the number of islands.
+
+#### Example:
+Input:
+```
+grid = [
+  ["1","1","0","0","0"],
+  ["1","1","0","0","0"],
+  ["0","0","1","0","0"],
+  ["0","0","0","1","1"]
+]
+```
+Output: `3`
+
+#### Python Solution Using BFS
+
+```python
+def numIslands(grid):
+    if not grid:
+        return 0
+    
+    rows, cols = len(grid), len(grid[0])
+    visited = set()
+    island_count = 0
+
+    def bfs(r, c):
+        queue = deque([(r, c)])
+        visited.add((r, c))
+        
+        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]  # Up, Down, Left, Right
+        while queue:
+            row, col = queue.popleft()
+            for dr, dc in directions:
+                nr, nc = row + dr, col + dc
+                if 0 <= nr < rows and 0 <= nc < cols and (nr, nc) not in visited and grid[nr][nc] == '1':
+                    queue.append((nr, nc))
+                    visited.add((nr, nc))
+
+    for r in range(rows):
+        for c in range(cols):
+            if grid[r][c] == '1' and (r, c) not in visited:
+                bfs(r, c)
+                island_count += 1
+
+    return island_count
+```
