@@ -2173,3 +2173,7 @@ The `MedianFinder` class successfully manages a stream of numbers to find the me
 ### Complexity Analysis:
 - **Time Complexity**: $O(\log n)$ for each insertion due to the heap operations.
 - **Space Complexity**: $O(n)$, where $n$ is the number of elements inserted into the `MedianFinder`.
+
+### Relevant Links
+Relevant links to learn more about heaps:
+- [Leetcode post explaining different heap patterns](https://leetcode.com/discuss/general-discussion/1127238/master-heap-by-solving-23-questions-in-4-patterns-category)
