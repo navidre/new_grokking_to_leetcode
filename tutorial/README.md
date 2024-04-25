@@ -1995,6 +1995,19 @@ A **heap** is a specialized tree-based data structure that satisfies the heap pr
 
 A **priority queue** is an abstract data type that operates much like a regular queue or stack data structure, but where additionally, each element has a "priority" associated with it. In a priority queue, an element with high priority is served before an element with low priority. If two elements have the same priority, they are served according to their order in the queue. A common implementation of a priority queue is using heaps, as they allow efficient enqueuing and dequeuing of items.
 
+#### Array Representation of a Heap
+In an array representation of a heap:
+- The element at index `0` is the root of the heap.
+- For any given node at index `i`, its children can be found at indices `2i + 1` (left child) and `2i + 2` (right child).
+- The parent of any node at index `i` can be found at index `(i - 1) // 2`.
+
+This compact arrangement means that moving up or down the tree can be done simply by arithmetic calculations on indices, which is fast and efficient.
+
+#### Tree Representation of a Heap
+In the tree representation:
+- Each node has a value that must be greater than or equal (in a max heap) or less than or equal (in a min heap) to the values of its children.
+- The tree is a complete binary tree; all levels of the tree are fully filled except possibly for the last level, which is filled from left to right.
+
 ### Examples of Heaps / Priority Queues
 
 #### Python's `heapq` Module
