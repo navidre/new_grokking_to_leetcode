@@ -2190,3 +2190,86 @@ The `MedianFinder` class successfully manages a stream of numbers to find the me
 ### Relevant Links
 Relevant links to learn more about heaps:
 - [Leetcode post explaining different heap patterns](https://leetcode.com/discuss/general-discussion/1127238/master-heap-by-solving-23-questions-in-4-patterns-category)
+
+# Binary Search Pattern Overview
+
+Binary search is a foundational concept in algorithm design and is widely used to efficiently search through a sorted list of elements, reducing the time complexity to \(O(\log n)\) from \(O(n)\), which is what you would get with a linear search. The binary search algorithm repeatedly divides the search interval in half. If the value of the search key is less than the item in the middle of the interval, it narrows down the interval to the lower half. Otherwise, it narrows it down to the upper half. This method is very efficient for large datasets where a linear search would be impractical.
+
+### Step-by-Step Explanation
+
+1. **Initialize** variables to point to the start (`low`) and end (`high`) of the dataset.
+2. **Loop** until the `low` is less than or equal to `high`.
+3. Find the **middle point** `mid` using `mid = low + (high - low) // 2` (this formula helps prevent overflow that can happen when `(low + high)` is too large).
+4. **Compare** the middle element with the target value:
+   - If the middle element is equal to the target, return `mid`.
+   - If the middle element is less than the target, set `low = mid + 1`.
+   - Otherwise, set `high = mid - 1`.
+5. If the loop ends without finding the target, return an indication that the target isn't in the list (typically `-1`).
+
+### Example
+
+Here's a simple Python example to demonstrate a binary search:
+
+```python
+def binary_search(arr, target):
+    low = 0
+    high = len(arr) - 1
+    
+    while low <= high:
+        mid = low + (high - low) // 2
+        if arr[mid] == target:
+            return mid  # Target found
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    
+    return -1  # Target not found
+
+# Example usage:
+sorted_array = [1, 3, 5, 7, 9, 11]
+target = 7
+print("Index of target:", binary_search(sorted_array, target))
+```
+
+### Real World Implications
+
+Binary search is often used in scenarios where data is massive and sorted:
+- **Databases**: Efficiently finding records with specific attributes.
+- **Search engines**: Quickly locating entries in an index.
+- **Software libraries**: Functions like `bsearch()` in C are implemented using binary search.
+
+### LeetCode Problems
+
+Binary search is commonly featured in coding interviews. Here are two problems that you might encounter:
+
+#### Problem 1: "704. Binary Search"
+Given a sorted array of integers `nums` and an integer `target`, return the index of `target` in `nums`, or `-1` if it is not present.
+
+**Solution Thought Process**:
+- Use the binary search algorithm directly since the data is already sorted.
+
+#### Problem 2: "35. Search Insert Position"
+Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+
+**Solution Thought Process**:
+- Apply binary search to find the target.
+- If the target isn't found, use the position where the search stopped (value of `low` after the loop ends) as the insertion point.
+
+```python
+def search_insert(nums, target):
+    low, high = 0, len(nums) - 1
+    while low <= high:
+        mid = low + (high - low) // 2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1
+    return low  # Insertion position if not found
+
+# Example usage:
+print("Insert position:", search_insert([1,3,5,6], 5))  # Output: 2
+print("Insert position:", search_insert([1,3,5,6], 2))  # Output: 1
+```
