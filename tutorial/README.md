@@ -2302,7 +2302,6 @@ Suppose you have a list of numbers and you frequently need to add new numbers bu
 import bisect
 
 def insert_sorted(lst, item):
-    bisect.bisect_left(lst, item)
     bisect.insort_left(lst, item)
 
 # Sorted list of numbers
