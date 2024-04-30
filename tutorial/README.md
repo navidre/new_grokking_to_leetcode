@@ -2274,6 +2274,57 @@ print("Insert position:", search_insert([1,3,5,6], 5))  # Output: 2
 print("Insert position:", search_insert([1,3,5,6], 2))  # Output: 1
 ```
 
+## Left-most insertion point to keep array sorted
+
+Sometimes we need to find the left-most insertion point to keep the array sorted. Or we even need to find the index, above which, all the items are larger. To do this, we need to do a simpler version of the binary search, where we do not need to find a target, but need to find the index, from which every item is equal or larger to the value given:
+
+```python
+def fn(arr, target):
+    left = 0
+    right = len(arr)
+    while left < right:
+        mid = (left + right) // 2
+        if arr[mid] >= target:
+            right = mid
+        else:
+            left = mid + 1
+
+    return left
+
+# Test cases
+test_cases = [
+    ([1, 2, 3, 4, 5], 3),
+    ([1, 2, 4, 5], 3),
+    ([5, 6, 7, 8], 4),
+    ([1, 2, 3, 4], 6)
+]
+
+# Applying the function to the test cases
+results = [(case, fn(*case)) for case in test_cases]
+results
+```
+1. For the array `[1, 2, 3, 4, 5]` with target 3, the function returns 2, which is the index where 3 is already present.
+2. For the array `[1, 2, 4, 5]` with target 3, the function returns 2, where 3 should be inserted to keep the array sorted.
+3. For the array `[5, 6, 7, 8]` with target 4, the function returns 0, indicating 4 should be inserted at the start.
+4. For the array `[1, 2, 3, 4]` with target 6, the function returns 4, where 6 should be inserted at the end.
+
+## Right-most insertion point to keep the array sorted
+To find the right-most insertion point, we need change the line `if arr[mid] >= target:` to `if arr[mid] >= target:`.
+
+```python
+def fn(arr, target):
+    left = 0
+    right = len(arr)
+    while left < right:
+        mid = (left + right) // 2
+        if arr[mid] > target:
+            right = mid
+        else:
+            left = mid + 1
+
+    return left
+```
+
 ## `bisect_left`
 
 The `bisect_left` function is part of Python's `bisect` module, which provides support for maintaining lists in sorted order. `bisect_left` is closely related to the binary search algorithm, as it uses binary search to find the insertion point for a given element in a sorted list. This insertion point is the index of the first element in the list that is not less than the target value. The function ensures that the list remains in ascending order after the insertion.
@@ -2327,7 +2378,7 @@ In this example, even though 30 is already in the list, `bisect_left` returns 2,
 
 These examples show how `bisect_left` can be used for efficient operations in scenarios where maintaining a sorted order is crucial.
 
-#### Leetcode 2300.: Successful Pairs of Spells and Potions
+#### Leetcode 2300: Successful Pairs of Spells and Potions
 
 You are given two positive integer arrays spells and potions, of length n and m respectively, where spells[i] represents the strength of the ith spell and potions[j] represents the strength of the jth potion.
 
