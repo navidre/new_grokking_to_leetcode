@@ -2273,3 +2273,77 @@ def search_insert(nums, target):
 print("Insert position:", search_insert([1,3,5,6], 5))  # Output: 2
 print("Insert position:", search_insert([1,3,5,6], 2))  # Output: 1
 ```
+
+## `bisect_left`
+
+The `bisect_left` function is part of Python's `bisect` module, which provides support for maintaining lists in sorted order. `bisect_left` is closely related to the binary search algorithm, as it uses binary search to find the insertion point for a given element in a sorted list. This insertion point is the index of the first element in the list that is not less than the target value. The function ensures that the list remains in ascending order after the insertion.
+
+### How `bisect_left` Relates to Binary Search
+
+Binary search is a method for finding an item in a sorted sequence by repeatedly dividing the search interval in half. If the value of the search key is less than the item in the middle of the interval, the search continues in the lower half, or if greater, in the upper half. This makes the search process very efficient, with a time complexity of O(log n).
+
+`bisect_left` leverages this principle to quickly find the position where an element should be inserted to keep the list sorted. Unlike a typical binary search that checks for equality and stops when the target is found, `bisect_left` continues until it locates the exact insertion point for the target, even if the target is already present in the list.
+
+### Examples of `bisect_left` Usage
+
+1. **Inserting in a Sorted List**: To insert elements into a list while maintaining the list's sorted order without having to sort the list again.
+
+2. **Searching for the First Position of an Element**: If you need to know the first position where an element could be inserted without disturbing the order of the list, even if the element is already present.
+
+3. **Handling Duplicates**: To determine the first possible insertion point for a duplicate item in a list where duplicates are allowed but the order is still important.
+
+Here are some practical examples:
+
+#### Example 1: Inserting While Maintaining Order
+
+Suppose you have a list of numbers and you frequently need to add new numbers but want to keep the list sorted at all times.
+
+```python
+import bisect
+
+def insert_sorted(lst, item):
+    bisect.bisect_left(lst, item)
+    bisect.insort_left(lst, item)
+
+# Sorted list of numbers
+numbers = [1, 3, 4, 4, 5, 6, 8]
+insert_sorted(numbers, 7)
+print(numbers)  # Output: [1, 3, 4, 4, 5, 6, 7, 8]
+```
+
+#### Example 2: Finding the Insertion Point
+
+```python
+import bisect
+
+# Sorted list of numbers
+numbers = [10, 20, 30, 30, 40, 50]
+
+# Find the index to insert the number 30 such that it remains sorted
+index = bisect.bisect_left(numbers, 30)
+print(index)  # Output: 2
+```
+
+In this example, even though 30 is already in the list, `bisect_left` returns 2, indicating that 30 can be inserted at index 2 without disturbing the order.
+
+These examples show how `bisect_left` can be used for efficient operations in scenarios where maintaining a sorted order is crucial.
+
+#### Leetcode 2300.: Successful Pairs of Spells and Potions
+
+You are given two positive integer arrays spells and potions, of length n and m respectively, where spells[i] represents the strength of the ith spell and potions[j] represents the strength of the jth potion.
+
+You are also given an integer success. A spell and potion pair is considered successful if the product of their strengths is at least success.
+
+Return an integer array pairs of length n where pairs[i] is the number of potions that will form a successful pair with the ith spell.
+
+A simple solution to this problem using `bisect_left`:
+```python
+class Solution:
+    def successfulPairs(self, spells: List[int], potions: List[int], success: int) -> List[int]:
+        ans = []
+        potions.sort()
+        for spell in spells:
+            p = bisect_left(potions, ceil(success / spell))
+            ans.append(len(potions) - p)
+        return ans
+```
