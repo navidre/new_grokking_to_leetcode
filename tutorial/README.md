@@ -6,6 +6,45 @@ All the matrials in this page are generated using the following custom GPT:
 # LeetCode Cheatsheet
 🚀 **[LeetCode Cheatsheet](https://leetcode.com/explore/interview/card/cheatsheets/720/resources/4723/)** - Great resource for templates of how to write code for each algorithm pattern. Super helpful to review!
 
+# Data Structure Notes
+
+Below is a table comparing different data structures commonly used in programming for storing collections of data: `HashSet`, `HashMap`, and the more general `Set`. In addition, I'll add the `List` data structure to provide a broader perspective, as it's another fundamental collection type.
+
+Your provided comparison table and discussion provide a clear and well-structured overview of the differences among these data structures. However, I'll refine the language for clarity and conciseness, and ensure that all points are accurate and effectively communicated. Let's polish this content for better understanding:
+
+---
+
+## Comparison of Common Data Structures: `HashSet`, `HashMap`, `Set`, `List`, and `Bloom Filter`
+
+### Introduction
+
+In programming, managing collections of data efficiently is crucial for performance and effectiveness. Data structures like `HashSet`, `HashMap`, `Set`, `List`, and `Bloom Filter` are tailored for specific uses such as searching, inserting, deleting, or ensuring uniqueness. The choice of data structure depends on the application's needs, including requirements for key-value associations, maintenance of order, or fast access.
+
+### Comparison Table
+
+| Feature/Structure      | HashSet                        | HashMap                                  | Set                          | List                                | Bloom Filter                                         |
+|------------------------|--------------------------------|------------------------------------------|------------------------------|-------------------------------------|------------------------------------------------------|
+| **Description**        | Stores unique elements without associated data. | Stores key-value pairs with unique keys. | Collection of unique elements, similar to `HashSet`. | Ordered collection allowing duplicates. | Probabilistic structure for space-efficient membership queries with possible false positives. |
+| **Element Uniqueness** | Yes                            | Keys unique; values can duplicate.       | Yes                          | No                                  | No actual elements stored; uses hashing for checks. |
+| **Order Preservation** | No                             | No                                       | No                           | Yes                                 | No                                                   |
+| **Search Efficiency**  | O(1) average                   | O(1) average for keys                    | O(1) average                 | O(n)                                | O(1)                                                 |
+| **Insert Efficiency**  | O(1) average                   | O(1) average                             | O(1) average                 | O(1) typically, O(n) for end insertions | O(1)                                                 |
+| **Delete Efficiency**  | O(1) average                   | O(1) average                             | O(1) average                 | O(n)                                | Not supported                                        |
+| **Typical Usage**      | Ensuring no duplicates in membership checks. | Quick lookup by keys for associated values. | Uniqueness in operations like unions or intersections. | Sequential storage with index-based access. | Efficient where acceptable error rate and space efficiency are crucial (e.g., caching). |
+| **Example**            | Attendance systems with unique IDs. | User info retrieval by ID.              | Mathematical set operations. | Playlists or ordered tasks.          | Network systems to check crawled URLs or spam filtering. |
+
+### Key Takeaways
+
+- **HashSet** and **Set** are ideal for scenarios requiring the presence of unique elements without association to other data.
+- **HashMap** provides an efficient means to manage associations between unique keys and their corresponding values.
+- **List** is preferred where element order is important and needs to be maintained, with efficient positional access.
+- **Bloom Filter** offers a space-saving, probabilistic approach, ideal for large datasets where a low error probability is tolerable. It's particularly useful in scenarios like network systems or cache mechanisms.
+
+### Additional Notes on Bloom Filters
+- **False Positives**: Bloom filters can mistakenly indicate the presence of an element due to hash collisions.
+- **No False Negatives**: If a Bloom filter reports an element as absent, it is definitively not present.
+- **No Element Removal**: Bloom filters do not support direct element removal as it would affect the integrity of other elements due to shared hash functions.
+
 # Sliding Window
 
 The sliding window technique is a method used to solve problems that involve arrays or lists, especially when you're asked to find a subarray that satisfies certain conditions. This technique is particularly useful for problems where you need to consider contiguous elements together. The key idea is to maintain a 'window' that slides over the data to examine different subsets of it.
