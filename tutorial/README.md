@@ -2232,7 +2232,7 @@ Relevant links to learn more about heaps:
 
 # Binary Search Pattern Overview
 
-Binary search is a foundational concept in algorithm design and is widely used to efficiently search through a sorted list of elements, reducing the time complexity to \(O(\log n)\) from \(O(n)\), which is what you would get with a linear search. The binary search algorithm repeatedly divides the search interval in half. If the value of the search key is less than the item in the middle of the interval, it narrows down the interval to the lower half. Otherwise, it narrows it down to the upper half. This method is very efficient for large datasets where a linear search would be impractical.
+Binary search is a foundational concept in algorithm design and is widely used to efficiently search through a sorted list of elements, reducing the time complexity to $O(\log n)$ from $O(n)$, which is what you would get with a linear search. The binary search algorithm repeatedly divides the search interval in half. If the value of the search key is less than the item in the middle of the interval, it narrows down the interval to the lower half. Otherwise, it narrows it down to the upper half. This method is very efficient for large datasets where a linear search would be impractical.
 
 ### Step-by-Step Explanation
 
@@ -2453,7 +2453,7 @@ Backtracking can be viewed as a depth-first search (DFS) for a solution space. I
 4. **Backtrack:** If the current candidate does not lead to a solution, revert to the previous step and try another candidate.
 
 **Example - Solving a Permutation Problem:**
-Suppose you need to generate all permutations of the array \([1, 2, 3]\). Backtracking approach would be:
+Suppose you need to generate all permutations of the array $[1, 2, 3]$. Backtracking approach would be:
 - Start with an empty permutation.
 - Add each element to the permutation, check if it can lead to a valid permutation (constraint), and continue.
 - Once a permutation is complete (goal reached), store it.
@@ -2543,7 +2543,7 @@ One-dimensional dynamic programming (1D DP) is a powerful technique in algorithm
 ### 1. Basic Concept
 In one-dimensional dynamic programming, you typically use an array (or sometimes just a few variables to save space) to keep track of solutions to subproblems. The idea is that each element of the array represents an answer to a problem for a particular state or subproblem.
 
-For example, if you are calculating the Fibonacci sequence using dynamic programming, you might have an array `dp` where `dp[i]` stores the `i`-th Fibonacci number. The recursive relation in this scenario would be: $\text{dp}[i] = \text{dp}[i-1] + \text{dp}[i-2] \]$. This relation allows you to build up the solution to the problem starting from the base cases and using previously computed values.
+For example, if you are calculating the Fibonacci sequence using dynamic programming, you might have an array `dp` where `dp[i]` stores the `i`-th Fibonacci number. The recursive relation in this scenario would be: $\text{dp}[i] = \text{dp}[i-1] + \text{dp}[i-2]$. This relation allows you to build up the solution to the problem starting from the base cases and using previously computed values.
 
 ### 2. Example: Fibonacci Sequence
 Let's write a dynamic programming solution for the Fibonacci sequence using Python to illustrate this concept.
@@ -2568,7 +2568,7 @@ def fibonacci(n):
 print(fibonacci(10))  # Output: 55
 ```
 
-In this example, the space complexity is \(O(n)\) because we maintain an array of size `n+1`, and the time complexity is also \(O(n)\) since we iterate from 2 to `n`.
+In this example, the space complexity is $O(n)$ because we maintain an array of size `n+1`, and the time complexity is also $O(n)$ since we iterate from 2 to `n`.
 
 ### 3. Real-world Implications
 Dynamic programming is used in various real-world applications including, but not limited to:
@@ -2600,7 +2600,7 @@ def climb_stairs(n):
 print(climb_stairs(5))  # Output: 8
 ```
 
-This solution has a time complexity of \(O(n)\) and a space complexity of \(O(n)\).
+This solution has a time complexity of $O(n)$ and a space complexity of $O(n)$.
 
 #### Problem 2: Coin Change
 You are given an integer array `coins` representing coins of different denominations and an integer `amount` representing a total amount of money. Return the fewest number of coins that you need to make up that amount.
@@ -2625,7 +2625,7 @@ def coin_change(coins, amount):
 print(coin_change([1, 2, 5], 11))  # Output: 3
 ```
 
-This solution has a time complexity of \(O(n \times m)\) where `n` is the number of different coins and `m` is the total amount, and a space complexity of \(O(m)\).
+This solution has a time complexity of $O(n \times m)$ where `n` is the number of different coins and `m` is the total amount, and a space complexity of $O(m)$.
 
 These problems exemplify how 1D dynamic programming can be applied to different scenarios, helping to find optimal solutions by utilizing past computations.
 
