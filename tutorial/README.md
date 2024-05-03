@@ -2543,9 +2543,7 @@ One-dimensional dynamic programming (1D DP) is a powerful technique in algorithm
 ### 1. Basic Concept
 In one-dimensional dynamic programming, you typically use an array (or sometimes just a few variables to save space) to keep track of solutions to subproblems. The idea is that each element of the array represents an answer to a problem for a particular state or subproblem.
 
-For example, if you are calculating the Fibonacci sequence using dynamic programming, you might have an array `dp` where `dp[i]` stores the `i`-th Fibonacci number. The recursive relation in this scenario would be:
-\[ \text{dp}[i] = \text{dp}[i-1] + \text{dp}[i-2] \]
-This relation allows you to build up the solution to the problem starting from the base cases and using previously computed values.
+For example, if you are calculating the Fibonacci sequence using dynamic programming, you might have an array `dp` where `dp[i]` stores the `i`-th Fibonacci number. The recursive relation in this scenario would be: $\text{dp}[i] = \text{dp}[i-1] + \text{dp}[i-2] \]$. This relation allows you to build up the solution to the problem starting from the base cases and using previously computed values.
 
 ### 2. Example: Fibonacci Sequence
 Let's write a dynamic programming solution for the Fibonacci sequence using Python to illustrate this concept.
