@@ -2397,3 +2397,104 @@ class Solution:
             ans.append(len(potions) - p)
         return ans
 ```
+
+# Backtracking
+
+Backtracking is a powerful algorithmic technique used extensively in solving complex computational problems, especially those involving permutations, combinations, and constraint satisfaction problems such as puzzles. It involves recursively exploring potential solutions to a problem and abandoning paths that don't lead to a valid solution (i.e., "backtracking" to previous steps to try alternative solutions). This approach is particularly useful in situations where you need to explore all possible configurations to find a solution that meets certain criteria.
+
+### Step 1: Detailed Explanation with Examples
+
+**Concept:**
+Backtracking can be viewed as a depth-first search (DFS) for a solution space. It builds candidates towards a solution and abandons a candidate ("backtracks") as soon as it determines that this candidate cannot possibly lead to a valid solution.
+
+**Key Steps in Backtracking:**
+1. **Choose:** Choose a potential candidate. Depending on the problem, this could be an initial part of a solution.
+2. **Constraint:** Check if the current candidate meets the desired constraints of the problem. If it does not, abandon the candidate.
+3. **Goal:** Check if the current candidate satisfies the goal of the problem. If it does, consider it as a potential solution.
+4. **Backtrack:** If the current candidate does not lead to a solution, revert to the previous step and try another candidate.
+
+**Example - Solving a Permutation Problem:**
+Suppose you need to generate all permutations of the array \([1, 2, 3]\). Backtracking approach would be:
+- Start with an empty permutation.
+- Add each element to the permutation, check if it can lead to a valid permutation (constraint), and continue.
+- Once a permutation is complete (goal reached), store it.
+- If adding the next element violates the constraint (e.g., element already exists in the permutation), backtrack by removing the last added element and try the next possible element.
+
+### Step 2: Real World Implications
+
+**Real-World Usage:**
+- **Puzzles:** Solving games and puzzles like Sudoku, crossword puzzles, etc.
+- **Databases:** Query optimization in databases can use backtracking to find the most efficient query execution plan.
+- **Robotics:** Pathfinding algorithms for robots in dynamic environments can utilize backtracking to continuously recalibrate paths.
+
+### Step 3: Solving Fundamental Leetcode Problems
+
+Let's explore two classic Leetcode problems that effectively demonstrate the use of backtracking:
+
+**Problem 1: [Leetcode 46 - Permutations](https://leetcode.com/problems/permutations/)**
+Given an array `nums` of distinct integers, return all possible permutations.
+
+**Thought Process:**
+- Start with an empty list for storing the current permutation.
+- Iterate through each number, and if it's not already in the current permutation, add it.
+- Recurse with the new list.
+- When the permutation reaches the length of `nums`, add it to the result list.
+- To explore other permutations, backtrack by removing the last added element (step back in the recursion), then proceed with the next element.
+
+Here's how you can implement it:
+
+```python
+def permute(nums):
+    def backtrack(path):
+        # If the current path is a complete permutation
+        if len(path) == len(nums):
+            result.append(path[:])  # Make a deep copy since path is reused
+            return
+        
+        for num in nums:
+            if num not in path:  # Constraint: avoid duplicates in the path
+                path.append(num)
+                backtrack(path)  # Recurse with the new path
+                path.pop()  # Backtrack step: remove last element and try next option
+
+    result = []
+    backtrack([])
+    return result
+```
+
+**Problem 2: [Leetcode 79 - Word Search](https://leetcode.com/problems/word-search/)**
+Given an `m x n` grid of characters and a string `word`, find if the `word` exists in the grid. The word can be constructed from letters of sequentially adjacent cells, where "adjacent" cells are horizontally or vertically neighboring.
+
+**Thought Process:**
+- Iterate through each cell in the grid. Use the cell as a starting point if it matches the first letter of `word`.
+- For each matching start, use DFS to explore in all 4 possible directions (up, down, left, right).
+- Track visited positions to avoid revisiting during the current word construction.
+- Backtrack by marking a position as unvisited upon returning from a recursive search.
+
+Here's a possible implementation:
+
+```python
+def exist(board, word):
+    def dfs(index, row, col):
+        if index == len(word):
+            return True
+        if not (0 <= row < len(board) and 0 <= col < len(board[0]) and board[row][col] == word[index]):
+            return False
+        
+        temp, board[row][col] = board[row][col], '#'  # Mark as visited
+        # Explore all 4 directions
+        found = (
+
+dfs(index + 1, row + 1, col) or
+                 dfs(index + 1, row - 1, col) or
+                 dfs(index + 1, row, col + 1) or
+                 dfs(index + 1, row, col - 1))
+        board[row][col] = temp  # Backtrack
+        return found
+
+    for i in range(len(board)):
+        for j in range(len(board[0])):
+            if dfs(0, i, j):
+                return True
+    return False
+```
