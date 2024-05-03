@@ -2483,9 +2483,7 @@ def exist(board, word):
         
         temp, board[row][col] = board[row][col], '#'  # Mark as visited
         # Explore all 4 directions
-        found = (
-
-dfs(index + 1, row + 1, col) or
+        found = (dfs(index + 1, row + 1, col) or
                  dfs(index + 1, row - 1, col) or
                  dfs(index + 1, row, col + 1) or
                  dfs(index + 1, row, col - 1))
