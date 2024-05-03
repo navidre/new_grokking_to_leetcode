@@ -2535,3 +2535,125 @@ def exist(board, word):
                 return True
     return False
 ```
+
+# One-Dimensional Dynamic Programming (1D DP)
+
+One-dimensional dynamic programming (1D DP) is a powerful technique in algorithm design, primarily used to solve optimization problems by breaking them down into simpler subproblems. This method utilizes memoization or tabulation to store results of previous computations, which can be reused to solve overall problems efficiently. Let's delve into the fundamentals of 1D dynamic programming, complete with examples and applications.
+
+### 1. Basic Concept
+In one-dimensional dynamic programming, you typically use an array (or sometimes just a few variables to save space) to keep track of solutions to subproblems. The idea is that each element of the array represents an answer to a problem for a particular state or subproblem.
+
+For example, if you are calculating the Fibonacci sequence using dynamic programming, you might have an array `dp` where `dp[i]` stores the `i`-th Fibonacci number. The recursive relation in this scenario would be:
+\[ \text{dp}[i] = \text{dp}[i-1] + \text{dp}[i-2] \]
+This relation allows you to build up the solution to the problem starting from the base cases and using previously computed values.
+
+### 2. Example: Fibonacci Sequence
+Let's write a dynamic programming solution for the Fibonacci sequence using Python to illustrate this concept.
+
+```python
+def fibonacci(n):
+    # Base cases
+    if n <= 1:
+        return n
+    
+    # Create an array to store Fibonacci numbers up to n
+    dp = [0] * (n+1)
+    dp[0], dp[1] = 0, 1
+    
+    # Fill dp array using the formula from dp[2] to dp[n]
+    for i in range(2, n + 1):
+        dp[i] = dp[i - 1] + dp[i - 2]
+    
+    return dp[n]
+
+# Example usage
+print(fibonacci(10))  # Output: 55
+```
+
+In this example, the space complexity is \(O(n)\) because we maintain an array of size `n+1`, and the time complexity is also \(O(n)\) since we iterate from 2 to `n`.
+
+### 3. Real-world Implications
+Dynamic programming is used in various real-world applications including, but not limited to:
+- **Optimal resource allocation** (e.g., budgeting and finance),
+- **Text processing** (like text justification in word processors),
+- **Pathfinding algorithms** (used in GPS technologies for finding the shortest route).
+
+### 4. Leetcode Problems
+Let's solve two fundamental Leetcode problems to solidify our understanding of 1D dynamic programming.
+
+#### Problem 1: Climbing Stairs
+You are climbing a staircase. It takes `n` steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+**Thought Process**:
+1. **Base Case**: If there are 0 or 1 steps, the answer is `1` because there's only one way to be on step 0 or to climb to step 1.
+2. **Recurrence Relation**: To get to step `i`, you can either come from step `i-1` or `i-2`. So, the ways to get to step `i` are the sum of ways to get to steps `i-1` and `i-2`.
+
+```python
+def climb_stairs(n):
+    if n <= 1:
+        return 1
+    dp = [0] * (n + 1)
+    dp[0], dp[1] = 1, 1
+    for i in range(2, n + 1):
+        dp[i] = dp[i - 1] + dp[i - 2]
+    return dp[n]
+
+# Example usage
+print(climb_stairs(5))  # Output: 8
+```
+
+This solution has a time complexity of \(O(n)\) and a space complexity of \(O(n)\).
+
+#### Problem 2: Coin Change
+You are given an integer array `coins` representing coins of different denominations and an integer `amount` representing a total amount of money. Return the fewest number of coins that you need to make up that amount.
+
+**Thought Process**:
+1. **Base Case**: If `amount` is 0, the answer is 0 because no coins are needed to make up amount 0.
+2. **Initialization**: Initialize the array with a large number (infinity) since we are looking for the minimum.
+3. **Recurrence Relation**: For each coin, for each sub-amount, update the minimum coins needed by considering using the current coin.
+
+```python
+def coin_change(coins, amount):
+    dp = [float('inf')] * (amount + 1)
+    dp[0] = 0
+    for coin in coins:
+        for x in range
+
+(coin, amount + 1):
+            dp[x] = min(dp[x], dp[x - coin] + 1)
+    return dp[amount] if dp[amount] != float('inf') else -1
+
+# Example usage
+print(coin_change([1, 2, 5], 11))  # Output: 3
+```
+
+This solution has a time complexity of \(O(n \times m)\) where `n` is the number of different coins and `m` is the total amount, and a space complexity of \(O(m)\).
+
+These problems exemplify how 1D dynamic programming can be applied to different scenarios, helping to find optimal solutions by utilizing past computations.
+
+### Memoization vs Tabulation
+
+Memoization and tabulation are two techniques used in dynamic programming to optimize the computation of recursive algorithms by storing the results of expensive function calls and reusing them when the same inputs occur again. Both methods aim to reduce the time complexity of an algorithm by avoiding redundant calculations. However, they differ in their approach and implementation:
+
+#### Memoization
+1. **Top-down approach:** Memoization is implemented in a top-down manner. It starts with the original problem and breaks it down into subproblems recursively.
+2. **Lazy evaluation:** It only computes and stores results for subproblems as needed. This means not all subproblems are necessarily computed, depending on the inputs and the nature of the problem.
+3. **Implementation:** It is typically implemented using recursion with an auxiliary data structure (like a hash table or an array) to store the results of subproblems.
+4. **Space efficiency:** Since not all subproblems may be computed, memoization can be more space-efficient in cases where not all solutions to subproblems are needed.
+5. **Overhead:** The recursive implementation can add overhead due to function call stacks, especially if the recursion depth is very high.
+
+#### Tabulation
+1. **Bottom-up approach:** Tabulation uses a bottom-up approach. It starts by solving the smallest subproblems first, then uses those solutions to build up solutions to larger subproblems.
+2. **Eager evaluation:** This technique involves solving for every subproblem and filling up a table (usually an array or a matrix) systematically. All entries of the table are filled, ensuring that no potential subproblem is left unsolved.
+3. **Implementation:** It is generally implemented using iterative solutions and often results in better space and time efficiency because it avoids the overhead of recursive calls.
+4. **Space utilization:** Tabulation can potentially use more space than necessary if not all subproblems are required to solve the main problem.
+5. **Performance:** Typically, tabulation can be faster and more memory-efficient in terms of call stack usage because it avoids the deep recursion that can occur in memoization.
+
+#### Choosing Between Memoization and Tabulation
+The choice between memoization and tabulation depends on several factors:
+- **Problem constraints:** If the problem has limited stack space or if the maximum recursion depth might be exceeded, tabulation is preferable.
+- **Subproblem dependency:** If not all subproblems need to be solved to get the answer to the main problem, memoization might be more efficient.
+- **Ease of implementation:** Recursive solutions (memoization) can be more straightforward to implement for problems where the recursive relation is complex.
+- **Memory vs. performance trade-offs:** If optimizing for time performance is more critical, and memory usage is less of a concern, tabulation might be a better choice.
+
+In practice, both techniques are widely used, and often the choice is influenced by the specific requirements and constraints of the problem at hand.
