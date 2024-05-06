@@ -2648,11 +2648,20 @@ You are given an integer array `coins` representing coins of different denominat
 
 ```python
 def coin_change(coins, amount):
+    # Initialize the dp array where dp[i] will hold the minimum number of coins needed for amount i
     dp = [float('inf')] * (amount + 1)
-    dp[0] = 0
+    dp[0] = 0  # Base case: No coins are needed to make the amount 0
+
+    # Iterate over each coin denomination available
     for coin in coins:
+        # For each coin, iterate through all sub-amounts from 'coin' to 'amount'
+        # (starting from 'coin' because we can't use a coin if the amount is less than the coin's value)
         for x in range(coin, amount + 1):
+            # Update the dp value for this amount x to be the minimum of itself or
+            # the value one coin less than this amount plus one more coin of this type
             dp[x] = min(dp[x], dp[x - coin] + 1)
+
+    # If dp[amount] is still infinity, it means it's not possible to form this amount with the given coins
     return dp[amount] if dp[amount] != float('inf') else -1
 
 # Example usage
