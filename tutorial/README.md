@@ -45,6 +45,42 @@ In programming, managing collections of data efficiently is crucial for performa
 - **No False Negatives**: If a Bloom filter reports an element as absent, it is definitively not present.
 - **No Element Removal**: Bloom filters do not support direct element removal as it would affect the integrity of other elements due to shared hash functions.
 
+# Pattern Code Templates
+
+## Dynamic Programming 
+
+```python
+def solve_problem(input1, input2, ...):
+    # Dictionary to store the intermediate results
+    memo = {}
+
+    # Helper function that performs the recursive computation
+    def dp(state1, state2, ...):
+        # Convert current state to a tuple or a form that can be used as a dictionary key
+        memo_key = (state1, state2, ...)
+        
+        # Check if the result for the current state is already computed
+        if memo_key in memo:
+            return memo[memo_key]
+
+        # Base case: define stopping condition for recursion
+        if base_case_condition:
+            return base_case_result
+
+        # Compute the result recursively and store it in the memo
+        result = 0  # Initialize result according to the problem requirement
+        # Compute result considering various transitions and choices
+        result = compute_result_based_on_transitions(dp, state1, state2, ...)
+
+        # Save the result in memo before returning
+        memo[memo_key] = result
+        return result
+
+    # Initial call to the dp function with the initial state
+    return dp(initial_state1, initial_state2, ...)
+
+```
+
 # Sliding Window
 
 The sliding window technique is a method used to solve problems that involve arrays or lists, especially when you're asked to find a subarray that satisfies certain conditions. This technique is particularly useful for problems where you need to consider contiguous elements together. The key idea is to maintain a 'window' that slides over the data to examine different subsets of it.
