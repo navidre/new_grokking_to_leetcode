@@ -88,13 +88,6 @@ def solve_bottom_up(input1):
     return dp[input1]  # Return the result for the original problem
 ```
 
-### Explanation of Comments
-
-- **Comments in the Code**: These comments explain each part of the code, from initialization of data structures (like the memoization dictionary or DP array) to the handling of base cases and the iterative or recursive calculation of results.
-- **Purpose**: The comments are designed to make the code self-explanatory, illustrating the logic and flow of data, which is essential for understanding and debugging dynamic programming solutions. 
-
-These templates and comments should help you build a solid understanding of dynamic programming and how to implement it in various scenarios.
-
 # Sliding Window
 
 The sliding window technique is a method used to solve problems that involve arrays or lists, especially when you're asked to find a subarray that satisfies certain conditions. This technique is particularly useful for problems where you need to consider contiguous elements together. The key idea is to maintain a 'window' that slides over the data to examine different subsets of it.
