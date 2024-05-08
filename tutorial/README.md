@@ -65,12 +65,22 @@ def solve_top_down(input1, input2):
         if state1 == 0 or state2 == 0:  # Base case example
             return base_case_result
         
-        # Recursive case: calculate the result and store in memo
-        result = compute_result(dp, state1 - 1, state2 - 1)
-        memo[(state1, state2)] = result
+        # Compute results for smaller subproblems recursively
+        subproblem_result1 = dp(state1 - 1, state2)  # Recursion for one subproblem
+        subproblem_result2 = dp(state1, state2 - 1)  # Recursion for another subproblem
+
+        # Use the results of subproblems to compute the current problem's result
+        result = compute_result(subproblem_result1, subproblem_result2)
+
+        memo[(state1, state2)] = result  # Store the computed result in the memo dictionary
         return result
 
     return dp(input1, input2)
+
+def compute_result(result1, result2):
+    # This function should implement the logic to combine result1 and result2
+    # For example, it might be adding them, finding the minimum, etc.
+    return some_combination(result1, result2)
 ```
 
 ### 2. Bottom-Up Tabulation (Iterative)
