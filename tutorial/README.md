@@ -45,41 +45,55 @@ In programming, managing collections of data efficiently is crucial for performa
 - **No False Negatives**: If a Bloom filter reports an element as absent, it is definitively not present.
 - **No Element Removal**: Bloom filters do not support direct element removal as it would affect the integrity of other elements due to shared hash functions.
 
-# Pattern Code Templates
+# Template ctarter codes for patterns
 
-## Dynamic Programming 
+## Dynamic Programming
+
+
+### 1. Top-Down Memoization (Recursive)
+
+This approach uses recursion to break down the problem into smaller subproblems, caching results to avoid redundant calculations.
 
 ```python
-def solve_problem(input1, input2, ...):
-    # Dictionary to store the intermediate results
-    memo = {}
+def solve_top_down(input1, input2):
+    memo = {}  # Cache for storing results of subproblems
 
-    # Helper function that performs the recursive computation
-    def dp(state1, state2, ...):
-        # Convert current state to a tuple or a form that can be used as a dictionary key
-        memo_key = (state1, state2, ...)
+    def dp(state1, state2):
+        if (state1, state2) in memo:  # Check if result is already computed
+            return memo[(state1, state2)]
         
-        # Check if the result for the current state is already computed
-        if memo_key in memo:
-            return memo[memo_key]
-
-        # Base case: define stopping condition for recursion
-        if base_case_condition:
+        if state1 == 0 or state2 == 0:  # Base case example
             return base_case_result
-
-        # Compute the result recursively and store it in the memo
-        result = 0  # Initialize result according to the problem requirement
-        # Compute result considering various transitions and choices
-        result = compute_result_based_on_transitions(dp, state1, state2, ...)
-
-        # Save the result in memo before returning
-        memo[memo_key] = result
+        
+        # Recursive case: calculate the result and store in memo
+        result = compute_result(dp, state1 - 1, state2 - 1)
+        memo[(state1, state2)] = result
         return result
 
-    # Initial call to the dp function with the initial state
-    return dp(initial_state1, initial_state2, ...)
-
+    return dp(input1, input2)
 ```
+
+### 2. Bottom-Up Tabulation (Iterative)
+
+This approach fills a table iteratively based on the smallest subproblems, building up to the solution of the original problem.
+
+```python
+def solve_bottom_up(input1):
+    dp = [0] * (input1 + 1)  # DP array to store the results of subproblems
+    dp[0] = base_case_result  # Initialize base case
+
+    for i in range(1, input1 + 1):
+        dp[i] = dp[i - 1] + some_value  # Fill dp array iteratively
+
+    return dp[input1]  # Return the result for the original problem
+```
+
+### Explanation of Comments
+
+- **Comments in the Code**: These comments explain each part of the code, from initialization of data structures (like the memoization dictionary or DP array) to the handling of base cases and the iterative or recursive calculation of results.
+- **Purpose**: The comments are designed to make the code self-explanatory, illustrating the logic and flow of data, which is essential for understanding and debugging dynamic programming solutions. 
+
+These templates and comments should help you build a solid understanding of dynamic programming and how to implement it in various scenarios.
 
 # Sliding Window
 
