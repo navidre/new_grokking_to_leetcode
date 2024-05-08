@@ -75,7 +75,9 @@ def solve_top_down(input1, input2):
 
 ### 2. Bottom-Up Tabulation (Iterative)
 
-This approach fills a table iteratively based on the smallest subproblems, building up to the solution of the original problem.
+This approach fills a table iteratively based on the smallest subproblems, building up to the solution of the original problem. This template is generic.
+We may not need an extra space for base case, e.g. the case of [minimum cost of climibing stairs](https://leetcode.com/problems/min-cost-climbing-stairs).
+We may also store the previous steps (sub-problems) in a dictionary instead of an array, e.g. `{}` or `defaultdict`.
 
 ```python
 def solve_bottom_up(input1):
