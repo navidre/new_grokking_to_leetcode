@@ -45,7 +45,7 @@ In programming, managing collections of data efficiently is crucial for performa
 - **No False Negatives**: If a Bloom filter reports an element as absent, it is definitively not present.
 - **No Element Removal**: Bloom filters do not support direct element removal as it would affect the integrity of other elements due to shared hash functions.
 
-# Template ctarter codes for patterns
+# Template starter codes for patterns
 
 ## Dynamic Programming
 
