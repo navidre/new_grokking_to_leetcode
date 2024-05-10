@@ -397,7 +397,7 @@ class Graph:
         self.graph[u].append(v)
 
     def get_edges(self, u):
-        return self.graph.get(u, [])
+        return self.graph.get(u, []) # [] is the default value
 
 # Example usage:
 graph = Graph()
