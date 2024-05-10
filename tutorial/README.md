@@ -45,6 +45,311 @@ In programming, managing collections of data efficiently is crucial for performa
 - **No False Negatives**: If a Bloom filter reports an element as absent, it is definitively not present.
 - **No Element Removal**: Bloom filters do not support direct element removal as it would affect the integrity of other elements due to shared hash functions.
 
+## Implementation of Common Data Structures in Python
+Implementing various data structures in Python involves understanding their theoretical aspects, such as time and space complexities for different operations (e.g., access, insertion, deletion). Let's cover some common data structures: arrays, linked lists, stacks, queues, trees, graphs, and hash tables. I'll provide Python implementations for each, along with comments explaining the code and the complexities of their key operations.
+
+### 1. Arrays (Dynamic Arrays in Python)
+Python's list is a dynamic array. Let’s implement a simple dynamic array class to better understand its behavior.
+
+```python
+class DynamicArray:
+    def __init__(self):
+        self.n = 0  # Number of elements in the array
+        self.capacity = 1  # Initial capacity
+        self.A = [None] * self.capacity
+    
+    def __len__(self):
+        return self.n
+    
+    def __getitem__(self, k):
+        if not 0 <= k < self.n:
+            return IndexError('K is out of bounds!')
+        return self.A[k]
+    
+    def append(self, element):
+        if self.n == self.capacity:
+            self._resize(2 * self.capacity)  # Resize array if capacity is reached
+        self.A[self.n] = element
+        self.n += 1
+    
+    def _resize(self, new_cap):
+        B = [None] * new_cap
+        for k in range(self.n):
+            B[k] = self.A[k]
+        self.A = B
+        self.capacity = new_cap
+
+# Example usage:
+arr = DynamicArray()
+arr.append(1)
+arr.append(2)
+print(arr[0])  # Outputs: 1
+print(arr[1])  # Outputs: 2
+print(len(arr))  # Outputs: 2
+```
+**Time Complexity:**
+- Access: $O(1)$
+- Append: Amortized $O(1)$
+- Resize: $O(n)$
+
+**Space Complexity:** $O(n)$
+
+### 2. Linked List
+Here's a simple implementation of a singly linked list:
+
+```python
+class Node:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+class LinkedList:
+    def __init__(self):
+        self.head = None
+    
+    def append(self, value):
+        if not self.head:
+            self.head = Node(value)
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = Node(value)
+
+    def __str__(self):
+        values = []
+        current = self.head
+        while current:
+            values.append(str(current.value))
+            current = current.next
+        return ' -> '.join(values)
+
+# Example usage:
+ll = LinkedList()
+ll.append(1)
+ll.append(2)
+print(ll)  # Outputs: 1 -> 2
+```
+**Time Complexity:**
+- Append: $O(n)$
+- Access: $O(n)$
+
+**Space Complexity:** $O(n)$
+
+### 3. Stack
+A stack uses LIFO (last-in-first-out) order:
+
+```python
+class Stack:
+    def __init__(self):
+        self.elements = []
+    
+    def push(self, element):
+        self.elements.append(element)
+    
+    def pop(self):
+        if not self.is_empty():
+            return self.elements.pop()
+        raise IndexError("pop from empty stack")
+    
+    def peek(self):
+        if not self.is_empty():
+            return self.elements[-1]
+        raise IndexError("peek from empty stack")
+    
+    def is_empty(self):
+        return len(self.elements) == 0
+
+    def __len__(self):
+        return len(self.elements)
+
+# Example usage:
+stack = Stack()
+stack.push(1)
+stack.push(2)
+print(stack.pop())  # Outputs: 2
+print(stack.peek())  # Outputs: 1
+print(len(stack))  # Outputs: 1
+```
+**Time Complexity:**
+- Push: $O(1)$
+- Pop: $O(1)$
+- Peek: $O(1)$
+
+**Space Complexity:** $O(n)$
+
+Continuing with the implementation of additional common data structures in Python without using any external packages. I'll now cover queues, binary search trees, graphs, and hash tables.
+
+### 4. Queue
+A queue uses FIFO (first-in-first-out) order. Here's an implementation using a list:
+
+```python
+class Queue:
+    def __init__(self):
+        self.elements = []
+
+    def enqueue(self, element):
+        self.elements.append(element)
+
+    def dequeue(self):
+        if self.is_empty():
+            raise IndexError("dequeue from empty queue")
+        return self.elements.pop(0)
+
+    def front(self):
+        if self.is_empty():
+            raise IndexError("front from empty queue")
+        return self.elements[0]
+
+    def is_empty(self):
+        return len(self.elements) == 0
+
+    def __len__(self):
+        return len(self.elements)
+
+# Example usage:
+queue = Queue()
+queue.enqueue(1)
+queue.enqueue(2)
+print(queue.dequeue())  # Outputs: 1
+print(queue.front())    # Outputs: 2
+print(len(queue))       # Outputs: 1
+```
+**Time Complexity:**
+- Enqueue: $O(1)$
+- Dequeue: $O(n)$ because of the list pop operation from the front
+- Front: $O(1)$
+
+**Space Complexity:** $O(n)$
+
+### 5. Binary Search Tree
+A binary search tree (BST) allows fast lookup, addition, and deletion of items:
+
+```python
+class TreeNode:
+    def __init__(self, key, val):
+        self.key = key
+        self.val = val
+        self.left = None
+        self.right = None
+
+class BinarySearchTree:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, key, val):
+        if not self.root:
+            self.root = TreeNode(key, val)
+        else:
+            self._insert(self.root, key, val)
+
+    def _insert(self, node, key, val):
+        if key < node.key:
+            if node.left is None:
+                node.left = TreeNode(key, val)
+            else:
+                self._insert(node.left, key, val)
+        else:
+            if node.right is None:
+                node.right = TreeNode(key, val)
+            else:
+                self._insert(node.right, key, val)
+
+    def find(self, key):
+        return self._find(self.root, key)
+
+    def _find(self, node, key):
+        if node is None:
+            return None
+        elif key == node.key:
+            return node.val
+        elif key < node.key:
+            return self._find(node.left, key)
+        else:
+            return self._find(node.right, key)
+
+# Example usage:
+bst = BinarySearchTree()
+bst.insert(1, 'A')
+bst.insert(2, 'B')
+print(bst.find(1))  # Outputs: 'A'
+print(bst.find(2))  # Outputs: 'B'
+```
+**Time Complexity:**
+- Insert: Average $O(\log n)$, Worst $O(n)$ if the tree becomes unbalanced like a linked list.
+- Find: Average $O(\log n)$, Worst $O(n)$
+
+**Space Complexity:** $O(n)$
+
+### 6. Graphs
+Representing a graph using an adjacency list:
+
+```python
+class Graph:
+    def __init__(self):
+        self.graph = {}
+
+    def add_edge(self, u, v):
+        if u not in self.graph:
+            self.graph[u] = []
+        self.graph[u].append(v)
+
+    def get_edges(self, u):
+        return self.graph.get(u, [])
+
+# Example usage:
+graph = Graph()
+graph.add_edge(1, 2)
+graph.add_edge(1, 3)
+print(graph.get_edges(1))  # Outputs: [2, 3]
+```
+**Time Complexity:**
+- Add Edge: $O(1)$
+- Get Edges: $O(1)$ assuming return of the list is direct
+
+**Space Complexity:** $O(V + E)$ where $V$ is the number of vertices and $E$ is the number of edges.
+
+### 7. Hash Table
+Implementing a basic hash table using chaining for collision resolution:
+
+```python
+class HashTable:
+    def __init__(self, size=101):
+        self.size = size
+        self.table = [[] for _ in range(self.size)]
+
+    def hash_function(self, key):
+        return hash(key) % self.size
+
+    def insert(self, key, value):
+        idx = self.hash_function(key)
+        for i, (k, v) in enumerate(self.table[idx]):
+            if k == key:
+                self.table[idx][i] = (key, value)
+                return
+        self.table[idx].append((key, value))
+
+    def find(self, key):
+        idx = self.hash_function(key)
+       
+
+ for k, v in self.table[idx]:
+            if k == key:
+                return v
+        return None
+
+# Example usage:
+ht = HashTable()
+ht.insert('key1', 'value1')
+ht.insert('key2', 'value2')
+print(ht.find('key1'))  # Outputs: 'value1'
+```
+**Time Complexity:**
+- Insert: Average $O(1)$, Worst $O(n)$ if many keys hash to the same index.
+- Find: Average $O(1)$, Worst $O(n)$
+
+**Space Complexity:** $O(n)$
+
 # Template starter codes for patterns
 
 ## Dynamic Programming
