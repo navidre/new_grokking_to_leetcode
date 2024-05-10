@@ -309,22 +309,37 @@ A binary search tree (BST) allows fast lookup, addition, and deletion of items:
 ```python
 class TreeNode:
     def __init__(self, key, val):
+        # Initialize a TreeNode with a key and a value.
+        # key: the key associated with the value.
+        # val: the value associated with the key.
         self.key = key
         self.val = val
+        # left and right attributes are pointers to the left and right children, respectively.
+        # Initially, both are set to None (i.e., no children).
         self.left = None
         self.right = None
 
 class BinarySearchTree:
     def __init__(self):
+        # Initialize a Binary Search Tree (BST).
+        # The root attribute holds the root node of the tree.
+        # Initially, the tree is empty, so root is set to None.
         self.root = None
 
     def insert(self, key, val):
+        # Insert a new key-value pair into the BST.
+        # If the tree is empty, set the root to a new TreeNode containing the key-value pair.
+        # Otherwise, call the _insert helper function to find the correct position for the new node.
         if not self.root:
             self.root = TreeNode(key, val)
         else:
             self._insert(self.root, key, val)
 
     def _insert(self, node, key, val):
+        # Helper function for insert. Recursively find the correct position for the new key.
+        # node: current node in the tree
+        # key: key of the new node
+        # val: value of the new node
         if key < node.key:
             if node.left is None:
                 node.left = TreeNode(key, val)
@@ -337,9 +352,15 @@ class BinarySearchTree:
                 self._insert(node.right, key, val)
 
     def find(self, key):
+        # Public method to find a value by its key in the BST.
+        # Starts the search from the root.
         return self._find(self.root, key)
 
     def _find(self, node, key):
+        # Helper function for find. Recursively search for the key in the tree.
+        # Returns the value associated with the key, or None if the key is not found.
+        # node: current node in the tree
+        # key: key to find
         if node is None:
             return None
         elif key == node.key:
