@@ -201,8 +201,6 @@ print(len(stack))  # Outputs: 1
 
 **Space Complexity:** $O(n)$
 
-Continuing with the implementation of additional common data structures in Python without using any external packages. I'll now cover queues, binary search trees, graphs, and hash tables.
-
 ### 4a. Queue - Simple
 A queue uses FIFO (first-in-first-out) order. Here's an implementation using a list:
 
