@@ -21,8 +21,13 @@ Here are a few examples and their uses:
 6. `__add__(self, other)`: Defines behavior for the addition operator `+`.
 7. `__eq__(self, other)`: Defines behavior for the equality operator `==`.
 8. `__iter__(self)`: Should return an iterator for the object. This method allows objects to be used in loops.
+9. `__or__(self, other)`: Defines behavior for the bitwise OR operator `|` for custom classes. Note that this is for bitwise operations, which differ from logical operations typically used with boolean values. However, in Python, if you define this method, you can use the `|` operator for logical OR operations for instances of your class if that's the intended design.
+11. `__and__(self, other)`: Defines behavior for the bitwise AND operator `&` for custom classes. Like `__or__`, it's officially for bitwise operations but can be adapted for logical AND operations between class instances.
 
 These methods allow developers to utilize Python’s built-in language features with their own user-defined objects and can be overridden to customize the behavior of these operations.
+
+> :star2: **Fun Fact:** [LangChain's LCEL](https://python.langchain.com/v0.1/docs/expression_language/) overwrites the `__or__` magic/dunder method to connect sequential blocks!
+
 
 # Data Structure Notes
 
