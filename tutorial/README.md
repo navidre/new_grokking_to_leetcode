@@ -203,7 +203,7 @@ print(len(stack))  # Outputs: 1
 
 Continuing with the implementation of additional common data structures in Python without using any external packages. I'll now cover queues, binary search trees, graphs, and hash tables.
 
-### 4. Queue
+### 4. Queue - Simple
 A queue uses FIFO (first-in-first-out) order. Here's an implementation using a list:
 
 ```python
@@ -244,6 +244,66 @@ print(len(queue))       # Outputs: 1
 - Front: $O(1)$
 
 **Space Complexity:** $O(n)$
+
+### 5a. Queue - with two stacks
+To achieve a dequeue operation with a time complexity of $ O(1) $ in Python without using any external packages, you can modify the `Queue` implementation to use two stacks. This approach leverages two lists (representing stacks) where one stack is used for enqueueing elements and the other for dequeueing them.
+
+Here's how it works:
+1. For enqueueing, push the elements into the first stack.
+2. For dequeueing, if the second stack is empty, transfer all elements from the first stack to the second stack, reversing their order in the process. Then, pop the elements from the second stack.
+
+This method ensures that each element is moved exactly twice - once into the first stack and once into the second stack - giving an amortized time complexity of $ O(1) $ for dequeue operations.
+
+Here's an updated implementation of the `Queue` class using this approach:
+
+```python
+class Queue:
+    def __init__(self):
+        self.in_stack = []  # Stack for enqueue operations
+        self.out_stack = []  # Stack for dequeue operations
+
+    def enqueue(self, element):
+        self.in_stack.append(element)
+
+    def dequeue(self):
+        if self.is_empty():
+            raise IndexError("dequeue from empty queue")
+        if not self.out_stack:
+            while self.in_stack:
+                self.out_stack.append(self.in_stack.pop())
+        return self.out_stack.pop()
+
+    def front(self):
+        if self.is_empty():
+            raise IndexError("front from empty queue")
+        if not self.out_stack:
+            while self.in_stack:
+                self.out_stack.append(self.in_stack.pop())
+        return self.out_stack[-1]
+
+    def is_empty(self):
+        return not self.in_stack and not self.out_stack
+
+    def __len__(self):
+        return len(self.in_stack) + len(self.out_stack)
+
+# Example usage:
+queue = Queue()
+queue.enqueue(1)
+queue.enqueue(2)
+print(queue.dequeue())  # Outputs: 1
+print(queue.front())    # Outputs: 2
+print(len(queue))       # Outputs: 1
+```
+
+In this implementation:
+- **Enqueue**: Push to the `in_stack`, which is $ O(1) $.
+- **Dequeue**: Pop from the `out_stack`. If `out_stack` is empty, elements are transferred from `in_stack` and then popped. This is $ O(1) $ amortized because each element is only moved once from `in_stack` to `out_stack`.
+- **Front**: Similar to dequeue, the first element to be dequeued is peeked by ensuring elements are transferred to `out_stack` if it's empty.
+- **isEmpty**: Checks if both stacks are empty.
+- **Length**: Sum of the lengths of both stacks. 
+
+This approach efficiently uses basic list operations in Python to simulate queue behavior with optimal time complexity for all operations.
 
 ### 5. Binary Search Tree
 A binary search tree (BST) allows fast lookup, addition, and deletion of items:
