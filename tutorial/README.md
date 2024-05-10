@@ -6,6 +6,24 @@ All the matrials in this page are generated using the following custom GPT:
 # LeetCode Cheatsheet
 🚀 **[LeetCode Cheatsheet](https://leetcode.com/explore/interview/card/cheatsheets/720/resources/4723/)** - Great resource for templates of how to write code for each algorithm pattern. Super helpful to review!
 
+# Python Notes
+
+## Dunder or Magic Methods
+In Python, methods that have double underscores (`__`) before and after their names are called "dunder methods," short for "double underscore." These are also often referred to as "magic methods." They are special methods that Python uses to provide its classes with specific behaviors. These are not typically called directly by the user but are invoked internally by the Python interpreter to perform specific operations or to interact with built-in functions.
+
+Here are a few examples and their uses:
+
+1. `__init__(self, ...)`: The constructor method for a class. It's called when an instance is created.
+2. `__getitem__(self, key)`: Allows an object to use indexing and slicing operations (like `obj[key]`).
+3. `__len__(self)`: Should return the length of the object, and is called by the `len()` function.
+4. `__str__(self)`: Returns a human-readable string representation of the object, invoked by the `str()` built-in function and also used by the `print()` function.
+5. `__repr__(self)`: Returns an official string representation of the object that can ideally be used to recreate the object. `repr()` function uses this method.
+6. `__add__(self, other)`: Defines behavior for the addition operator `+`.
+7. `__eq__(self, other)`: Defines behavior for the equality operator `==`.
+8. `__iter__(self)`: Should return an iterator for the object. This method allows objects to be used in loops.
+
+These methods allow developers to utilize Python’s built-in language features with their own user-defined objects and can be overridden to customize the behavior of these operations.
+
 # Data Structure Notes
 
 Below is a table comparing different data structures commonly used in programming for storing collections of data: `HashSet`, `HashMap`, and the more general `Set`. In addition, I'll add the `List` data structure to provide a broader perspective, as it's another fundamental collection type.
