@@ -244,7 +244,7 @@ print(len(queue))       # Outputs: 1
 **Space Complexity:** $O(n)$
 
 ### 4b. Queue - with two stacks
-To achieve a dequeue operation with a time complexity of $ O(1) $ in Python without using any external packages, you can modify the `Queue` implementation to use two stacks. This approach leverages two lists (representing stacks) where one stack is used for enqueueing elements and the other for dequeueing them.
+To achieve a dequeue operation with a time complexity of $O(1)$ in Python without using any external packages, you can modify the `Queue` implementation to use two stacks. This approach leverages two lists (representing stacks) where one stack is used for enqueueing elements and the other for dequeueing them.
 
 Here's how it works:
 1. For enqueueing, push the elements into the first stack.
