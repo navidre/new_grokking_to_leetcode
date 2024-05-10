@@ -203,7 +203,7 @@ print(len(stack))  # Outputs: 1
 
 Continuing with the implementation of additional common data structures in Python without using any external packages. I'll now cover queues, binary search trees, graphs, and hash tables.
 
-### 4. Queue - Simple
+### 4a. Queue - Simple
 A queue uses FIFO (first-in-first-out) order. Here's an implementation using a list:
 
 ```python
@@ -245,7 +245,7 @@ print(len(queue))       # Outputs: 1
 
 **Space Complexity:** $O(n)$
 
-### 5a. Queue - with two stacks
+### 4b. Queue - with two stacks
 To achieve a dequeue operation with a time complexity of $ O(1) $ in Python without using any external packages, you can modify the `Queue` implementation to use two stacks. This approach leverages two lists (representing stacks) where one stack is used for enqueueing elements and the other for dequeueing them.
 
 Here's how it works:
