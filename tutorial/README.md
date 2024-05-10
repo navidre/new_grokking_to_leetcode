@@ -250,7 +250,7 @@ Here's how it works:
 1. For enqueueing, push the elements into the first stack.
 2. For dequeueing, if the second stack is empty, transfer all elements from the first stack to the second stack, reversing their order in the process. Then, pop the elements from the second stack.
 
-This method ensures that each element is moved exactly twice - once into the first stack and once into the second stack - giving an amortized time complexity of $ O(1) $ for dequeue operations.
+This method ensures that each element is moved exactly twice - once into the first stack and once into the second stack - giving an amortized time complexity of $O(1)$ for dequeue operations.
 
 Here's an updated implementation of the `Queue` class using this approach:
 
@@ -295,8 +295,8 @@ print(len(queue))       # Outputs: 1
 ```
 
 In this implementation:
-- **Enqueue**: Push to the `in_stack`, which is $ O(1) $.
-- **Dequeue**: Pop from the `out_stack`. If `out_stack` is empty, elements are transferred from `in_stack` and then popped. This is $ O(1) $ amortized because each element is only moved once from `in_stack` to `out_stack`.
+- **Enqueue**: Push to the `in_stack`, which is $O(1)$.
+- **Dequeue**: Pop from the `out_stack`. If `out_stack` is empty, elements are transferred from `in_stack` and then popped. This is $O(1)$ amortized because each element is only moved once from `in_stack` to `out_stack`.
 - **Front**: Similar to dequeue, the first element to be dequeued is peeked by ensuring elements are transferred to `out_stack` if it's empty.
 - **isEmpty**: Checks if both stacks are empty.
 - **Length**: Sum of the lengths of both stacks. 
