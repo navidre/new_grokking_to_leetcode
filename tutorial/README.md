@@ -68,8 +68,8 @@ In programming, managing collections of data efficiently is crucial for performa
 - **No False Negatives**: If a Bloom filter reports an element as absent, it is definitively not present.
 - **No Element Removal**: Bloom filters do not support direct element removal as it would affect the integrity of other elements due to shared hash functions.
 
-## Implementation of Common Data Structures in Python
-Implementing various data structures in Python involves understanding their theoretical aspects, such as time and space complexities for different operations (e.g., access, insertion, deletion). Let's cover some common data structures: arrays, linked lists, stacks, queues, trees, graphs, and hash tables. I'll provide Python implementations for each, along with comments explaining the code and the complexities of their key operations.
+## Sample Implementation of Common Data Structures in Python
+Here we present sample implementations of data structures in Python. The implementations are not necessarily optimal and may not match the expected time complexities.
 
 ### 1. Arrays (Dynamic Arrays in Python)
 Python's list is a dynamic array. Let’s implement a simple dynamic array class to better understand its behavior.
