@@ -436,7 +436,7 @@ class HashTable:
         for k, v in self.table[idx]:
             if k == key:
                 return v
-            return None
+        return None
 
 # Example usage:
 ht = HashTable()
