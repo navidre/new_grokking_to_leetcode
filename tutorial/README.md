@@ -433,12 +433,10 @@ class HashTable:
 
     def find(self, key):
         idx = self.hash_function(key)
-       
-
- for k, v in self.table[idx]:
+        for k, v in self.table[idx]:
             if k == key:
                 return v
-        return None
+            return None
 
 # Example usage:
 ht = HashTable()
